@@ -295,7 +295,7 @@ binds {
     Mod+Print { spawn-sh "sel=$(slurp) || exit 0; grim -g \"$sel\" - | satty -f -"; }
     // Bunny: pick a colour off the screen, hex to the clipboard. Same shape and same
     // reason as the bind above. `spawn-sh` because the path needs shell expansion.
-    Mod+Shift+Print hotkey-overlay-title="Pick a Colour" { spawn-sh "\"${XDG_DATA_HOME:-$HOME/.local/share}/arch-bunny/scripts/colorpick.sh\""; }
+    Mod+Shift+Print hotkey-overlay-title="Pick a Colour" { spawn "bunny-colorpick"; }
 
     // Bunny: moved from Mod+Escape, which is now lock. Kept rather than dropped —
     // allow-inhibiting=false makes this the one binding that always works.

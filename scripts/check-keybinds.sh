@@ -73,5 +73,14 @@ check() {
 }
 
 fail=0
-for cfg in "${@:-config/niri/config.kdl}"; do check "$cfg" || fail=1; done
+# Every .kdl, not just config.kdl. The binds moved to bindings.kdl when the config
+# was split, and this defaulted to config.kdl for a while afterwards -- reporting
+# "0 chords, no duplicates" on a file that no longer had a single bind in it. A
+# check that passes because it is looking at the wrong file is worse than no check.
+if (($#)); then
+	targets=("$@")
+else
+	targets=(config/niri/*.kdl)
+fi
+for cfg in "${targets[@]}"; do check "$cfg" || fail=1; done
 exit "$fail"

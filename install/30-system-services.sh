@@ -27,6 +27,18 @@ disable_unit() {
 enable_unit bluetooth.service
 
 # NetworkManager and iwd both want to own the wireless device.
+#
+# iwd does not read NetworkManager's saved connections, so a machine installed
+# with NetworkManager (which is what archinstall gives you, and what got you
+# online to run this) has no known networks under iwd and comes back from the
+# next reboot with no wifi. Say so here rather than letting it be discovered
+# after the reboot, with no network to look up the fix on.
+if systemctl is-enabled --quiet NetworkManager.service 2>/dev/null &&
+	! compgen -G '/var/lib/iwd/*.psk' >/dev/null; then
+	warn "Switching from NetworkManager to iwd, which has no saved networks yet."
+	warn "Join your wifi with 'impala' (or iwctl) BEFORE rebooting, or you will"
+	warn "come up with no network and no way to look this up."
+fi
 disable_unit NetworkManager.service
 enable_unit systemd-networkd.service
 enable_unit iwd.service
