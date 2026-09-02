@@ -59,11 +59,21 @@ spawn-at-startup "uwsm" "finalize"
 // The path is formatted with strftime(3) to give you the screenshot date and time.
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
+// Ask applications not to draw their own title bars, since niri already draws a
+// focus ring and a client-side title bar is a second, differently-styled frame
+// around the same window.
+prefer-no-csd
+
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
     skip-at-startup
 }
+
+// The Alt-Tab-style most-recently-used window switcher. Off: this is a
+// scrollable-tiling compositor, windows have positions and the directional
+// binds go to them, so an MRU stack is a second mental model for the same job.
+recent-windows { off; }
 input {
     keyboard {
         xkb {
@@ -145,6 +155,22 @@ cursor {
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
+// This machine's panel. Values read off `niri msg outputs`, not guessed:
+// BOE NE135A1M-NY1, 2880x1920 @ 120 Hz preferred, scale 2 for a 1440x960
+// logical size. This is the one block here that is per-machine; a second
+// machine wants its own, matched on its own connector name.
+output "eDP-1" {
+    mode "2880x1920@120.000"
+    scale 2
+    focus-at-startup
+
+    // Off, following viacoffee/dotfiles. A pointer flung at a screen corner
+    // should not open the overview.
+    hot-corners {
+        off
+    }
+}
+
 /-output "eDP-1" {
     // Uncomment this line to disable this output.
     // off
