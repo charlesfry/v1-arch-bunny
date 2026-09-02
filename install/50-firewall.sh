@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # nftables, with Arch's own shipped /etc/nftables.conf as the ruleset.
 #
-# viacoffee/dotfiles uses ufw here. nftables is kept instead because this machine
+# DEVIATION: viacoffee/dotfiles uses ufw here. nftables is kept instead because this machine
 # runs Docker, and Docker writes its own rules directly into the kernel's tables —
 # ufw's chains are simply not on the path a container's traffic takes, so a
 # container is reachable regardless of what ufw was told. Keeping the one firewall

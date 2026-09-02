@@ -82,6 +82,10 @@ sudo install -Dm644 "$BUNNY_DEFAULTS/systemd/faster-shutdown.conf" \
 # systemd-oomd, so a runaway process is killed by cgroup before the kernel's own
 # OOM killer thrashes the whole machine. The drop-ins are what make it act: oomd
 # monitors nothing until a slice opts in.
+#
+# DEVIATION from viacoffee/dotfiles, which has no equivalent. Kept because this
+# machine builds container images and runs notebooks, both of which can take the
+# whole box down by allocating; the kernel OOM killer thrashes for minutes first.
 log "Configuring systemd-oomd"
 sudo install -Dm644 "$BUNNY_DEFAULTS/systemd/oomd-root-slice.conf" \
 	/etc/systemd/system/-.slice.d/10-oomd.conf

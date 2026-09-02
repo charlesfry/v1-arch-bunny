@@ -24,6 +24,9 @@ limine
 limine-mkinitcpio-hook
 limine-snapper-sync
 plymouth
+# snap-pac is a DEVIATION from viacoffee/dotfiles, which has no automatic
+# snapshots at all. It brackets every pacman transaction with a pre/post pair,
+# which is when this machine is most likely to break.
 snap-pac
 snapper
 zram-generator

@@ -34,6 +34,12 @@ include "animations.kdl"
 // Find the full list of options on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Input
 
+// DEVIATION: no `switch-events` block, which viacoffee/dotfiles has here. His
+// lid-close spawns a script that closes every window and powers the machine off.
+// That is a preference and a destructive one -- shutting the lid to walk down the
+// hall would end the session. With no block, logind handles the lid at its
+// default of suspend.
+
 // Startup.
 //
 // One line, and that is the whole point. Every daemon the desktop needs -- the
