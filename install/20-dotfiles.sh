@@ -92,6 +92,12 @@ verify_user_ownership "$HOME/.config" "$HOME/.local"
 # The one config with a validator, and the one whose failure is invisible until
 # it matters: niri refuses to start on a bad config, which surfaces as a black
 # screen after the next reboot rather than as an error now.
+#
+# It matters more since config.kdl was split: niri resolves `include` against the
+# directory of the file it was handed, NOT the realpath of the link, so all four
+# .kdl files have to be linked, not just config.kdl. Verified by validating
+# through a symlink both ways. Per-file linking gets that right on its own, and
+# this check is what would notice if it ever stopped.
 niri_config="${XDG_CONFIG_HOME:-$HOME/.config}/niri/config.kdl"
 if [[ -f $niri_config ]] && command_exists niri; then
 	if niri validate --config "$niri_config" >/dev/null 2>&1; then
