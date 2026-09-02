@@ -93,7 +93,7 @@ log "Limine cmdline: $CMDLINE"
 readonly STRIP_ARGS=(
 	quiet splash nowatchdog plymouth.ignore-serial-consoles
 	loglevel=3 systemd.show_status=auto rd.udev.log_level=3
-	zswap.enabled=0 plymouth.debug
+	plymouth.debug
 )
 read -r -a cmdline_tokens <<<"$CMDLINE"
 kept_tokens=()
