@@ -2,6 +2,17 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+> **STALE — transplant in progress (started 2026-09-02).** This repo is being
+> rebuilt as a variant of [viacoffee/dotfiles](https://github.com/viacoffee/dotfiles),
+> whose boot, session and network configuration are taken as authoritative over
+> anything decided here. Everything below describing `install.d/`, `CHOICES.md`
+> as the package source of truth, the `archinstall-*.json` three-way check,
+> `BUDGET.md`, or the benchmark ledger is **void** — those files now live in
+> [`docs/archive/`](docs/archive/) as history, not as instructions. The new shape
+> is `install/` (sourced numbered phases), `install/packages`, `install/default/`,
+> and stow-managed `home/`, `config/`, `local/`. Rewrite this file once the
+> transplant lands; until then, prefer the actual tree over any claim made here.
+
 ## What this repo is
 
 `arch-bunny` is a personal Arch Linux configuration — dotfiles plus the provisioning to reproduce
