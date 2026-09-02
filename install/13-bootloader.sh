@@ -38,7 +38,7 @@ fi
 # `btrfs-overlayfs` is what makes a read-only snapshot bootable, which is the
 # entire point of the snapshot entries further down. No `fsck` (btrfs has no boot
 # time check) and no `consolefont` (the splash covers the console).
-sudo install -Dm644 /dev/stdin /etc/mkinitcpio.conf.d/bunny-hooks.conf <<'HOOKS'
+sudo install -Dm644 /dev/stdin /etc/mkinitcpio.conf.d/dot_hooks.conf <<'HOOKS'
 HOOKS=(base udev plymouth keyboard autodetect microcode modconf kms keymap block encrypt filesystems btrfs-overlayfs)
 HOOKS
 success "Wrote mkinitcpio HOOKS drop-in"
@@ -86,15 +86,20 @@ log "Limine cmdline: $CMDLINE"
 # first match consumes the separator the second one needs to match, so exactly
 # one copy of a doubled argument survives — which is the bug being fixed here,
 # and it would have re-grown the line on every run.
-readonly MANAGED_ARGS=(
+# The first four are what /etc/default/limine appends back, verbatim from
+# viacoffee/dotfiles. The rest are arguments earlier versions of this repo added
+# and the Plymouth investigation now wants gone, so a machine that carries them
+# converges on his command line instead of keeping ours.
+readonly STRIP_ARGS=(
 	quiet splash nowatchdog plymouth.ignore-serial-consoles
 	loglevel=3 systemd.show_status=auto rd.udev.log_level=3
+	zswap.enabled=0 plymouth.debug
 )
 read -r -a cmdline_tokens <<<"$CMDLINE"
 kept_tokens=()
 for token in "${cmdline_tokens[@]}"; do
 	is_managed=false
-	for managed_arg in "${MANAGED_ARGS[@]}"; do
+	for managed_arg in "${STRIP_ARGS[@]}"; do
 		if [[ $token == "$managed_arg" ]]; then
 			is_managed=true
 			break
@@ -173,15 +178,28 @@ success "Snapper retention configured"
 log "Blacklisting hardware watchdog modules..."
 sudo install -Dm644 "$BUNNY_DEFAULTS/modprobe/nowatchdog.conf" /etc/modprobe.d/nowatchdog.conf
 
+# The theme is viacoffee/dotfiles' `dot`, installed byte-for-byte, because the
+# password dialog that would not update per keystroke is the reason this repo was
+# rebuilt and his is the version known to work on this hardware. The bunny theme
+# is parked in assets/plymouth-bunny/ with instructions for swapping it back once
+# a real boot has been seen working; changing this one name is most of that job.
 log "Installing Plymouth theme..."
-plymouth_theme_dir=/usr/share/plymouth/themes/bunny
+readonly PLYMOUTH_THEME=dot
+plymouth_theme_dir="/usr/share/plymouth/themes/$PLYMOUTH_THEME"
+# A previous run of an earlier layout nested the theme inside itself; left in
+# place it shadows the real files.
+if sudo test -d "$plymouth_theme_dir/plymouth"; then
+	run_logged "Removing nested Plymouth theme directory" \
+		sudo rm -rf "$plymouth_theme_dir/plymouth"
+fi
 run_logged "Creating Plymouth theme directory" sudo install -d "$plymouth_theme_dir"
 run_logged "Copying Plymouth theme contents" \
 	sudo cp -a "$BUNNY_DEFAULTS/plymouth/." "$plymouth_theme_dir/"
-if [[ $(plymouth-set-default-theme) != bunny ]]; then
-	run_logged "Setting default Plymouth theme" sudo plymouth-set-default-theme bunny
+if [[ $(plymouth-set-default-theme) != "$PLYMOUTH_THEME" ]]; then
+	run_logged "Setting default Plymouth theme" \
+		sudo plymouth-set-default-theme "$PLYMOUTH_THEME"
 fi
-success "Plymouth theme configured"
+success "Plymouth theme configured: $PLYMOUTH_THEME"
 
 # One generator. mkinitcpio's own UKI preset would build a second image that
 # limine.conf never references and no one ever updates.
@@ -192,7 +210,7 @@ if [[ -f $preset ]] && grep -q '^default_uki=' "$preset"; then
 	success "Disabled the default UKI in the mkinitcpio preset"
 fi
 
-expected_uki=/boot/EFI/Linux/bunny_linux.efi
+expected_uki=/boot/EFI/Linux/dot_linux.efi
 limine_output=$(mktemp)
 if ! run_logged "Running authoritative Limine generation" \
 	sudo limine-update | tee "$limine_output"; then
@@ -217,7 +235,7 @@ if ! sudo test -s /boot/limine.conf; then
 	error "Generated Limine configuration is missing or empty; restored the last known-working configuration"
 	return 1
 fi
-if ! sudo grep -Fq 'bunny_linux.efi' /boot/limine.conf; then
+if ! sudo grep -Fq 'dot_linux.efi' /boot/limine.conf; then
 	restore_last_known_limine_configuration
 	error "Generated Limine configuration does not reference the expected UKI; restored the last known-working configuration"
 	return 1
@@ -262,7 +280,7 @@ if ! sudo awk '
 	error "Failed to stage generated Limine entries; restored the last known-working configuration"
 	return 1
 fi
-if ! grep -Fq 'bunny_linux.efi' "$staged_limine_config" ||
+if ! grep -Fq 'dot_linux.efi' "$staged_limine_config" ||
 	grep -Eq '/EFI/Linux/arch-linux(-fallback)?\.efi' "$staged_limine_config"; then
 	rm -f "$staged_limine_config"
 	restore_last_known_limine_configuration
@@ -270,20 +288,30 @@ if ! grep -Fq 'bunny_linux.efi' "$staged_limine_config" ||
 	return 1
 fi
 
-# `default_entry: 1` in the header names the first entry in the file. Limine will
-# not boot a folder: it silently forces the timeout off and waits for input
-# forever, and the only symptom is a machine that never comes up. So prove the
-# first entry is a bootable leaf, not a heading.
+# Limine will not boot a folder: it silently forces the timeout off and waits for
+# input forever, and the only symptom is a machine that never comes up. The header
+# is his verbatim and names an index, so prove that index resolves to a bootable
+# leaf on THIS machine, whose menu will not have the same contents as his.
+#
+# This is a check, not a deviation — it changes nothing that boots, and refuses
+# to commit something that would not.
 if ! awk '
-  /^\/[^\/]/ { if (seen) exit; seen = 1; next }
-  seen && /^\/\// { exit }
-  seen && /^[[:space:]]*(protocol|path):/ { leaf = 1; exit }
-  END { exit(leaf ? 0 : 1) }
+  /^[[:space:]]*default_entry:[[:space:]]*[0-9]+[[:space:]]*$/ {
+    sub(/^[^:]*:[[:space:]]*/, ""); want = $0 + 0; next
+  }
+  /^\/[^\/]/ {
+    entries++
+    if (entries == want) { in_target = 1; next }
+    if (in_target) exit
+  }
+  in_target && /^\/\// { exit }
+  in_target && /^[[:space:]]*(protocol|path):/ { leaf = 1; exit }
+  END { exit((want > 0 && leaf) ? 0 : 1) }
 ' "$staged_limine_config"; then
 	rm -f "$staged_limine_config"
 	restore_last_known_limine_configuration
-	error "First entry in the staged Limine configuration is a folder, not a bootable entry"
-	error "default_entry: 1 would hang the boot menu; restored the last known-working configuration"
+	error "default_entry in the staged Limine configuration does not name a bootable entry"
+	error "It would hang the boot menu; restored the last known-working configuration"
 	return 1
 fi
 

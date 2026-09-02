@@ -88,8 +88,19 @@ nftables
 openvpn
 
 # --- fonts ---------------------------------------------------------------
+# EXACTLY viacoffee/dotfiles' set, no more and no less, and that is deliberate.
+# /usr/lib/initcpio/install/plymouth resolves the font it embeds in the initramfs
+# with `fc-match`, and neither his theme nor ours sets `Font =` in its .plymouth
+# file — so the font Plymouth ends up with is decided by whatever happens to be
+# installed on the build machine. This repo's password dialog was rendering once
+# and never updating on a machine whose only font package was noto-fonts-emoji.
+#
+# Held back until a real boot is seen working, then re-add one at a time:
+#   noto-fonts-emoji   (emoji in waybar, mako, the terminal)
+#   noto-fonts-cjk     (CJK text renders as boxes without it)
+#   Fragment Mono      (assets/fonts/, the terminal font this repo picked;
+#                       packaged in the AUR as ttf-fragment-mono)
 noto-fonts
-noto-fonts-emoji
 ttf-dejavu
 ttf-liberation
 ttf-nerd-fonts-symbols-mono

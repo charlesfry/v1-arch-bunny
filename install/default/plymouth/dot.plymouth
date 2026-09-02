@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Dot
+Description=Minimal Arch boot theme with dot palette
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/dot/images
+ScriptFile=/usr/share/plymouth/themes/dot/images/dot.script
