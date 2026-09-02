@@ -1,0 +1,941 @@
+00:00:04.371 ../plymouth/src/main.c:2074:check_logging                     : checking if console messages should be redirected and logged
+00:00:04.371 ../plymouth/src/main.c:2086:check_logging                     : logging will be enabled!
+00:00:04.371 ../plymouth/src/main.c:2158:initialize_environment            : source built on May 30 2026
+00:00:04.371 ../plymouth/src/main.c:2168:initialize_environment            : Making sure /run/plymouth exists
+00:00:04.372 ../plymouth/src/main.c:2172:initialize_environment            : initialized minimal work environment
+00:00:04.372 ../plymouth/src/main.c:1922:attach_to_running_session         : creating new terminal session
+00:00:04.372 ../plymouth/src/libply/ply-terminal-session.c:219:ply_terminal: ptmx not passed in, creating one
+00:00:04.372 ../plymouth/src/libply/ply-terminal-session.c:177:open_pseudot: opening device '/dev/ptmx'
+00:00:04.372 ../plymouth/src/libply/ply-terminal-session.c:183:open_pseudot:  opened device '/dev/ptmx'
+00:00:04.372 ../plymouth/src/libply/ply-terminal-session.c:185:open_pseudot: unlocking pseudoterminal
+00:00:04.372 ../plymouth/src/libply/ply-terminal-session.c:192:open_pseudot: unlocked pseudoterminal
+00:00:04.372 ../plymouth/src/libply/ply-terminal-session.c:229:ply_terminal: redirecting system console to terminal device
+00:00:04.372 ../plymouth/src/libply/ply-terminal-session.c:238:ply_terminal: done redirecting system console to terminal device
+00:00:04.372 ../plymouth/src/libply/ply-terminal-session.c:368:ply_terminal: logging incoming console messages
+00:00:04.372 ../plymouth/src/main.c:1949:attach_to_running_session         : Creating new kmsg reader
+00:00:04.372 ../plymouth/src/main.c:1801:tell_systemd_to_print_details     : telling systemd to start printing details
+00:00:04.372 ../plymouth/src/main.c:740:get_cache_file_for_mode            : returning cache file '/var/lib/plymouth/boot-duration'
+00:00:04.372 ../plymouth/src/main.c:315:load_settings                      : Trying to load /etc/plymouth/plymouthd.conf
+00:00:04.372 ../plymouth/src/libply/ply-key-file.c:174:ply_key_file_load_gr: trying to load group Daemon
+00:00:04.372 ../plymouth/src/libply/ply-key-file.c:264:ply_key_file_load_gr: key file has no more groups
+00:00:04.372 ../plymouth/src/libply/ply-key-file.c:361:ply_key_file_get_raw: key file does not have entry for key 'ThemeDir'
+00:00:04.372 ../plymouth/src/main.c:298:get_theme_path                     : Theme /run/plymouth/themes//bunny/bunny.plymouth not found
+00:00:04.372 ../plymouth/src/main.c:295:get_theme_path                     : Theme is /usr/share/plymouth/themes//bunny/bunny.plymouth
+00:00:04.372 ../plymouth/src/libply/ply-key-file.c:361:ply_key_file_get_raw: key file does not have entry for key 'ShowDelay'
+00:00:04.372 ../plymouth/src/main.c:333:load_settings                      : Splash delay is set to nan
+00:00:04.372 ../plymouth/src/libply/ply-key-file.c:361:ply_key_file_get_raw: key file does not have entry for key 'DeviceTimeout'
+00:00:04.372 ../plymouth/src/main.c:338:load_settings                      : Device timeout is set to nan
+00:00:04.372 ../plymouth/src/libply/ply-key-file.c:361:ply_key_file_get_raw: key file does not have entry for key 'DeviceScale'
+00:00:04.372 ../plymouth/src/libply/ply-key-file.c:361:ply_key_file_get_raw: key file does not have entry for key 'XkbExtraEscButton'
+00:00:04.372 ../plymouth/src/libply/ply-key-file.c:361:ply_key_file_get_raw: key file does not have entry for key 'UseSimpledrm'
+00:00:04.372 ../plymouth/src/libply/ply-key-file.c:361:ply_key_file_get_raw: key file does not have entry for key 'UseSimpledrmNoLuks'
+00:00:04.372 ../plymouth/src/main.c:458:find_system_default_splash         : System configured theme file is '/usr/share/plymouth/themes//bunny/bunny.plymouth'
+00:00:04.372 ../plymouth/src/main.c:315:load_settings                      : Trying to load /run/plymouth/plymouthd.defaults
+00:00:04.372 ../plymouth/src/libply/ply-key-file.c:83:ply_key_file_open_fil: Failed to open key file /run/plymouth/plymouthd.defaults: No such file or directory
+00:00:04.372 ../plymouth/src/main.c:468:find_distribution_default_splash   : failed to load /run/plymouth/plymouthd.defaults, trying /usr/share/plymouth/
+00:00:04.372 ../plymouth/src/main.c:315:load_settings                      : Trying to load /usr/share/plymouth/plymouthd.defaults
+00:00:04.372 ../plymouth/src/libply/ply-key-file.c:174:ply_key_file_load_gr: trying to load group Daemon
+00:00:04.372 ../plymouth/src/libply/ply-key-file.c:264:ply_key_file_load_gr: key file has no more groups
+00:00:04.372 ../plymouth/src/libply/ply-key-file.c:361:ply_key_file_get_raw: key file does not have entry for key 'ThemeDir'
+00:00:04.372 ../plymouth/src/main.c:298:get_theme_path                     : Theme /run/plymouth/themes//bgrt/bgrt.plymouth not found
+00:00:04.372 ../plymouth/src/main.c:298:get_theme_path                     : Theme /usr/share/plymouth/themes//bgrt/bgrt.plymouth not found
+00:00:04.372 ../plymouth/src/main.c:333:load_settings                      : Splash delay is set to 0.000000
+00:00:04.372 ../plymouth/src/main.c:338:load_settings                      : Device timeout is set to 8.000000
+00:00:04.372 ../plymouth/src/libply/ply-key-file.c:361:ply_key_file_get_raw: key file does not have entry for key 'DeviceScale'
+00:00:04.372 ../plymouth/src/libply/ply-key-file.c:361:ply_key_file_get_raw: key file does not have entry for key 'XkbExtraEscButton'
+00:00:04.372 ../plymouth/src/libply/ply-key-file.c:361:ply_key_file_get_raw: key file does not have entry for key 'UseSimpledrm'
+00:00:04.372 ../plymouth/src/libply/ply-key-file.c:361:ply_key_file_get_raw: key file does not have entry for key 'UseSimpledrmNoLuks'
+00:00:04.372 ../plymouth/src/main.c:932:plymouth_should_show_default_splash: checking if plymouth should show default splash
+00:00:04.372 ../plymouth/src/main.c:960:plymouth_should_show_default_splash: using default splash because kernel command line has option "splash"
+00:00:04.372 ../plymouth/src/libply/ply-key-file.c:83:ply_key_file_open_fil: Failed to open key file /etc/vconsole.conf: No such file or directory
+00:00:04.372 ../plymouth/src/libply-splash-core/ply-device-manager.c:834:pa: KEYMAP: (null), XKBLAYOUT: (null), XKBMODEL (null), XKBVARIANT: (null), XKBOPTIONS: (null)
+
+00:00:04.374 ../plymouth/src/libply-splash-core/ply-terminal.c:650:ply_term: trying to open terminal '/dev/tty1'
+00:00:04.374 ../plymouth/src/libply-splash-core/ply-terminal.c:443:ply_term: looking up terminal text geometry
+00:00:04.374 ../plymouth/src/libply-splash-core/ply-terminal.c:455:ply_term: terminal is now 360x120 text cells
+00:00:04.374 ../plymouth/src/libply-splash-core/ply-terminal.c:493:get_acti: Remembering that initial vt is 1
+00:00:04.374 ../plymouth/src/libply-splash-core/ply-device-manager.c:1208:c: checking for consoles
+00:00:04.375 ../plymouth/src/libply-splash-core/ply-device-manager.c:949:ad: opening /sys/class/tty/console/active
+00:00:04.375 ../plymouth/src/libply-splash-core/ply-device-manager.c:957:ad: reading file
+00:00:04.375 ../plymouth/src/libply-splash-core/ply-device-manager.c:997:ad: console /dev/tty1 found!
+00:00:04.375 ../plymouth/src/libply-splash-core/ply-device-manager.c:668:wa: watching for udev graphics device and input device add and remove events
+00:00:04.375 ../plymouth/src/libply-splash-core/ply-device-manager.c:462:cr: creating objects for input devices
+00:00:04.376 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/acpi.video_bus.0/input/input3
+00:00:04.376 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:04.376 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/acpi.video_bus.0/input/input3/event3
+00:00:04.376 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:04.376 ../plymouth/src/libply-splash-core/ply-device-manager.c:495:cr: found node /dev/input/event3
+00:00:04.376 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:04.376 ../plymouth/src/libply-splash-core/ply-device-manager.c:407:cr: found input device /dev/input/event3
+00:00:04.378 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:14.3/PNP0C09:00/PNP0C0D:00/input/input0
+00:00:04.378 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:04.378 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:14.3/PNP0C09:00/PNP0C0D:00/input/input0/event0
+00:00:04.378 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:04.378 ../plymouth/src/libply-splash-core/ply-device-manager.c:495:cr: found node /dev/input/event0
+00:00:04.378 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:04.378 ../plymouth/src/libply-splash-core/ply-device-manager.c:407:cr: found input device /dev/input/event0
+00:00:04.381 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 13
+00:00:04.381 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 13
+00:00:04.381 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 13, removing source
+00:00:04.403 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/platform/PNP0C0C:00/input/input1
+00:00:04.403 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:04.403 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/platform/PNP0C0C:00/input/input1/event1
+00:00:04.403 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:04.403 ../plymouth/src/libply-splash-core/ply-device-manager.c:495:cr: found node /dev/input/event1
+00:00:04.403 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:04.403 ../plymouth/src/libply-splash-core/ply-device-manager.c:407:cr: found input device /dev/input/event1
+00:00:04.405 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/platform/i8042/serio0/input/input2
+00:00:04.405 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:04.405 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/platform/i8042/serio0/input/input2/event2
+00:00:04.405 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:04.405 ../plymouth/src/libply-splash-core/ply-device-manager.c:495:cr: found node /dev/input/event2
+00:00:04.405 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:04.405 ../plymouth/src/libply-splash-core/ply-device-manager.c:407:cr: found input device /dev/input/event2
+00:00:04.407 ../plymouth/src/libply-splash-core/ply-device-manager.c:462:cr: creating objects for drm devices
+00:00:04.408 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/0000:c1:00.0/drm/card1
+00:00:04.408 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:04.408 ../plymouth/src/libply-splash-core/ply-device-manager.c:495:cr: found node /dev/dri/card1
+00:00:04.408 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is drm
+00:00:04.408 ../plymouth/src/libply-splash-core/ply-device-manager.c:392:cr: found DRM device /dev/dri/card1
+00:00:04.408 ../plymouth/src/libply-splash-core/ply-device-manager.c:1114:c: creating devices for /dev/dri/card1 (renderer type: 1) (terminal: /dev/tty1)
+00:00:04.408 ../plymouth/src/libply-splash-core/ply-renderer.c:247:ply_rend: trying to open renderer plugin /usr/lib/plymouth/renderers/drm.so
+00:00:04.409 ../plymouth/src/plugins/renderers/drm/plugin.c:896:create_back: creating renderer backend for device /dev/dri/card1
+00:00:04.409 ../plymouth/src/plugins/renderers/drm/plugin.c:980:load_driver: Opening '/dev/dri/card1'
+00:00:04.409 ../plymouth/src/plugins/renderers/drm/plugin.c:990:load_driver: drm driver: amdgpu
+00:00:04.409 ../plymouth/src/libply-splash-core/ply-terminal.c:646:ply_term: terminal /dev/tty1 is already open
+00:00:04.409 ../plymouth/src/plugins/renderers/drm/plugin.c:1445:create_hea: (Re)enumerating all outputs
+00:00:04.409 ../plymouth/src/plugins/renderers/drm/plugin.c:1089:output_get: Found already lit monitor on connector 449 using controller 432
+00:00:04.409 ../plymouth/src/plugins/renderers/drm/plugin.c:1098:output_get: connector 449 encoder 448 possible controllers 0x0000000f/0x0000000f
+00:00:04.410 ../plymouth/src/plugins/renderers/drm/plugin.c:543:ply_rendere: link-status 0
+00:00:04.410 ../plymouth/src/plugins/renderers/drm/plugin.c:1160:get_prefer: Found preferred mode 2880x1920 at index 0
+00:00:04.410 ../plymouth/src/plugins/renderers/drm/plugin.c:1519:create_hea: Using controller 432 for connector 449
+00:00:04.410 ../plymouth/src/plugins/renderers/drm/plugin.c:1519:create_hea: Using controller 0 for connector 457
+00:00:04.410 ../plymouth/src/plugins/renderers/drm/plugin.c:1519:create_hea: Using controller 0 for connector 464
+00:00:04.410 ../plymouth/src/plugins/renderers/drm/plugin.c:1519:create_hea: Using controller 0 for connector 470
+00:00:04.410 ../plymouth/src/plugins/renderers/drm/plugin.c:1519:create_hea: Using controller 0 for connector 476
+00:00:04.410 ../plymouth/src/plugins/renderers/drm/plugin.c:1519:create_hea: Using controller 0 for connector 482
+00:00:04.410 ../plymouth/src/plugins/renderers/drm/plugin.c:1519:create_hea: Using controller 0 for connector 488
+00:00:04.410 ../plymouth/src/plugins/renderers/drm/plugin.c:1519:create_hea: Using controller 0 for connector 494
+00:00:04.410 ../plymouth/src/plugins/renderers/drm/plugin.c:1519:create_hea: Using controller 0 for connector 500
+00:00:04.418 ../plymouth/src/plugins/renderers/drm/plugin.c:587:ply_rendere: Adding connector with id 449 to 2880x1920 head
+00:00:04.418 ../plymouth/src/plugins/renderers/drm/plugin.c:635:ply_rendere: Creating 2880x1920 renderer head
+00:00:04.425 ../plymouth/src/plugins/renderers/drm/plugin.c:1562:create_hea: outputs changed
+
+00:00:04.427 ../plymouth/src/plugins/renderers/drm/plugin.c:254:ply_rendere: returning 1x1 buffer with stride 256
+00:00:04.428 ../plymouth/src/libply-splash-core/ply-renderer.c:267:ply_rend: opened renderer plugin /usr/lib/plymouth/renderers/drm.so
+00:00:04.428 ../plymouth/src/libply-splash-core/ply-device-manager.c:250:on: Adding input device 'Video Bus' to renderer for output device '/dev/dri/card1'
+00:00:04.429 ../plymouth/src/libply-splash-core/ply-device-manager.c:250:on: Adding input device 'AT Translated Set 2 keyboard' to renderer for output device '/dev/dri/card1'
+00:00:04.429 ../plymouth/src/libply-splash-core/ply-device-manager.c:250:on: Adding input device 'Power Button' to renderer for output device '/dev/dri/card1'
+00:00:04.429 ../plymouth/src/main.c:1105:on_keyboard_added                 : listening for keystrokes
+00:00:04.430 ../plymouth/src/main.c:1109:on_keyboard_added                 : listening for escape
+00:00:04.430 ../plymouth/src/main.c:1113:on_keyboard_added                 : listening for backspace
+00:00:04.430 ../plymouth/src/main.c:1117:on_keyboard_added                 : listening for enter
+00:00:04.430 ../plymouth/src/libply-splash-core/ply-device-manager.c:1022:c: Adding displays for 1 heads
+00:00:04.431 ../plymouth/src/libply-splash-core/ply-terminal.c:443:ply_term: looking up terminal text geometry
+00:00:04.431 ../plymouth/src/libply-splash-core/ply-terminal.c:455:ply_term: terminal is now 360x120 text cells
+00:00:04.431 ../plymouth/src/libply-splash-core/ply-device-manager.c:1058:c: adding text display for terminal /dev/tty1
+00:00:04.431 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/0000:c1:00.0/drm/card1/card1-DP-1
+00:00:04.431 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:04.432 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/0000:c1:00.0/drm/card1/card1-DP-2
+00:00:04.432 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:04.432 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/0000:c1:00.0/drm/card1/card1-DP-3
+00:00:04.432 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:04.433 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/0000:c1:00.0/drm/card1/card1-DP-4
+00:00:04.433 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:04.433 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/0000:c1:00.0/drm/card1/card1-DP-5
+00:00:04.433 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:04.433 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/0000:c1:00.0/drm/card1/card1-DP-6
+00:00:04.434 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:04.434 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/0000:c1:00.0/drm/card1/card1-DP-7
+00:00:04.434 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:04.434 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/0000:c1:00.0/drm/card1/card1-DP-8
+00:00:04.435 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:04.435 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/0000:c1:00.0/drm/card1/card1-Writeback-1
+00:00:04.435 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:04.435 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/0000:c1:00.0/drm/card1/card1-eDP-1
+00:00:04.435 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:04.436 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/0000:c1:00.0/drm/renderD128
+00:00:04.436 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:04.436 ../plymouth/src/libply-splash-core/ply-device-manager.c:495:cr: found node /dev/dri/renderD128
+00:00:04.436 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is drm
+00:00:04.436 ../plymouth/src/libply-splash-core/ply-device-manager.c:389:cr: ignoring since it is a render node
+00:00:04.437 ../plymouth/src/main.c:2618:main                              : entering event loop
+00:00:04.437 ../plymouth/src/ply-boot-server.c:395:print_connection_process: connection is from pid 409 (plymouth show-splash) with parent pid 1 (/usr/bin/ash /init splash)
+00:00:04.437 ../plymouth/src/ply-boot-server.c:494:ply_boot_connection_on_r: got show splash request
+00:00:04.437 ../plymouth/src/main.c:887:plymouth_should_ignore_show_splash_: checking if plymouth should be running
+00:00:04.438 ../plymouth/src/main.c:1801:tell_systemd_to_print_details     : telling systemd to start printing details
+00:00:04.438 ../plymouth/src/main.c:1054:on_show_splash                    : at least one display already available, so loading splash
+00:00:04.438 ../plymouth/src/main.c:932:plymouth_should_show_default_splash: checking if plymouth should show default splash
+00:00:04.438 ../plymouth/src/main.c:960:plymouth_should_show_default_splash: using default splash because kernel command line has option "splash"
+00:00:04.438 ../plymouth/src/main.c:485:show_default_splash                : Showing splash screen
+00:00:04.438 ../plymouth/src/main.c:493:show_default_splash                : Trying system default splash
+00:00:04.438 ../plymouth/src/main.c:1852:load_theme                        : Loading boot splash theme '/usr/share/plymouth/themes//bunny/bunny.plymouth'
+00:00:04.438 ../plymouth/src/libply/ply-key-file.c:174:ply_key_file_load_gr: trying to load group Plymouth Theme
+00:00:04.438 ../plymouth/src/libply/ply-key-file.c:174:ply_key_file_load_gr: trying to load group script
+00:00:04.438 ../plymouth/src/libply/ply-key-file.c:264:ply_key_file_load_gr: key file has no more groups
+00:00:04.438 ../plymouth/src/libply/ply-key-file.c:361:ply_key_file_get_raw: key file does not have entry for key 'MonospaceFont'
+00:00:04.438 ../plymouth/src/libply/ply-key-file.c:361:ply_key_file_get_raw: key file does not have entry for key 'ConsoleLogTextColor'
+00:00:04.438 ../plymouth/src/libply/ply-key-file.c:361:ply_key_file_get_raw: key file does not have entry for key 'ConsoleLogBackgroundColor'
+00:00:04.438 ../plymouth/src/main.c:1868:load_theme                        : attaching plugin to event loop
+00:00:04.438 ../plymouth/src/main.c:1871:load_theme                        : attaching progress to plugin
+00:00:04.438 ../plymouth/src/libply-splash-core/ply-boot-splash.c:142:ply_b: adding 1440x960 pixel display
+00:00:04.438 ../plymouth/src/libply-splash-core/ply-device-manager.c:1373:p: activating renderers
+00:00:04.438 ../plymouth/src/libply-splash-core/ply-boot-splash.c:547:ply_b: showing splash screen
+00:00:04.438 ../plymouth/src/libply/ply-utils.c:579:ply_open_module        : Could not load module "/usr/lib/plymouth/label-pango.so": /usr/lib/plymouth/label-pango.so: cannot open shared object file: No such file or directory
+00:00:04.441 ../plymouth/src/plugins/controls/label-freetype/plugin.c:713:l: Text ' ' has dimensions 10x21
+00:00:04.441 ../plymouth/src/libply-splash-graphics/ply-console-viewer.c:85: Using console viewer instead of kernel framebuffer console
+00:00:04.441 ../plymouth/src/libply-splash-graphics/ply-label.c:89:ply_labe: Unloading label control plugin
+00:00:04.441 ../plymouth/src/plugins/splash/script/plugin.c:511:show_splash: starting boot animation
+00:00:04.441 ../plymouth/src/plugins/splash/script/plugin.c:375:start_anima: parsing script file
+00:00:04.442 ../plymouth/src/libply/ply-utils.c:579:ply_open_module        : Could not load module "/usr/lib/plymouth/label-pango.so": /usr/lib/plymouth/label-pango.so: cannot open shared object file: No such file or directory
+00:00:04.445 ../plymouth/src/plugins/controls/label-freetype/plugin.c:713:l: Text ' ' has dimensions 8x17
+00:00:04.445 ../plymouth/src/libply-splash-graphics/ply-label.c:89:ply_labe: Unloading label control plugin
+00:00:04.445 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.445 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.445 ../plymouth/src/plugins/splash/script/plugin.c:352:start_scrip: executing script file
+00:00:04.601 ../plymouth/src/plugins/renderers/drm/plugin.c:750:ply_rendere: Creating buffer for 2880x1920 renderer head
+00:00:04.601 ../plymouth/src/plugins/renderers/drm/plugin.c:254:ply_rendere: returning 2880x1920 buffer with stride 11520
+00:00:04.601 ../plymouth/src/plugins/renderers/drm/plugin.c:758:ply_rendere: Mapping buffer for 2880x1920 renderer head
+00:00:04.601 ../plymouth/src/plugins/renderers/drm/plugin.c:941:activate   : taking master and scanning out
+00:00:04.601 ../plymouth/src/libply-splash-core/ply-terminal.c:336:ply_term: terminal input is getting disabled from unbuffered mode
+00:00:04.606 ../plymouth/src/plugins/renderers/drm/plugin.c:712:ply_rendere: Setting scan out buffer of 2880x1920 head to our buffer
+00:00:04.618 ../plymouth/src/plugins/renderers/drm/plugin.c:1795:flush_head: Needed to reset scan out buffer on 2880x1920 renderer head
+00:00:04.618 ../plymouth/src/libply-splash-core/ply-boot-splash.c:560:ply_b: (this is an initial showing)
+00:00:04.618 ../plymouth/src/libply-splash-core/ply-boot-splash.c:564:ply_b: Pausing 1 already added displays
+00:00:04.618 ../plymouth/src/libply-splash-core/ply-device-manager.c:1406:p: activating keyboards
+00:00:04.618 ../plymouth/src/libply-splash-core/ply-keyboard.c:376:ply_keyb: Watching for keyboard input from renderer
+00:00:04.618 ../plymouth/src/plugins/renderers/drm/plugin.c:1899:watch_inpu: Listening for keys from device 'Video Bus'
+00:00:04.618 ../plymouth/src/plugins/renderers/drm/plugin.c:1899:watch_inpu: Listening for keys from device 'AT Translated Set 2 keyboard'
+00:00:04.618 ../plymouth/src/plugins/renderers/drm/plugin.c:1899:watch_inpu: Listening for keys from device 'Power Button'
+00:00:04.725 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.725 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.725 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.725 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.725 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.725 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.725 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.725 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.725 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.727 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:04.727 ../plymouth/src/libply/ply-utils.c:1144:ply_get_kmsg_log_level: opening /proc/sys/kernel/printk
+00:00:04.727 ../plymouth/src/libply/ply-utils.c:1152:ply_get_kmsg_log_level: reading kmsg log levels
+00:00:04.727 ../plymouth/src/ply-boot-server.c:395:print_connection_process: connection is from pid 434 (plymouth --ping) with parent pid 1 (/usr/bin/ash /init splash)
+00:00:04.728 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:04.739 ../plymouth/src/ply-boot-server.c:395:print_connection_process: connection is from pid 435 (plymouth ask-for-password --prompt=A password is required to access the root volume --command=cryptsetup open --type luks --key-file=- /dev/nvme0n1p2 root  >/dev/null) with parent pid 1 (/usr/bin/ash /init splash)
+00:00:04.739 ../plymouth/src/ply-boot-server.c:704:ply_boot_connection_on_r: got progress pause request
+00:00:04.739 ../plymouth/src/main.c:676:on_progress_pause                  : pausing progress
+00:00:04.739 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.739 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.739 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.739 ../plymouth/src/ply-boot-server.c:395:print_connection_process: connection is from pid 435 (plymouth ask-for-password --prompt=A password is required to access the root volume --command=cryptsetup open --type luks --key-file=- /dev/nvme0n1p2 root  >/dev/null) with parent pid 1 (/usr/bin/ash /init splash)
+00:00:04.739 ../plymouth/src/ply-boot-server.c:585:ply_boot_connection_on_r: got cached password request
+00:00:04.739 ../plymouth/src/ply-boot-server.c:591:ply_boot_connection_on_r: There are 0 cached passwords
+00:00:04.739 ../plymouth/src/ply-boot-server.c:615:ply_boot_connection_on_r: Responding with 'no answer' reply since there are currently no cached answers
+00:00:04.739 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.740 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.740 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.740 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.740 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.740 ../plymouth/src/ply-boot-server.c:395:print_connection_process: connection is from pid 435 (plymouth ask-for-password --prompt=A password is required to access the root volume --command=cryptsetup open --type luks --key-file=- /dev/nvme0n1p2 root  >/dev/null) with parent pid 1 (/usr/bin/ash /init splash)
+00:00:04.740 ../plymouth/src/ply-boot-server.c:557:ply_boot_connection_on_r: got password request
+00:00:04.740 ../plymouth/src/main.c:578:on_ask_for_password                : queuing password request with boot splash
+00:00:04.740 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:649: terminal control sequence: erase line
+00:00:04.740 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:597: terminal control sequence: move cursor to column
+00:00:04.741 ../plymouth/src/libply/ply-utils.c:579:ply_open_module        : Could not load module "/usr/lib/plymouth/label-pango.so": /usr/lib/plymouth/label-pango.so: cannot open shared object file: No such file or directory
+00:00:04.742 ../plymouth/src/plugins/controls/label-freetype/plugin.c:713:l: Text 'bunny' has dimensions 50x21
+00:00:04.742 ../plymouth/src/libply-splash-graphics/ply-label.c:89:ply_labe: Unloading label control plugin
+00:00:04.743 ../plymouth/src/libply/ply-utils.c:579:ply_open_module        : Could not load module "/usr/lib/plymouth/label-pango.so": /usr/lib/plymouth/label-pango.so: cannot open shared object file: No such file or directory
+00:00:04.744 ../plymouth/src/plugins/controls/label-freetype/plugin.c:713:l: Text 'Enter password to unlock' has dimensions 240x21
+00:00:04.744 ../plymouth/src/libply-splash-graphics/ply-label.c:89:ply_labe: Unloading label control plugin
+00:00:04.744 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.744 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.744 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.744 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.744 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.744 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.744 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.744 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.744 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:04.744 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:05.839 ../plymouth/src/libply-splash-core/ply-input-device.c:202:on_i: Input device debugging disabled
+00:00:05.839 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:649: terminal control sequence: erase line
+00:00:05.839 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:597: terminal control sequence: move cursor to column
+00:00:05.961 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:649: terminal control sequence: erase line
+00:00:05.961 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:597: terminal control sequence: move cursor to column
+00:00:06.189 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:649: terminal control sequence: erase line
+00:00:06.189 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:597: terminal control sequence: move cursor to column
+00:00:06.343 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:649: terminal control sequence: erase line
+00:00:06.343 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:597: terminal control sequence: move cursor to column
+00:00:06.536 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:649: terminal control sequence: erase line
+00:00:06.536 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:597: terminal control sequence: move cursor to column
+00:00:06.694 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:649: terminal control sequence: erase line
+00:00:06.694 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:597: terminal control sequence: move cursor to column
+00:00:06.830 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:649: terminal control sequence: erase line
+00:00:06.830 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:597: terminal control sequence: move cursor to column
+00:00:07.078 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:649: terminal control sequence: erase line
+00:00:07.078 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:597: terminal control sequence: move cursor to column
+00:00:07.272 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:649: terminal control sequence: erase line
+00:00:07.272 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:597: terminal control sequence: move cursor to column
+00:00:07.495 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:649: terminal control sequence: erase line
+00:00:07.495 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:597: terminal control sequence: move cursor to column
+00:00:07.735 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:649: terminal control sequence: erase line
+00:00:07.735 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:597: terminal control sequence: move cursor to column
+00:00:07.905 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:649: terminal control sequence: erase line
+00:00:07.905 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:597: terminal control sequence: move cursor to column
+00:00:08.031 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:649: terminal control sequence: erase line
+00:00:08.031 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:597: terminal control sequence: move cursor to column
+00:00:08.181 ../plymouth/src/libply-splash-core/ply-keyboard.c:228:process_: return key!
+00:00:08.181 ../plymouth/src/ply-boot-server.c:319:ply_boot_connection_on_p: got password answer
+00:00:08.181 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:649: terminal control sequence: erase line
+00:00:08.181 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:597: terminal control sequence: move cursor to column
+00:00:08.182 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:12.437 ../plymouth/src/libply-splash-core/ply-device-manager.c:1251:c: Timeout elapsed, looking for devices from udev
+00:00:12.437 ../plymouth/src/libply-splash-core/ply-device-manager.c:462:cr: creating objects for input devices
+00:00:12.438 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/acpi.video_bus.0/input/input3
+00:00:12.438 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:12.438 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/acpi.video_bus.0/input/input3/event3
+00:00:12.438 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:12.438 ../plymouth/src/libply-splash-core/ply-device-manager.c:495:cr: found node /dev/input/event3
+00:00:12.438 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:12.438 ../plymouth/src/libply-splash-core/ply-device-manager.c:407:cr: found input device /dev/input/event3
+00:00:12.439 ../plymouth/src/libply-splash-core/ply-device-manager.c:234:ad: Input device 'Video Bus' already added, skipping...
+00:00:12.439 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 17
+00:00:12.439 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 17
+00:00:12.439 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 17, removing source
+00:00:12.456 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:14.3/PNP0C09:00/PNP0C0D:00/input/input0
+00:00:12.456 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:12.456 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:14.3/PNP0C09:00/PNP0C0D:00/input/input0/event0
+00:00:12.456 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:12.456 ../plymouth/src/libply-splash-core/ply-device-manager.c:495:cr: found node /dev/input/event0
+00:00:12.456 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:12.456 ../plymouth/src/libply-splash-core/ply-device-manager.c:407:cr: found input device /dev/input/event0
+00:00:12.458 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 17
+00:00:12.458 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 17
+00:00:12.458 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 17, removing source
+00:00:12.490 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/platform/PNP0C0C:00/input/input1
+00:00:12.490 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:12.490 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/platform/PNP0C0C:00/input/input1/event1
+00:00:12.490 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:12.490 ../plymouth/src/libply-splash-core/ply-device-manager.c:495:cr: found node /dev/input/event1
+00:00:12.490 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:12.490 ../plymouth/src/libply-splash-core/ply-device-manager.c:407:cr: found input device /dev/input/event1
+00:00:12.492 ../plymouth/src/libply-splash-core/ply-device-manager.c:234:ad: Input device 'Power Button' already added, skipping...
+00:00:12.492 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 17
+00:00:12.492 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 17
+00:00:12.492 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 17, removing source
+00:00:12.499 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/platform/i8042/serio0/input/input2
+00:00:12.499 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:12.499 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/platform/i8042/serio0/input/input2/event2
+00:00:12.499 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:12.499 ../plymouth/src/libply-splash-core/ply-device-manager.c:495:cr: found node /dev/input/event2
+00:00:12.499 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:12.499 ../plymouth/src/libply-splash-core/ply-device-manager.c:407:cr: found input device /dev/input/event2
+00:00:12.500 ../plymouth/src/libply-splash-core/ply-device-manager.c:234:ad: Input device 'AT Translated Set 2 keyboard' already added, skipping...
+00:00:12.500 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 17
+00:00:12.500 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 17
+00:00:12.500 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 17, removing source
+00:00:12.509 ../plymouth/src/libply-splash-core/ply-device-manager.c:462:cr: creating objects for drm devices
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/0000:c1:00.0/drm/card1
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:495:cr: found node /dev/dri/card1
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is drm
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:392:cr: found DRM device /dev/dri/card1
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:1093:c: ignoring device /dev/dri/card1 since it's already managed
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/0000:c1:00.0/drm/card1/card1-DP-1
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/0000:c1:00.0/drm/card1/card1-DP-2
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/0000:c1:00.0/drm/card1/card1-DP-3
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/0000:c1:00.0/drm/card1/card1-DP-4
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/0000:c1:00.0/drm/card1/card1-DP-5
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/0000:c1:00.0/drm/card1/card1-DP-6
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/0000:c1:00.0/drm/card1/card1-DP-7
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/0000:c1:00.0/drm/card1/card1-DP-8
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/0000:c1:00.0/drm/card1/card1-Writeback-1
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/0000:c1:00.0/drm/card1/card1-eDP-1
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/0000:c1:00.0/drm/renderD128
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:495:cr: found node /dev/dri/renderD128
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is drm
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:389:cr: ignoring since it is a render node
+00:00:12.510 ../plymouth/src/libply-splash-core/ply-device-manager.c:462:cr: creating objects for frame buffer devices
+00:00:12.511 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/pci0000:00/0000:00:08.1/0000:c1:00.0/graphics/fb0
+00:00:12.511 ../plymouth/src/libply-splash-core/ply-device-manager.c:491:cr: device is initialized 1
+00:00:12.511 ../plymouth/src/libply-splash-core/ply-device-manager.c:495:cr: found node /dev/fb0
+00:00:12.511 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is graphics
+00:00:12.511 ../plymouth/src/libply-splash-core/ply-device-manager.c:398:cr: found frame buffer device /dev/fb0
+00:00:12.511 ../plymouth/src/libply-splash-core/ply-device-manager.c:313:fb: trying to find associated drm node for fb device (path: pci-0000:c1:00.0)
+00:00:12.514 ../plymouth/src/libply-splash-core/ply-device-manager.c:404:cr: ignoring, since there's a DRM device associated with it
+00:00:12.514 ../plymouth/src/libply-splash-core/ply-device-manager.c:483:cr: found device /sys/devices/virtual/graphics/fbcon
+00:00:12.514 ../plymouth/src/libply-splash-core/ply-device-manager.c:499:cr: it's not initialized
+00:00:18.416 ../plymouth/src/ply-boot-server.c:395:print_connection_process: connection is from pid 435 (plymouth ask-for-password --prompt=A password is required to access the root volume --command=cryptsetup open --type luks --key-file=- /dev/nvme0n1p2 root  >/dev/null) with parent pid 1 (/usr/bin/ash /init splash)
+00:00:18.416 ../plymouth/src/ply-boot-server.c:709:ply_boot_connection_on_r: got progress unpause request
+00:00:18.416 ../plymouth/src/main.c:683:on_progress_unpause                : unpausing progress
+00:00:18.416 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:18.416 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:18.416 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:18.417 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:18.417 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:18.417 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:18.417 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:18.417 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:18.429 ../plymouth/src/libply/ply-utils.c:1144:ply_get_kmsg_log_level: opening /proc/sys/kernel/printk
+00:00:18.429 ../plymouth/src/libply/ply-utils.c:1152:ply_get_kmsg_log_level: reading kmsg log levels
+00:00:18.442 ../plymouth/src/ply-boot-server.c:395:print_connection_process: connection is from pid 1510 (plymouth update-root-fs --new-root-dir=/new_root) with parent pid 1 (/usr/bin/ash /init splash)
+00:00:18.442 ../plymouth/src/ply-boot-server.c:714:ply_boot_connection_on_r: got newroot request
+00:00:18.442 ../plymouth/src/main.c:697:on_newroot                         : new root mounted at "/new_root", switching to it
+00:00:18.442 ../plymouth/src/main.c:740:get_cache_file_for_mode            : returning cache file '/var/lib/plymouth/boot-duration'
+00:00:18.443 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:18.443 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:18.443 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:18.443 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:18.443 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:18.443 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:19.166 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:597: terminal control sequence: move cursor to column
+00:00:19.276 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:19.276 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:19.276 ../plymouth/src/main.c:195:on_update                          : updating status to '-.mount'
+00:00:19.277 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:19.302 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:19.302 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:19.302 ../plymouth/src/main.c:195:on_update                          : updating status to 'dev-hugepages.mount'
+00:00:19.302 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:19.302 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:19.302 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:19.302 ../plymouth/src/main.c:195:on_update                          : updating status to 'dev-mqueue.mount'
+00:00:19.302 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:19.302 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:19.302 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:19.302 ../plymouth/src/main.c:195:on_update                          : updating status to 'sys-kernel-debug.mount'
+00:00:19.302 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 17
+00:00:19.302 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:19.302 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:19.302 ../plymouth/src/main.c:195:on_update                          : updating status to 'sys-kernel-tracing.mount'
+00:00:19.302 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 18
+00:00:19.304 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:19.304 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:19.304 ../plymouth/src/main.c:195:on_update                          : updating status to 'kmod-static-nodes.service'
+00:00:19.304 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:19.304 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:19.304 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:19.304 ../plymouth/src/main.c:195:on_update                          : updating status to 'sys-kernel-config.mount'
+00:00:19.304 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:19.304 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:19.304 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:19.304 ../plymouth/src/main.c:195:on_update                          : updating status to 'sys-fs-fuse-connections.mount'
+00:00:19.304 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:19.305 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:19.305 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:19.305 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-vconsole-setup.service'
+00:00:19.305 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:19.306 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:19.306 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:19.306 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-udev-load-credentials.service'
+00:00:19.306 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:19.307 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:19.307 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:19.307 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-modules-load.service'
+00:00:19.307 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:19.320 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:19.320 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:19.320 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-remount-fs.service'
+00:00:19.320 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:19.324 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:19.324 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:19.324 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-sysctl.service'
+00:00:19.324 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:19.326 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:19.326 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:19.326 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-random-seed.service'
+00:00:19.326 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:19.328 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:19.328 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:19.328 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-journald.service'
+00:00:19.328 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:19.377 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:19.377 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:19.377 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-udev-trigger.service'
+00:00:19.377 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:20.320 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:20.320 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:20.320 ../plymouth/src/main.c:195:on_update                          : updating status to 'proc-sys-fs-binfmt_misc.mount'
+00:00:20.320 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:20.339 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:20.339 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:20.339 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-userdbd.service'
+00:00:20.339 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:20.348 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:20.348 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:20.348 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-tmpfiles-setup-dev-early.service'
+00:00:20.348 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:20.373 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:20.373 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:20.373 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-tmpfiles-setup-dev.service'
+00:00:20.373 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:20.389 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:20.389 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:20.389 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-timesyncd.service'
+00:00:20.389 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:20.402 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:20.402 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:20.402 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-udevd.service'
+00:00:20.402 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:20.430 ../plymouth/src/ply-boot-server.c:395:print_connection_process: connection is from pid 1631 (/usr/bin/plymouth show-splash) with parent pid 1 (/sbin/init splash)
+00:00:20.430 ../plymouth/src/ply-boot-server.c:494:ply_boot_connection_on_r: got show splash request
+00:00:20.430 ../plymouth/src/main.c:1023:on_show_splash                    : show splash called while already shown
+00:00:20.430 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:20.430 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:20.430 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:20.430 ../plymouth/src/main.c:195:on_update                          : updating status to 'plymouth-start.service'
+00:00:20.430 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:20.467 ../plymouth/src/libply/ply-utils.c:1144:ply_get_kmsg_log_level: opening /proc/sys/kernel/printk
+00:00:20.467 ../plymouth/src/libply/ply-utils.c:1152:ply_get_kmsg_log_level: reading kmsg log levels
+00:00:20.468 ../plymouth/src/libply-splash-core/ply-device-manager.c:627:on: got add event for device /dev/fb0
+00:00:20.468 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is graphics
+00:00:20.468 ../plymouth/src/libply-splash-core/ply-device-manager.c:398:cr: found frame buffer device /dev/fb0
+00:00:20.469 ../plymouth/src/libply-splash-core/ply-device-manager.c:313:fb: trying to find associated drm node for fb device (path: pci-0000:c1:00.0)
+00:00:20.487 ../plymouth/src/libply-splash-core/ply-device-manager.c:404:cr: ignoring, since there's a DRM device associated with it
+00:00:20.487 ../plymouth/src/libply-splash-core/ply-device-manager.c:627:on: got add event for device /dev/dri/card1
+00:00:20.487 ../plymouth/src/libply-splash-core/ply-device-manager.c:627:on: got add event for device /dev/dri/renderD128
+00:00:20.488 ../plymouth/src/libply-splash-core/ply-device-manager.c:627:on: got add event for device /dev/input/event3
+00:00:20.488 ../plymouth/src/libply-splash-core/ply-device-manager.c:627:on: got add event for device /dev/input/event2
+00:00:20.488 ../plymouth/src/libply-splash-core/ply-device-manager.c:627:on: got add event for device /dev/input/event1
+00:00:20.489 ../plymouth/src/libply-splash-core/ply-device-manager.c:627:on: got add event for device /dev/input/event0
+00:00:20.489 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is drm
+00:00:20.489 ../plymouth/src/libply-splash-core/ply-device-manager.c:389:cr: ignoring since it is a render node
+00:00:20.489 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:20.489 ../plymouth/src/libply-splash-core/ply-device-manager.c:407:cr: found input device /dev/input/event3
+00:00:20.492 ../plymouth/src/libply-splash-core/ply-device-manager.c:234:ad: Input device 'Video Bus' already added, skipping...
+00:00:20.492 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 16
+00:00:20.492 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 16
+00:00:20.492 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 16, removing source
+00:00:20.501 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:20.501 ../plymouth/src/libply-splash-core/ply-device-manager.c:407:cr: found input device /dev/input/event2
+00:00:20.503 ../plymouth/src/libply-splash-core/ply-device-manager.c:234:ad: Input device 'AT Translated Set 2 keyboard' already added, skipping...
+00:00:20.503 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 16
+00:00:20.503 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 16
+00:00:20.503 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 16, removing source
+00:00:20.515 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:20.515 ../plymouth/src/libply-splash-core/ply-device-manager.c:407:cr: found input device /dev/input/event1
+00:00:20.517 ../plymouth/src/libply-splash-core/ply-device-manager.c:234:ad: Input device 'Power Button' already added, skipping...
+00:00:20.517 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 16
+00:00:20.517 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 16
+00:00:20.517 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 16, removing source
+00:00:20.529 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:20.529 ../plymouth/src/libply-splash-core/ply-device-manager.c:407:cr: found input device /dev/input/event0
+00:00:20.530 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 16
+00:00:20.530 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 16
+00:00:20.530 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 16, removing source
+00:00:20.564 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:20.564 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:20.564 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-zram-setup@zram0.service'
+00:00:20.564 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:20.564 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:20.564 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:20.564 ../plymouth/src/main.c:195:on_update                          : updating status to '\x2esnapshots.mount'
+00:00:20.564 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 17
+00:00:20.564 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:20.564 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:20.564 ../plymouth/src/main.c:195:on_update                          : updating status to 'home.mount'
+00:00:20.564 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 18
+00:00:20.564 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:20.564 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:20.564 ../plymouth/src/main.c:195:on_update                          : updating status to 'var-cache.mount'
+00:00:20.564 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:20.564 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:20.564 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:20.564 ../plymouth/src/main.c:195:on_update                          : updating status to 'var-lib-containerd.mount'
+00:00:20.564 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 17
+00:00:20.564 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:20.564 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:20.564 ../plymouth/src/main.c:195:on_update                          : updating status to 'var-lib-docker.mount'
+00:00:20.564 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 18
+00:00:20.564 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:20.564 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:20.564 ../plymouth/src/main.c:195:on_update                          : updating status to 'var-log.mount'
+00:00:20.564 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:20.564 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:20.564 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:20.564 ../plymouth/src/main.c:195:on_update                          : updating status to 'var-tmp.mount'
+00:00:20.564 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 17
+00:00:20.564 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:20.564 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:20.564 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-vconsole-setup.service'
+00:00:20.564 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 18
+00:00:20.564 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:20.564 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:20.564 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-backlight@backlight:amdgpu_bl1.service'
+00:00:20.564 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:20.564 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:20.564 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:20.564 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-journal-flush.service'
+00:00:20.564 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 17
+00:00:20.564 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:20.564 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:20.564 ../plymouth/src/main.c:195:on_update                          : updating status to 'dev-disk-by\x2ddiskseq-3.swap'
+00:00:20.564 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 18
+00:00:20.564 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:20.564 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:20.564 ../plymouth/src/main.c:195:on_update                          : updating status to 'dev-zram0.swap'
+00:00:20.564 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:20.564 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:20.564 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:20.564 ../plymouth/src/main.c:195:on_update                          : updating status to 'dev-disk-by\x2dlabel-zram0.swap'
+00:00:20.564 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 17
+00:00:20.564 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:20.564 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:20.564 ../plymouth/src/main.c:195:on_update                          : updating status to 'dev-disk-by\x2duuid-4530f2f8\x2db15e\x2d495b\x2db275\x2d278fad056e2c.swap'
+00:00:20.564 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 18
+00:00:20.593 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:20.593 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:20.593 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-oomd.service'
+00:00:20.593 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 16
+00:00:20.638 ../plymouth/src/libply-splash-core/ply-device-manager.c:627:on: got add event for device /dev/input/event5
+00:00:20.638 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:20.638 ../plymouth/src/libply-splash-core/ply-device-manager.c:407:cr: found input device /dev/input/event5
+00:00:20.640 ../plymouth/src/libply-splash-core/ply-device-manager.c:221:on: Adding input device 'FRMW0004:00 32AC:0006 Wireless Radio Control' to renderer for output device '/dev/dri/card1'
+00:00:20.640 ../plymouth/src/plugins/renderers/drm/plugin.c:1899:watch_inpu: Listening for keys from device 'FRMW0004:00 32AC:0006 Wireless Radio Control'
+00:00:20.663 ../plymouth/src/libply-splash-core/ply-device-manager.c:627:on: got add event for device /dev/input/event6
+00:00:20.663 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:20.663 ../plymouth/src/libply-splash-core/ply-device-manager.c:407:cr: found input device /dev/input/event6
+00:00:20.667 ../plymouth/src/libply-splash-core/ply-device-manager.c:221:on: Adding input device 'FRMW0004:00 32AC:0006 Consumer Control' to renderer for output device '/dev/dri/card1'
+00:00:20.667 ../plymouth/src/plugins/renderers/drm/plugin.c:1899:watch_inpu: Listening for keys from device 'FRMW0004:00 32AC:0006 Consumer Control'
+00:00:20.672 ../plymouth/src/libply-splash-core/ply-device-manager.c:627:on: got add event for device /dev/input/event4
+00:00:20.673 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:20.673 ../plymouth/src/libply-splash-core/ply-device-manager.c:407:cr: found input device /dev/input/event4
+00:00:20.675 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 18
+00:00:20.675 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 18
+00:00:20.675 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 18, removing source
+00:00:20.718 ../plymouth/src/libply-splash-core/ply-device-manager.c:627:on: got add event for device /dev/input/mice
+00:00:20.718 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:20.718 ../plymouth/src/libply-splash-core/ply-device-manager.c:421:cr: Ignoring, since this is a non-evdev device
+00:00:20.748 ../plymouth/src/libply-splash-core/ply-device-manager.c:627:on: got add event for device /dev/input/event7
+00:00:20.748 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:20.748 ../plymouth/src/libply-splash-core/ply-device-manager.c:407:cr: found input device /dev/input/event7
+00:00:20.752 ../plymouth/src/libply-splash-core/ply-device-manager.c:221:on: Adding input device 'PIXA3854:00 093A:0274 Mouse' to renderer for output device '/dev/dri/card1'
+00:00:20.752 ../plymouth/src/plugins/renderers/drm/plugin.c:1899:watch_inpu: Listening for keys from device 'PIXA3854:00 093A:0274 Mouse'
+00:00:20.752 ../plymouth/src/libply-splash-core/ply-device-manager.c:627:on: got add event for device /dev/input/event8
+00:00:20.752 ../plymouth/src/libply-splash-core/ply-device-manager.c:627:on: got remove event for device /dev/input/event7
+00:00:20.752 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:20.752 ../plymouth/src/libply-splash-core/ply-device-manager.c:407:cr: found input device /dev/input/event8
+00:00:20.753 ../plymouth/src/libply-splash-core/ply-device-manager.c:221:on: Adding input device 'PIXA3854:00 093A:0274 Touchpad' to renderer for output device '/dev/dri/card1'
+00:00:20.753 ../plymouth/src/plugins/renderers/drm/plugin.c:1899:watch_inpu: Listening for keys from device 'PIXA3854:00 093A:0274 Touchpad'
+00:00:20.753 ../plymouth/src/libply-splash-core/ply-device-manager.c:627:on: got remove event for device /dev/input/event8
+00:00:20.753 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:20.753 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:20.753 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-rfkill.service'
+00:00:20.754 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 20
+00:00:20.766 ../plymouth/src/libply-splash-core/ply-device-manager.c:627:on: got add event for device /dev/input/event7
+00:00:20.766 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:20.766 ../plymouth/src/libply-splash-core/ply-device-manager.c:407:cr: found input device /dev/input/event7
+00:00:20.768 ../plymouth/src/libply-splash-core/ply-device-manager.c:234:ad: Input device 'PIXA3854:00 093A:0274 Mouse' already added, skipping...
+00:00:20.768 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 20
+00:00:20.768 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 20
+00:00:20.768 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 20, removing source
+00:00:20.789 ../plymouth/src/libply-splash-core/ply-device-manager.c:627:on: got add event for device /dev/input/event9
+00:00:20.789 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:20.789 ../plymouth/src/libply-splash-core/ply-device-manager.c:407:cr: found input device /dev/input/event9
+00:00:20.791 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 20
+00:00:20.792 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 20
+00:00:20.792 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 20, removing source
+00:00:20.808 ../plymouth/src/libply-splash-core/ply-device-manager.c:627:on: got add event for device /dev/input/event8
+00:00:20.808 ../plymouth/src/libply-splash-core/ply-device-manager.c:627:on: got add event for device /dev/input/mouse0
+00:00:20.808 ../plymouth/src/libply-splash-core/ply-device-manager.c:627:on: got add event for device /dev/input/mouse1
+00:00:20.808 ../plymouth/src/libply-splash-core/ply-device-manager.c:627:on: got add event for device /dev/input/event12
+00:00:20.808 ../plymouth/src/libply-splash-core/ply-device-manager.c:627:on: got add event for device /dev/input/event10
+00:00:20.808 ../plymouth/src/libply-splash-core/ply-device-manager.c:627:on: got add event for device /dev/input/event11
+00:00:20.808 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:20.808 ../plymouth/src/libply-splash-core/ply-device-manager.c:407:cr: found input device /dev/input/event8
+00:00:20.810 ../plymouth/src/libply-splash-core/ply-device-manager.c:234:ad: Input device 'PIXA3854:00 093A:0274 Touchpad' already added, skipping...
+00:00:20.810 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 20
+00:00:20.810 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 20
+00:00:20.810 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 20, removing source
+00:00:20.816 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:20.816 ../plymouth/src/libply-splash-core/ply-device-manager.c:421:cr: Ignoring, since this is a non-evdev device
+00:00:20.816 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:20.816 ../plymouth/src/libply-splash-core/ply-device-manager.c:421:cr: Ignoring, since this is a non-evdev device
+00:00:20.816 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:20.816 ../plymouth/src/libply-splash-core/ply-device-manager.c:407:cr: found input device /dev/input/event12
+00:00:20.818 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 20
+00:00:20.818 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 20
+00:00:20.818 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 20, removing source
+00:00:20.839 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:20.839 ../plymouth/src/libply-splash-core/ply-device-manager.c:407:cr: found input device /dev/input/event10
+00:00:20.858 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 20
+00:00:20.858 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 20
+00:00:20.858 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 20, removing source
+00:00:20.882 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:20.882 ../plymouth/src/libply-splash-core/ply-device-manager.c:407:cr: found input device /dev/input/event11
+00:00:20.883 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 20
+00:00:20.883 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 20
+00:00:20.883 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 20, removing source
+00:00:21.069 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:21.069 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:21.069 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-backlight@leds:chromeos::kbd_backlight.service'
+00:00:21.069 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 20
+00:00:21.319 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:21.319 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:21.319 ../plymouth/src/main.c:195:on_update                          : updating status to 'tmp.mount'
+00:00:21.319 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 20
+00:00:21.330 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:21.330 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:21.330 ../plymouth/src/main.c:195:on_update                          : updating status to 'boot.mount'
+00:00:21.330 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 20
+00:00:21.342 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:21.342 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:21.342 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-userdb-load-credentials.service'
+00:00:21.342 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 21
+00:00:21.346 ../plymouth/src/ply-boot-server.c:395:print_connection_process: connection is from pid 1803 (/usr/bin/plymouth update-root-fs --read-write) with parent pid 1 (/sbin/init splash)
+00:00:21.346 ../plymouth/src/ply-boot-server.c:486:ply_boot_connection_on_r: got system initialized notification
+00:00:21.346 ../plymouth/src/main.c:860:on_system_initialized              : system now initialized, opening log
+00:00:21.346 ../plymouth/src/main.c:1801:tell_systemd_to_print_details     : telling systemd to start printing details
+00:00:21.346 ../plymouth/src/main.c:775:get_log_file_for_state             : returning log file '/var/log/boot.log'
+00:00:21.346 ../plymouth/src/main.c:845:prepare_logging                    : opening log '/var/log/boot.log'
+00:00:21.347 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 20
+00:00:21.347 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.347 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.347 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:21.347 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:21.347 ../plymouth/src/main.c:195:on_update                          : updating status to 'plymouth-read-write.service'
+00:00:21.347 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 20
+00:00:21.349 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.349 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.349 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:21.349 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:21.349 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-boot-random-seed.service'
+00:00:21.349 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 20
+00:00:21.357 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.357 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.357 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:21.357 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:21.357 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-tmpfiles-setup.service'
+00:00:21.357 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 20
+00:00:21.358 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.358 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.365 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.365 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.365 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:21.365 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:21.365 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-update-utmp.service'
+00:00:21.365 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 20
+00:00:21.365 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.365 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.366 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.366 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.366 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.366 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.366 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.366 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.366 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.366 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.366 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.366 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.366 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.366 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.366 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.366 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.366 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.366 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.367 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.367 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.367 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.367 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.367 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.367 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.367 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.367 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.367 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.367 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.367 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.367 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.368 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.368 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.369 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.369 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.369 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.369 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.369 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.369 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.370 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.370 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.371 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.371 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.371 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.371 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.380 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.380 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.380 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:21.380 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:21.380 ../plymouth/src/main.c:195:on_update                          : updating status to 'dbus-broker.service'
+00:00:21.380 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 20
+00:00:21.380 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.380 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.381 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.381 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.381 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.381 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.381 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:21.381 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:21.381 ../plymouth/src/main.c:195:on_update                          : updating status to 'limine-snapper-sync.service'
+00:00:21.381 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 20
+00:00:21.382 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.382 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.384 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.384 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.401 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.401 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.401 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:21.401 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:21.401 ../plymouth/src/main.c:195:on_update                          : updating status to 'bluetooth.service'
+00:00:21.401 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 20
+00:00:21.401 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.401 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.408 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.408 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.414 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.414 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.414 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:21.414 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:21.414 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-logind.service'
+00:00:21.414 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 20
+00:00:21.433 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.433 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.433 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:21.433 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:21.433 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-hostnamed.service'
+00:00:21.433 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 20
+00:00:21.500 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.500 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.501 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.501 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.502 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.502 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.569 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.569 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.569 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.569 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.569 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:21.569 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:21.570 ../plymouth/src/main.c:195:on_update                          : updating status to 'NetworkManager.service'
+00:00:21.570 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 20
+00:00:21.570 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.570 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.570 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.570 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.582 ../plymouth/src/libply/ply-utils.c:1144:ply_get_kmsg_log_level: opening /proc/sys/kernel/printk
+00:00:21.582 ../plymouth/src/libply/ply-utils.c:1152:ply_get_kmsg_log_level: reading kmsg log levels
+00:00:21.585 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.585 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.585 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:21.585 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:21.585 ../plymouth/src/main.c:195:on_update                          : updating status to 'systemd-user-sessions.service'
+00:00:21.585 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 20
+00:00:21.586 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.586 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.587 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.587 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.587 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.587 ../plymouth/src/libply-splash-core/ply-terminal-emulator.c:987: terminal escape character: carriage return
+00:00:21.587 ../plymouth/src/ply-boot-server.c:391:print_connection_process: connection is from toplevel init process (/sbin/init splash)
+00:00:21.587 ../plymouth/src/ply-boot-server.c:446:ply_boot_connection_on_r: got update request
+00:00:21.587 ../plymouth/src/main.c:195:on_update                          : updating status to 'NetworkManager-dispatcher.service'
+00:00:21.587 ../plymouth/src/libply/ply-event-loop.c:1142:ply_event_loop_fr: freeing destination (1, 0x56212681f640, 0x562126823060) of fd 20
+00:00:21.601 ../plymouth/src/ply-boot-server.c:395:print_connection_process: connection is from pid 1886 (/usr/bin/plymouth quit) with parent pid 1 (/sbin/init splash)
+00:00:21.601 ../plymouth/src/ply-boot-server.c:532:ply_boot_connection_on_r: got quit request
+00:00:21.601 ../plymouth/src/main.c:1459:on_quit                           : quitting (retain splash: false)
+00:00:21.601 ../plymouth/src/main.c:1471:on_quit                           : system initialized so saving boot-duration file
+00:00:21.601 ../plymouth/src/libply/ply-utils.c:639:ply_create_directory   : directory '/var/lib/plymouth' already exists
+00:00:21.601 ../plymouth/src/main.c:740:get_cache_file_for_mode            : returning cache file '/var/lib/plymouth/boot-duration'
+00:00:21.601 ../plymouth/src/libply/ply-progress.c:216:ply_progress_save_ca: saving progress cache to /var/lib/plymouth/boot-duration
+00:00:21.602 ../plymouth/src/main.c:1481:on_quit                           : closing log
+00:00:21.602 ../plymouth/src/libply-splash-core/ply-device-manager.c:1428:p: deactivating keyboards
+00:00:21.602 ../plymouth/src/libply-splash-core/ply-keyboard.c:395:ply_keyb: No longer watching for keyboard input from renderer
+00:00:21.602 ../plymouth/src/libply-splash-core/ply-terminal.c:245:ply_term: terminal input is getting enabled in unbuffered mode
+00:00:21.602 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 7
+00:00:21.602 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 7
+00:00:21.602 ../plymouth/src/main.c:1487:on_quit                           : unloading splash
+00:00:21.602 ../plymouth/src/libply-splash-core/ply-boot-splash.c:801:ply_b: telling splash to become idle
+00:00:21.602 ../plymouth/src/libply-splash-core/ply-boot-splash.c:777:on_id: splash now idle
+00:00:21.609 ../plymouth/src/libply-splash-core/ply-device-manager.c:627:on: got add event for device /dev/input/event13
+00:00:21.609 ../plymouth/src/libply-splash-core/ply-device-manager.c:380:cr: device subsystem is input
+00:00:21.609 ../plymouth/src/libply-splash-core/ply-device-manager.c:407:cr: found input device /dev/input/event13
+00:00:21.612 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 21
+00:00:21.612 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 21
+00:00:21.612 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 21, removing source
+00:00:21.637 ../plymouth/src/libply-splash-core/ply-terminal.c:336:ply_term: terminal input is getting disabled from unbuffered mode
+00:00:21.637 ../plymouth/src/main.c:1362:on_boot_splash_idle               : boot splash idle
+00:00:21.637 ../plymouth/src/main.c:1369:on_boot_splash_idle               : hiding splash
+00:00:21.637 ../plymouth/src/plugins/renderers/drm/plugin.c:957:deactivate : dropping master
+00:00:21.637 ../plymouth/src/libply/ply-event-loop.c:971:ply_event_loop_sto: no matching timeout found for removal
+00:00:21.670 ../plymouth/src/libply-splash-core/ply-terminal.c:284:ply_term: terminal input is getting enabled in buffered mode
+00:00:21.671 ../plymouth/src/main.c:1373:on_boot_splash_idle               : quitting splash
+00:00:21.671 ../plymouth/src/main.c:1238:quit_splash                       : quitting splash
+00:00:21.671 ../plymouth/src/main.c:1240:quit_splash                       : freeing splash
+00:00:21.672 ../plymouth/src/libply-splash-core/ply-boot-splash.c:405:ply_b: freeing splash
+00:00:21.672 ../plymouth/src/libply/ply-event-loop.c:971:ply_event_loop_sto: no matching timeout found for removal
+00:00:21.672 ../plymouth/src/libply-splash-core/ply-boot-splash.c:350:remov: removing pixel displays
+00:00:21.673 ../plymouth/src/libply-splash-core/ply-boot-splash.c:364:remov: Removing 1440x960 pixel display
+00:00:21.673 ../plymouth/src/libply-splash-core/ply-device-manager.c:1428:p: deactivating keyboards
+00:00:21.673 ../plymouth/src/main.c:1249:quit_splash                       : Not retaining splash, so deallocating VT
+00:00:21.673 ../plymouth/src/libply-splash-core/ply-terminal.c:986:ply_term: can't deactivate initial VT
+00:00:21.674 ../plymouth/src/libply-splash-core/ply-terminal.c:719:ply_term: restoring color palette
+00:00:21.674 ../plymouth/src/libply-splash-core/ply-terminal.c:723:ply_term: stop watching tty fd
+00:00:21.674 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 7
+00:00:21.675 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 7
+00:00:21.675 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 7, removing source
+00:00:21.675 ../plymouth/src/libply-splash-core/ply-terminal.c:729:ply_term: stop watching SIGWINCH signal
+00:00:21.676 ../plymouth/src/libply-splash-core/ply-terminal.c:733:ply_term: setting buffered input
+00:00:21.676 ../plymouth/src/main.c:1809:tell_systemd_to_stop_printing_deta: telling systemd to stop printing details
+00:00:21.676 ../plymouth/src/main.c:1984:detach_from_running_session       : stopping kmsg reader
+00:00:21.677 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 10
+00:00:21.677 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 10
+00:00:21.677 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 10, removing source
+00:00:21.678 ../plymouth/src/main.c:1987:detach_from_running_session       : detaching from terminal session
+00:00:21.678 ../plymouth/src/libply/ply-terminal-session.c:255:ply_terminal: stopping terminal logger
+00:00:21.678 ../plymouth/src/libply/ply-terminal-session.c:392:ply_terminal: stopping logging of incoming console messages
+00:00:21.679 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 9
+00:00:21.679 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 9
+00:00:21.679 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 9, removing source
+00:00:21.679 ../plymouth/src/libply/ply-terminal-session.c:260:ply_terminal: unredirecting console messages
+00:00:21.680 ../plymouth/src/libply/ply-terminal-session.c:265:ply_terminal: ptmx wasn't originally passed in, destroying created one
+00:00:21.680 ../plymouth/src/main.c:1375:on_boot_splash_idle               : quitting program
+00:00:21.680 ../plymouth/src/main.c:1304:quit_program                      : cleaning up devices
+00:00:21.681 ../plymouth/src/libply-splash-core/ply-device-manager.c:901:pl: freeing device manager
+00:00:21.681 ../plymouth/src/libply-splash-core/ply-renderer.c:94:ply_rende: Unloading renderer backend plugin
+00:00:21.681 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 12
+00:00:21.682 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 12
+00:00:21.682 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 12, removing source
+00:00:21.713 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 14
+00:00:21.713 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 14
+00:00:21.714 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 14, removing source
+00:00:21.732 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 13
+00:00:21.732 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 13
+00:00:21.733 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 13, removing source
+00:00:21.741 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 16
+00:00:21.741 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 16
+00:00:21.742 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 16, removing source
+00:00:21.755 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 18
+00:00:21.755 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 18
+00:00:21.756 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 18, removing source
+00:00:21.768 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 17
+00:00:21.768 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 17
+00:00:21.769 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 17, removing source
+00:00:21.778 ../plymouth/src/libply/ply-event-loop.c:765:ply_event_loop_sto: stopping watching fd 19
+00:00:21.778 ../plymouth/src/libply/ply-event-loop.c:781:ply_event_loop_sto: removing destination for fd 19
+00:00:21.779 ../plymouth/src/libply/ply-event-loop.c:790:ply_event_loop_sto: no more destinations remaing for fd 19, removing source
+00:00:21.796 ../plymouth/src/libply/ply-event-loop.c:971:ply_event_loop_sto: no matching timeout found for removal
+00:00:21.796 ../plymouth/src/main.c:1307:quit_program                      : exiting event loop
+00:00:21.797 ../plymouth/src/ply-boot-server.c:349:ply_boot_connection_on_q: quit complete
+00:00:21.797 ../plymouth/src/main.c:2620:main                              : exited event loop
+00:00:21.797 ../plymouth/src/libply-splash-core/ply-boot-splash.c:405:ply_b: freeing splash
+00:00:21.798 ../plymouth/src/main.c:2630:main                              : freeing terminal session
+00:00:21.798 ../plymouth/src/libply/ply-terminal-session.c:392:ply_terminal: stopping logging of incoming console messages
+00:00:21.799 ../plymouth/src/main.c:2636:main                              : exiting with code 0

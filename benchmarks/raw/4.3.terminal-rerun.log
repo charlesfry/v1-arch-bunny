@@ -1,0 +1,160 @@
+=== 4.3 terminal rerun 2026-08-23T23:45:50-04:00 ===
+ 23:45:50 up 0 min,  2 users,  load average: 0.34, 0.08, 0.03
+--- context: gpu modules + dri nodes (kitty is a GPU terminal) ---
+i915                 5087232  6
+nouveau              3768320  1
+drwxr-xr-x   3 root root        140 Aug 23 23:45 .
+drwxr-xr-x  20 root root       4260 Aug 23 23:45 ..
+drwxr-xr-x   2 root root        120 Aug 23 23:45 by-path
+crw-rw----+  1 root video  226,   1 Aug 23 23:45 card1
+crw-rw----+  1 root video  226,   2 Aug 23 23:45 card2
+crw-rw-rw-   1 root render 226, 128 Aug 23 23:45 renderD128
+crw-rw-rw-   1 root render 226, 129 Aug 23 23:45 renderD129
+--- exec floors (10x each, bash time builtin, warm) ---
+floor kitty run1 0.002 s
+floor kitty run2 0.002 s
+floor kitty run3 0.002 s
+floor foot run1 0.004 s
+floor foot run2 0.004 s
+floor foot run3 0.004 s
+floor alacritty run1 0.003 s
+floor alacritty run2 0.003 s
+floor alacritty run3 0.003 s
+floor ghostty run1 0.031 s
+floor ghostty run2 0.032 s
+floor ghostty run3 0.031 s
+--- fontconfig: Fragment Mono match time ---
+fc-match run1 0.010 s
+fc-match run2 0.007 s
+fc-match run3 0.006 s
+--- login-shell cost incl. vapoursynth profile.d (row 71 fresh number) ---
+bash-lc run1 0.075 s
+bash-lc run2 0.075 s
+bash-lc run3 0.076 s
+Required By     : ffmpeg
+Required By     : localsearch
+--- spawnbench: all terminals + fuzzel, n=10 ---
+{"meta": true, "socket": "/run/user/1000/niri.wayland-1.927.sock", "n": 10, "apps": ["kitty", "kitty-noconf", "foot", "alacritty", "ghostty", "fuzzel"], "os": "NAME=\"Arch Linux\"", "load1_start": 0.34}
+{"app": "kitty", "run": 0, "ms": 173.8, "load1": 0.34, "cold": true}
+{"app": "kitty", "run": 1, "ms": 138.5, "load1": 0.34, "cold": false}
+{"app": "kitty", "run": 2, "ms": 130.9, "load1": 0.34, "cold": false}
+{"app": "kitty", "run": 3, "ms": 131.7, "load1": 0.34, "cold": false}
+{"app": "kitty", "run": 4, "ms": 132.0, "load1": 0.34, "cold": false}
+{"app": "kitty", "run": 5, "ms": 128.1, "load1": 0.4, "cold": false}
+{"app": "kitty", "run": 6, "ms": 129.5, "load1": 0.4, "cold": false}
+{"app": "kitty", "run": 7, "ms": 131.9, "load1": 0.4, "cold": false}
+{"app": "kitty", "run": 8, "ms": 134.6, "load1": 0.4, "cold": false}
+{"app": "kitty", "run": 9, "ms": 125.3, "load1": 0.4, "cold": false}
+{"app": "kitty", "summary": true, "n": 10, "cold_ms": 173.8, "warm_min": 125.3, "warm_median": 131.7, "warm_max": 138.5}
+{"app": "kitty-noconf", "run": 0, "ms": 191.7, "load1": 0.4, "cold": true}
+{"app": "kitty-noconf", "run": 1, "ms": 130.7, "load1": 0.4, "cold": false}
+{"app": "kitty-noconf", "run": 2, "ms": 131.3, "load1": 0.45, "cold": false}
+{"app": "kitty-noconf", "run": 3, "ms": 131.4, "load1": 0.45, "cold": false}
+{"app": "kitty-noconf", "run": 4, "ms": 144.2, "load1": 0.45, "cold": false}
+{"app": "kitty-noconf", "run": 5, "ms": 132.8, "load1": 0.45, "cold": false}
+{"app": "kitty-noconf", "run": 6, "ms": 132.9, "load1": 0.45, "cold": false}
+{"app": "kitty-noconf", "run": 7, "ms": 132.4, "load1": 0.45, "cold": false}
+{"app": "kitty-noconf", "run": 8, "ms": 132.1, "load1": 0.45, "cold": false}
+{"app": "kitty-noconf", "run": 9, "ms": 134.6, "load1": 0.49, "cold": false}
+{"app": "kitty-noconf", "summary": true, "n": 10, "cold_ms": 191.7, "warm_min": 130.7, "warm_median": 132.4, "warm_max": 144.2}
+{"app": "foot", "run": 0, "ms": 88.5, "load1": 0.49, "cold": true}
+{"app": "foot", "run": 1, "ms": 34.0, "load1": 0.49, "cold": false}
+{"app": "foot", "run": 2, "ms": 42.6, "load1": 0.49, "cold": false}
+{"app": "foot", "run": 3, "ms": 35.0, "load1": 0.49, "cold": false}
+{"app": "foot", "run": 4, "ms": 28.1, "load1": 0.49, "cold": false}
+{"app": "foot", "run": 5, "ms": 33.9, "load1": 0.49, "cold": false}
+{"app": "foot", "run": 6, "ms": 33.9, "load1": 0.49, "cold": false}
+{"app": "foot", "run": 7, "ms": 31.7, "load1": 0.49, "cold": false}
+{"app": "foot", "run": 8, "ms": 31.8, "load1": 0.77, "cold": false}
+{"app": "foot", "run": 9, "ms": 35.6, "load1": 0.77, "cold": false}
+{"app": "foot", "summary": true, "n": 10, "cold_ms": 88.5, "warm_min": 28.1, "warm_median": 33.9, "warm_max": 42.6}
+{"app": "alacritty", "run": 0, "ms": 137.2, "load1": 0.77, "cold": true}
+pkill: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pkill -f' option to match against the complete command line.
+{"app": "alacritty", "run": 1, "ms": 96.6, "load1": 0.77, "cold": false}
+pkill: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pkill -f' option to match against the complete command line.
+{"app": "alacritty", "run": 2, "ms": 93.8, "load1": 0.77, "cold": false}
+pkill: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pkill -f' option to match against the complete command line.
+{"app": "alacritty", "run": 3, "ms": 107.2, "load1": 0.77, "cold": false}
+pkill: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pkill -f' option to match against the complete command line.
+{"app": "alacritty", "run": 4, "ms": 93.5, "load1": 0.77, "cold": false}
+pkill: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pkill -f' option to match against the complete command line.
+{"app": "alacritty", "run": 5, "ms": 92.9, "load1": 0.77, "cold": false}
+pkill: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pkill -f' option to match against the complete command line.
+{"app": "alacritty", "run": 6, "ms": 102.6, "load1": 0.79, "cold": false}
+pkill: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pkill -f' option to match against the complete command line.
+{"app": "alacritty", "run": 7, "ms": 102.5, "load1": 0.79, "cold": false}
+pkill: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pkill -f' option to match against the complete command line.
+{"app": "alacritty", "run": 8, "ms": 94.7, "load1": 0.79, "cold": false}
+pkill: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pkill -f' option to match against the complete command line.
+{"app": "alacritty", "run": 9, "ms": 92.6, "load1": 0.79, "cold": false}
+pkill: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pkill -f' option to match against the complete command line.
+{"app": "alacritty", "summary": true, "n": 10, "cold_ms": 137.2, "warm_min": 92.6, "warm_median": 94.7, "warm_max": 107.2}
+{"app": "ghostty", "run": 0, "ms": 1297.7, "load1": 0.79, "cold": true}
+pkill: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pkill -f' option to match against the complete command line.
+{"app": "ghostty", "run": 1, "ms": 322.4, "load1": 1.05, "cold": false}
+pkill: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pkill -f' option to match against the complete command line.
+{"app": "ghostty", "run": 2, "ms": 303.0, "load1": 1.05, "cold": false}
+pkill: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pkill -f' option to match against the complete command line.
+{"app": "ghostty", "run": 3, "ms": 331.4, "load1": 1.05, "cold": false}
+pkill: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pkill -f' option to match against the complete command line.
+{"app": "ghostty", "run": 4, "ms": 335.2, "load1": 1.05, "cold": false}
+pkill: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pkill -f' option to match against the complete command line.
+{"app": "ghostty", "run": 5, "ms": 305.7, "load1": 1.05, "cold": false}
+pkill: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pkill -f' option to match against the complete command line.
+{"app": "ghostty", "run": 6, "ms": 299.9, "load1": 1.05, "cold": false}
+pkill: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pkill -f' option to match against the complete command line.
+{"app": "ghostty", "run": 7, "ms": 305.7, "load1": 1.2, "cold": false}
+pkill: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pkill -f' option to match against the complete command line.
+{"app": "ghostty", "run": 8, "ms": 306.3, "load1": 1.2, "cold": false}
+pkill: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pkill -f' option to match against the complete command line.
+{"app": "ghostty", "run": 9, "ms": 296.8, "load1": 1.2, "cold": false}
+pkill: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pkill -f' option to match against the complete command line.
+{"app": "ghostty", "summary": true, "n": 10, "cold_ms": 1297.7, "warm_min": 296.8, "warm_median": 305.7, "warm_max": 335.2}
+{"app": "fuzzel", "run": 0, "ms": 30.0, "load1": 1.2, "cold": true}
+{"app": "fuzzel", "run": 1, "ms": 21.3, "load1": 1.2, "cold": false}
+{"app": "fuzzel", "run": 2, "ms": 21.5, "load1": 1.2, "cold": false}
+{"app": "fuzzel", "run": 3, "ms": 21.3, "load1": 1.2, "cold": false}
+{"app": "fuzzel", "run": 4, "ms": 21.4, "load1": 1.2, "cold": false}
+{"app": "fuzzel", "run": 5, "ms": 23.4, "load1": 1.11, "cold": false}
+{"app": "fuzzel", "run": 6, "ms": 22.2, "load1": 1.11, "cold": false}
+{"app": "fuzzel", "run": 7, "ms": 22.3, "load1": 1.11, "cold": false}
+{"app": "fuzzel", "run": 8, "ms": 21.8, "load1": 1.11, "cold": false}
+{"app": "fuzzel", "run": 9, "ms": 21.5, "load1": 1.11, "cold": false}
+{"app": "fuzzel", "summary": true, "n": 10, "cold_ms": 30.0, "warm_min": 21.3, "warm_median": 21.5, "warm_max": 23.4}
+--- kitty PSS while open (3.7 used RSS, against the later PSS rule) ---
+kitty PSS_KB 75259
+--- C5: kitty graphics protocol on the fresh install ---
+Error: Failed to open controlling terminal with error: open /dev/tty: no such device or address
+icat probe exit 1 (informational only: real check must run inside a kitty tty; C5 proof stays with the jupyter phase)
+--- niri.service desktop-ready times for past boots (journal mine) ---
+ -5 0faa0ce6e13e4dee868ba6a081ba7daa Sun 2026-08-23 22:59:30 EDT Sun 2026-08-23 23:11:32 EDT
+ -4 0146ca74f8aa4c4a937022c4a6c4f4b0 Sun 2026-08-23 23:11:52 EDT Sun 2026-08-23 23:13:46 EDT
+ -3 31843c6395a14393933740bb5e4f5756 Sun 2026-08-23 23:14:06 EDT Sun 2026-08-23 23:16:00 EDT
+ -2 d5fcb1fd944b48968889b16eb38fa82c Sun 2026-08-23 23:16:21 EDT Sun 2026-08-23 23:19:03 EDT
+ -1 c0b527d5a7474d75875a1f454169022d Sun 2026-08-23 23:44:05 EDT Sun 2026-08-23 23:45:23 EDT
+  0 065cc23a89e24776816618917a5e68c7 Sun 2026-08-23 23:45:42 EDT Sun 2026-08-23 23:46:34 EDT
+boot 0: [   10.041645] arch-bunny systemd[870]: Started A scrollable-tiling Wayland compositor.
+boot -1: [   11.117541] arch-bunny systemd[862]: Started A scrollable-tiling Wayland compositor.
+boot -2: [   10.810472] arch-bunny systemd[863]: Started A scrollable-tiling Wayland compositor.
+boot -3: [    9.969756] arch-bunny systemd[860]: Started A scrollable-tiling Wayland compositor.
+=== 4.3 complete ===

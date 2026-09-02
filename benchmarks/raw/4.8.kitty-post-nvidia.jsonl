@@ -1,0 +1,76 @@
+{"boot": 1, "marker": true, "kernel": "7.1.9-arch1-2", "nvidia": "610.57.04"}
+{"meta": true, "socket": "/run/user/1000/niri.wayland-1.936.sock", "n": 10, "apps": ["kitty", "fuzzel"], "os": "NAME=\"Arch Linux\"", "load1_start": 0.2}
+{"app": "kitty", "run": 0, "ms": 190.6, "load1": 0.2, "cold": true}
+{"app": "kitty", "run": 1, "ms": 158.8, "load1": 0.2, "cold": false}
+{"app": "kitty", "run": 2, "ms": 143.5, "load1": 0.2, "cold": false}
+{"app": "kitty", "run": 3, "ms": 140.7, "load1": 0.2, "cold": false}
+{"app": "kitty", "run": 4, "ms": 142.5, "load1": 0.2, "cold": false}
+{"app": "kitty", "run": 5, "ms": 142.1, "load1": 0.2, "cold": false}
+{"app": "kitty", "run": 6, "ms": 141.5, "load1": 0.2, "cold": false}
+{"app": "kitty", "run": 7, "ms": 142.4, "load1": 0.18, "cold": false}
+{"app": "kitty", "run": 8, "ms": 142.7, "load1": 0.18, "cold": false}
+{"app": "kitty", "run": 9, "ms": 143.6, "load1": 0.18, "cold": false}
+{"app": "kitty", "summary": true, "n": 10, "cold_ms": 190.6, "warm_min": 140.7, "warm_median": 142.5, "warm_max": 158.8}
+{"app": "fuzzel", "run": 0, "ms": 36.7, "load1": 0.18, "cold": true}
+{"app": "fuzzel", "run": 1, "ms": 22.3, "load1": 0.18, "cold": false}
+{"app": "fuzzel", "run": 2, "ms": 17.4, "load1": 0.18, "cold": false}
+{"app": "fuzzel", "run": 3, "ms": 22.2, "load1": 0.18, "cold": false}
+{"app": "fuzzel", "run": 4, "ms": 22.0, "load1": 0.18, "cold": false}
+{"app": "fuzzel", "run": 5, "ms": 23.3, "load1": 0.17, "cold": false}
+{"app": "fuzzel", "run": 6, "ms": 21.9, "load1": 0.17, "cold": false}
+{"app": "fuzzel", "run": 7, "ms": 22.8, "load1": 0.17, "cold": false}
+{"app": "fuzzel", "run": 8, "ms": 25.2, "load1": 0.17, "cold": false}
+{"app": "fuzzel", "run": 9, "ms": 21.7, "load1": 0.17, "cold": false}
+{"app": "fuzzel", "summary": true, "n": 10, "cold_ms": 36.7, "warm_min": 17.4, "warm_median": 22.2, "warm_max": 25.2}
+{"boot": 2, "marker": true, "kernel": "7.1.9-arch1-2", "nvidia": "610.57.04"}
+{"meta": true, "socket": "/run/user/1000/niri.wayland-1.937.sock", "n": 10, "apps": ["kitty", "fuzzel"], "os": "NAME=\"Arch Linux\"", "load1_start": 0.04}
+{"app": "kitty", "run": 0, "ms": 195.2, "load1": 0.04, "cold": true}
+{"app": "kitty", "run": 1, "ms": 144.5, "load1": 0.04, "cold": false}
+{"app": "kitty", "run": 2, "ms": 140.5, "load1": 0.04, "cold": false}
+{"app": "kitty", "run": 3, "ms": 142.4, "load1": 0.04, "cold": false}
+{"app": "kitty", "run": 4, "ms": 139.9, "load1": 0.04, "cold": false}
+{"app": "kitty", "run": 5, "ms": 144.6, "load1": 0.04, "cold": false}
+{"app": "kitty", "run": 6, "ms": 143.7, "load1": 0.04, "cold": false}
+{"app": "kitty", "run": 7, "ms": 142.7, "load1": 0.12, "cold": false}
+{"app": "kitty", "run": 8, "ms": 142.2, "load1": 0.12, "cold": false}
+{"app": "kitty", "run": 9, "ms": 143.1, "load1": 0.12, "cold": false}
+{"app": "kitty", "summary": true, "n": 10, "cold_ms": 195.2, "warm_min": 139.9, "warm_median": 142.7, "warm_max": 144.6}
+{"app": "fuzzel", "run": 0, "ms": 35.6, "load1": 0.12, "cold": true}
+{"app": "fuzzel", "run": 1, "ms": 22.6, "load1": 0.12, "cold": false}
+{"app": "fuzzel", "run": 2, "ms": 22.9, "load1": 0.12, "cold": false}
+{"app": "fuzzel", "run": 3, "ms": 22.9, "load1": 0.12, "cold": false}
+{"app": "fuzzel", "run": 4, "ms": 23.2, "load1": 0.12, "cold": false}
+{"app": "fuzzel", "run": 5, "ms": 22.6, "load1": 0.11, "cold": false}
+{"app": "fuzzel", "run": 6, "ms": 22.8, "load1": 0.11, "cold": false}
+{"app": "fuzzel", "run": 7, "ms": 22.1, "load1": 0.11, "cold": false}
+{"app": "fuzzel", "run": 8, "ms": 23.0, "load1": 0.11, "cold": false}
+{"app": "fuzzel", "run": 9, "ms": 26.0, "load1": 0.11, "cold": false}
+{"app": "fuzzel", "summary": true, "n": 10, "cold_ms": 35.6, "warm_min": 22.1, "warm_median": 22.9, "warm_max": 26.0}
+{"boot": 3, "marker": true, "kernel": "7.1.9-arch1-2", "nvidia": "610.57.04"}
+{"meta": true, "socket": "/run/user/1000/niri.wayland-1.937.sock", "n": 10, "apps": ["kitty", "fuzzel"], "os": "NAME=\"Arch Linux\"", "load1_start": 0.04}
+{"app": "kitty", "run": 0, "ms": 191.8, "load1": 0.04, "cold": true}
+{"app": "kitty", "run": 1, "ms": 158.4, "load1": 0.04, "cold": false}
+{"app": "kitty", "run": 2, "ms": 142.3, "load1": 0.04, "cold": false}
+{"app": "kitty", "run": 3, "ms": 143.7, "load1": 0.04, "cold": false}
+{"app": "kitty", "run": 4, "ms": 143.0, "load1": 0.04, "cold": false}
+{"app": "kitty", "run": 5, "ms": 141.9, "load1": 0.04, "cold": false}
+{"app": "kitty", "run": 6, "ms": 141.7, "load1": 0.04, "cold": false}
+{"app": "kitty", "run": 7, "ms": 143.5, "load1": 0.04, "cold": false}
+{"app": "kitty", "run": 8, "ms": 140.3, "load1": 0.04, "cold": false}
+{"app": "kitty", "run": 9, "ms": 142.5, "load1": 0.04, "cold": false}
+{"app": "kitty", "summary": true, "n": 10, "cold_ms": 191.8, "warm_min": 140.3, "warm_median": 142.5, "warm_max": 158.4}
+{"app": "fuzzel", "run": 0, "ms": 43.0, "load1": 0.04, "cold": true}
+{"app": "fuzzel", "run": 1, "ms": 23.2, "load1": 0.04, "cold": false}
+{"app": "fuzzel", "run": 2, "ms": 22.3, "load1": 0.04, "cold": false}
+{"app": "fuzzel", "run": 3, "ms": 22.1, "load1": 0.04, "cold": false}
+{"app": "fuzzel", "run": 4, "ms": 22.0, "load1": 0.04, "cold": false}
+{"app": "fuzzel", "run": 5, "ms": 22.6, "load1": 0.03, "cold": false}
+{"app": "fuzzel", "run": 6, "ms": 23.4, "load1": 0.03, "cold": false}
+{"app": "fuzzel", "run": 7, "ms": 22.3, "load1": 0.03, "cold": false}
+{"app": "fuzzel", "run": 8, "ms": 22.5, "load1": 0.03, "cold": false}
+{"app": "fuzzel", "run": 9, "ms": 23.1, "load1": 0.03, "cold": false}
+{"app": "fuzzel", "summary": true, "n": 10, "cold_ms": 43.0, "warm_min": 22.0, "warm_median": 22.5, "warm_max": 23.4}
+kitty pid  nvidia maps:
+grep: /proc//maps: No such file or directory
+0
+grep: /proc//maps: No such file or directory

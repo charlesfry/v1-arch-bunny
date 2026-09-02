@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+# Meeting alerts via a calendar poller, not the browser. CHOICES.md
+# `notifications`.
+#
+# A browser-sourced notification only fires while the browser and tab are open,
+# which is the silent-failure mode 02-functionality.md warns against for this row.
+# Confirmed the hard way: Google Calendar's own in-page notification never reached
+# mako, because Brave's notification permission was never granted for the site
+# (`content_settings.exceptions.notifications` was `{}` in the profile).
+#
+# gcalcli rather than a hand-rolled ICS parser: Google's "secret address" ICS
+# export ships raw RRULEs for recurring events, unexpanded, and expanding those
+# correctly is exactly the fragile logic CLAUDE.md warns against. gcalcli talks to
+# the real Calendar API, which returns already-expanded instances. Auth is manual,
+# same as `secrets-bootstrap`'s policy: run `gcalcli init` once, interactively.
+#
+# `remind --use-reminders` rather than a narrow poll window: it is upstream's own
+# integration point for this use case, and it honours each event's configured lead
+# time instead of a fixed "N minutes before everything".
+#
+# The tradeoff, read from gcal.py's `Remind()`: once an event's threshold has
+# passed, every subsequent poll re-matches it until the event starts — gcalcli has
+# no de-dup of its own. So this script re-invokes itself as the `remind` command
+# and does the de-dup, keyed on the event's own "time  title" text, which is
+# unique per instance since a recurring event's instances differ in start time.
+#
+# The 1440-minute window only bounds how far ahead candidates are fetched, not the
+# firing threshold. It needs to be at least the longest popup reminder lead time
+# anyone might set.
+#
+# Usage: calendar-poll                 run one poll (called by the timer)
+#        calendar-poll --notify <msg>  internal: gcalcli's own remind callback
+set -Eeuo pipefail
+
+self=$(readlink -f "$0")
+state=${XDG_STATE_HOME:-$HOME/.local/state}/bunny/calendar-notified
+oauth=${XDG_DATA_HOME:-$HOME/.local/share}/gcalcli/oauth
+# 2h: nothing needs a key remembered longer than one poll cycle past when it
+# could re-fire, and a short window keeps the file from growing.
+prune_before_secs=7200
+
+case "${1-}" in
+--notify)
+	msg=${2-}
+	[[ -n $msg ]] || exit 0
+
+	mkdir -p -- "$(dirname -- "$state")"
+	touch "$state"
+
+	now=$(date +%s)
+	tmp=$(mktemp)
+	awk -v cutoff="$((now - prune_before_secs))" -F'\t' '$1 >= cutoff' "$state" >"$tmp"
+	mv "$tmp" "$state"
+
+	while IFS= read -r line; do
+		[[ -n $line ]] || continue
+		grep -qxF "$line" <(cut -f2- "$state") && continue
+		# -t 0: stays until dismissed, same reasoning as disk-usage-alert.
+		notify-send -u critical -a gcalcli -i appointment-soon -t 0 \
+			"Upcoming event" "$line"
+		printf '%s\t%s\n' "$now" "$line" >>"$state"
+	done <<<"$msg"
+	exit 0
+	;;
+esac
+
+if [[ ! -f $oauth ]]; then
+	# Expected absence on a fresh install: auth is a manual, interactive step by
+	# design (`secrets-bootstrap`), not something this script can do.
+	# shellcheck disable=SC2016 # literal backticks for markdown-style code, not expansion
+	printf 'calendar-poll: not authenticated -- run `gcalcli init` once to enable meeting alerts\n' >&2
+	exit 0
+fi
+
+exec gcalcli remind 1440 "$self --notify %s" --use-reminders

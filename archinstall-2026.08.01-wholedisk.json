@@ -1,0 +1,123 @@
+{
+  "bootloader_config": {
+    "bootloader": "Limine",
+    "uki": false,
+    "removable": false,
+    "plymouth": "text"
+  },
+  "kernels": [
+    "linux"
+  ],
+  "ntp": true,
+  "packages": [
+    "adwaita-cursors",
+    "base-devel",
+    "bash",
+    "bitwarden",
+    "bluetui",
+    "bluez",
+    "bluez-utils",
+    "brightnessctl",
+    "btop",
+    "btrfs-progs",
+    "chromium",
+    "cliphist",
+    "direnv",
+    "docker",
+    "docker-compose",
+    "efibootmgr",
+    "fd",
+    "fuzzel",
+    "git",
+    "github-cli",
+    "grim",
+    "imagemagick",
+    "imv",
+    "kitty",
+    "lazydocker",
+    "lazygit",
+    "less",
+    "libnotify",
+    "limine",
+    "linux",
+    "linux-firmware-amdgpu",
+    "linux-firmware-atheros",
+    "linux-firmware-broadcom",
+    "linux-firmware-intel",
+    "linux-firmware-mediatek",
+    "linux-firmware-other",
+    "linux-firmware-realtek",
+    "linux-firmware-whence",
+    "mako",
+    "man-db",
+    "mate-polkit",
+    "mesa",
+    "mpv",
+    "nautilus",
+    "neovim",
+    "networkmanager",
+    "nftables",
+    "niri",
+    "nodejs",
+    "noto-fonts-emoji",
+    "npm",
+    "openssh",
+    "openvpn",
+    "pipewire-audio",
+    "pipewire-jack",
+    "pipewire-pulse",
+    "playerctl",
+    "plymouth",
+    "polkit",
+    "python-pynvim",
+    "realtime-privileges",
+    "ripgrep",
+    "satty",
+    "signal-desktop",
+    "slurp",
+    "snap-pac",
+    "snapper",
+    "spotify-launcher",
+    "swaybg",
+    "swayidle",
+    "swaylock",
+    "texlive-basic",
+    "texlive-binextra",
+    "texlive-latex",
+    "uv",
+    "waybar",
+    "wireplumber",
+    "wl-clipboard",
+    "xdg-desktop-portal-gnome",
+    "zram-generator"
+  ],
+  "services": [
+    "docker.socket",
+    "nftables.service",
+    "systemd-oomd.service"
+  ],
+  "custom_commands": [],
+  "swap": {
+    "enabled": true
+  },
+  "network_config": {
+    "type": "nm"
+  },
+  "app_config": {
+    "bluetooth_config": {
+      "enabled": true
+    }
+  },
+  "locale_config": {
+    "kb_layout": "us",
+    "sys_lang": "en_US.UTF-8",
+    "sys_enc": "UTF-8",
+    "console_font": "default8x16"
+  },
+  "pacman_config": {
+    "parallel_downloads": 5,
+    "color": true
+  },
+  "hostname": "arch-bunny",
+  "timezone": "US/Eastern"
+}

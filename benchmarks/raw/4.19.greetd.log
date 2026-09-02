@@ -1,0 +1,65 @@
+
+=== boot sample 2026-08-25T00:01:26-04:00 boot_id=3482daa0-e049-4d24-9f64-5eedfd1a9bc4
+login path: enabled (greetd) / getty-drop-in present: yes
+Startup finished in 5.960s (firmware) + 1.269s (loader) + 5.329s (kernel) + 2.907s (userspace) = 15.467s 
+
+graphical.target @2.906s
+└─multi-user.target @2.905s
+--- residents
+greetd pid 885: PSS 1099 kB rss 4036 kB
+greetd pid 886: PSS 5682 kB rss 12968 kB
+--- session shape
+SESSION  UID USER  SEAT  LEADER CLASS   TTY  IDLE SINCE
+      1 1000 bunne seat0 886    greeter tty1 no   -
+      2 1000 bunne -     890    manager -    no   -
+      4 1000 bunne -     1070   user    -    no   -
+
+3 sessions listed.
+1003 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
+--- niri + spawn canary (must pass on an unlocked fresh session)
+946 niri --session
+spawn canary: PASS
+=== sample done
+
+=== boot sample 2026-08-25T00:02:41-04:00 boot_id=b91ea09f-4dbe-4c41-a2aa-31e46cbc7f3f
+login path: enabled (greetd) / getty-drop-in present: yes
+Startup finished in 5.934s (firmware) + 1.264s (loader) + 5.311s (kernel) + 2.692s (userspace) = 15.202s 
+
+graphical.target @2.690s
+└─multi-user.target @2.689s
+--- residents
+greetd pid 877: PSS 1119 kB rss 4036 kB
+greetd pid 878: PSS 5748 kB rss 12968 kB
+--- session shape
+SESSION  UID USER  SEAT  LEADER CLASS   TTY  IDLE SINCE
+      1 1000 bunne seat0 878    greeter tty1 no   -
+      2 1000 bunne -     882    manager -    no   -
+      4 1000 bunne -     1064   user    -    no   -
+
+3 sessions listed.
+998 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
+--- niri + spawn canary (must pass on an unlocked fresh session)
+939 niri --session
+spawn canary: PASS
+=== sample done
+
+=== boot sample 2026-08-25T00:03:33-04:00 boot_id=0b821d38-a267-47ed-8af9-3289ae82f1ba
+login path: disabled (greetd) / getty-drop-in present: yes
+Startup finished in 5.958s (firmware) + 1.264s (loader) + 5.295s (kernel) + 2.709s (userspace) = 15.227s 
+
+graphical.target @2.708s
+└─multi-user.target @2.708s
+--- residents
+greetd: not running
+--- session shape
+SESSION  UID USER  SEAT  LEADER CLASS   TTY  IDLE SINCE
+      1 1000 bunne seat0 873    user    tty1 no   -
+      2 1000 bunne -     877    manager -    no   -
+      4 1000 bunne -     1061   user    -    no   -
+
+3 sessions listed.
+993 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
+--- niri + spawn canary (must pass on an unlocked fresh session)
+934 niri --session
+spawn canary: PASS
+=== sample done

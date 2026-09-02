@@ -1,0 +1,141 @@
+=== boot battery: arch-boot4 2026-08-23T23:16:27-04:00 ===
+--- settle: waiting until 60s of uptime ---
+ 23:17:12 up 1 min,  2 users,  load average: 0.19, 0.08, 0.03
+--- systemd-analyze ---
+Startup finished in 6.134s (firmware) + 2.279s (loader) + 5.614s (kernel) + 3.712s (userspace) = 17.740s 
+graphical.target reached after 3.711s in userspace.
+The time when unit became active or started is printed after the "@" character.
+The time the unit took to start is printed after the "+" character.
+
+graphical.target @3.711s
+└─multi-user.target @3.711s
+  └─sshd.service @3.680s +30ms
+    └─network.target @3.678s
+      └─wpa_supplicant.service @3.651s +25ms
+        └─basic.target @2.850s
+          └─dbus-broker.service @2.826s +22ms
+            └─dbus.socket @2.819s +38us
+              └─sysinit.target @2.816s
+                └─systemd-update-utmp.service @2.799s +16ms
+                  └─systemd-tmpfiles-setup.service @2.736s +60ms
+                    └─local-fs.target @2.732s
+                      └─boot.mount @2.696s +35ms
+                        └─systemd-fsck@dev-disk-by\x2duuid-3AE5\x2d058A.service @2.172s +56ms
+                          └─dev-disk-by\x2duuid-3AE5\x2d058A.device @2.084s
+--- blame top 15 ---
+1.314s dev-mapper-cryptroot.device
+1.039s systemd-tmpfiles-setup-dev-early.service
+1.000s systemd-userdbd.service
+ 796ms NetworkManager.service
+ 232ms user@1000.service
+ 221ms systemd-udev-trigger.service
+ 105ms dev-zram0.swap
+  78ms polkit.service
+  76ms systemd-backlight@leds:asus::kbd_backlight.service
+  67ms systemd-journald.service
+  64ms systemd-journal-flush.service
+  60ms systemd-tmpfiles-setup.service
+  56ms systemd-fsck@dev-disk-by\x2duuid-3AE5\x2d058A.service
+  47ms systemd-vconsole-setup.service
+  46ms systemd-hostnamed.service
+--- PSS sums, 3 samples 20s apart ---
+PSS_TOTAL_KB=210505
+91801 niri
+16813 NetworkManager
+15567 polkit-mate-aut
+12753 systemd-journal
+11143 systemd
+7165 wpa_supplicant
+6784 sshd-session
+6473 systemd-udevd
+4618 gvfsd
+3762 sudo
+3392 polkitd
+3160 systemd-userwor
+2572 login
+2362 sshd
+2259 swaybg
+2150 dbus-broker-lau
+2086 dbus-broker
+2046 systemd-logind
+1854 (sd-pam)
+1750 systemd-timesyn
+               total        used        free      shared  buff/cache   available
+Mem:           15832         643       15040          23         433       15188
+ 23:17:15 up 1 min,  2 users,  load average: 0.19, 0.08, 0.03
+--sample 1 done--
+PSS_TOTAL_KB=202536
+83827 niri
+16815 NetworkManager
+15568 polkit-mate-aut
+12757 systemd-journal
+11144 systemd
+7165 wpa_supplicant
+6780 sshd-session
+6474 systemd-udevd
+4619 gvfsd
+3761 sudo
+3393 polkitd
+3163 systemd-userwor
+2581 login
+2362 sshd
+2258 swaybg
+2149 dbus-broker-lau
+2085 dbus-broker
+2046 systemd-logind
+1854 (sd-pam)
+1750 systemd-timesyn
+               total        used        free      shared  buff/cache   available
+Mem:           15832         642       15030          23         444       15190
+ 23:17:37 up 1 min,  2 users,  load average: 0.21, 0.09, 0.03
+--sample 2 done--
+PSS_TOTAL_KB=201758
+83062 niri
+16817 NetworkManager
+15568 polkit-mate-aut
+12761 systemd-journal
+11144 systemd
+7165 wpa_supplicant
+6783 sshd-session
+6474 systemd-udevd
+4618 gvfsd
+3741 sudo
+3386 polkitd
+3160 systemd-userwor
+2586 login
+2361 sshd
+2259 swaybg
+2150 dbus-broker-lau
+2086 dbus-broker
+2046 systemd-logind
+1854 (sd-pam)
+1750 systemd-timesyn
+               total        used        free      shared  buff/cache   available
+Mem:           15832         638       15025          23         452       15194
+ 23:17:59 up 1 min,  2 users,  load average: 0.15, 0.08, 0.03
+--sample 3 done--
+--- spawnbench n=10 ---
+{"meta": true, "socket": "/run/user/1000/niri.wayland-1.922.sock", "n": 10, "os": "NAME=\"Arch Linux\"", "load1_start": 0.15}
+{"app": "kitty", "run": 0, "ms": 188.2, "load1": 0.15, "cold": true}
+{"app": "kitty", "run": 1, "ms": 134.7, "load1": 0.15, "cold": false}
+{"app": "kitty", "run": 2, "ms": 129.4, "load1": 0.15, "cold": false}
+{"app": "kitty", "run": 3, "ms": 143.3, "load1": 0.15, "cold": false}
+{"app": "kitty", "run": 4, "ms": 130.7, "load1": 0.22, "cold": false}
+{"app": "kitty", "run": 5, "ms": 130.4, "load1": 0.22, "cold": false}
+{"app": "kitty", "run": 6, "ms": 129.4, "load1": 0.22, "cold": false}
+{"app": "kitty", "run": 7, "ms": 130.7, "load1": 0.22, "cold": false}
+{"app": "kitty", "run": 8, "ms": 129.8, "load1": 0.22, "cold": false}
+{"app": "kitty", "run": 9, "ms": 128.7, "load1": 0.22, "cold": false}
+{"app": "kitty", "summary": true, "n": 10, "cold_ms": 188.2, "warm_min": 128.7, "warm_median": 130.4, "warm_max": 143.3}
+{"app": "fuzzel", "run": 0, "ms": 34.0, "load1": 0.22, "cold": true}
+{"app": "fuzzel", "run": 1, "ms": 21.1, "load1": 0.22, "cold": false}
+{"app": "fuzzel", "run": 2, "ms": 18.0, "load1": 0.2, "cold": false}
+{"app": "fuzzel", "run": 3, "ms": 20.8, "load1": 0.2, "cold": false}
+{"app": "fuzzel", "run": 4, "ms": 21.4, "load1": 0.2, "cold": false}
+{"app": "fuzzel", "run": 5, "ms": 20.9, "load1": 0.2, "cold": false}
+{"app": "fuzzel", "run": 6, "ms": 21.6, "load1": 0.2, "cold": false}
+{"app": "fuzzel", "run": 7, "ms": 23.0, "load1": 0.2, "cold": false}
+{"app": "fuzzel", "run": 8, "ms": 20.8, "load1": 0.2, "cold": false}
+{"app": "fuzzel", "run": 9, "ms": 20.8, "load1": 0.2, "cold": false}
+{"app": "fuzzel", "summary": true, "n": 10, "cold_ms": 34.0, "warm_min": 18.0, "warm_median": 20.9, "warm_max": 23.0}
+=== battery arch-boot4 complete ===

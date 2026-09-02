@@ -1,0 +1,13 @@
+map loaded: 3 entries
+--- functional demo
+PWD=/home/bunne/tradeswell/mmm -> color=1 last=/home/bunne/tradeswell/mmm
+PWD=/home/bunne/github/x -> color=5 last=/home/bunne/github/x
+PWD=/tmp -> color=2 last=/tmp
+PWD=/home/bunne/t-proj -> color=3 last=/home/bunne/t-proj
+--- cost: hot path (unchanged dir), 100k calls
+unchanged-dir: 9274.16 ns/call
+--- cost: change path (alternating mapped dirs), 10k calls
+changed-dir (match): 32.81 us/call
+--- cost: change path, worst case (no match, full scan), 10k calls
+changed-dir (no match): 37.18 us/call
+DONE 2026-08-25T00:06:38-04:00

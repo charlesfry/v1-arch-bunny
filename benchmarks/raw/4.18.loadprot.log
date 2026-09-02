@@ -1,0 +1,32 @@
+=== context 2026-08-24T23:46:35-04:00 nproc=12
+ 23:46:35 up 18 min,  2 users,  load average: 0.00, 0.01, 0.00
+--- A: idle baseline
+{"meta": true, "socket": "/run/user/1000/niri.wayland-1.938.sock", "n": 5, "apps": ["kitty"], "os": "NAME=\"Arch Linux\"", "load1_start": 0.0}
+{"app": "kitty", "run": 0, "ms": 178.7, "load1": 0.0, "cold": true}
+{"app": "kitty", "run": 1, "ms": 158.8, "load1": 0.0, "cold": false}
+{"app": "kitty", "run": 2, "ms": 139.0, "load1": 0.0, "cold": false}
+{"app": "kitty", "run": 3, "ms": 141.6, "load1": 0.08, "cold": false}
+{"app": "kitty", "run": 4, "ms": 141.3, "load1": 0.08, "cold": false}
+{"app": "kitty", "summary": true, "n": 5, "cold_ms": 178.7, "warm_min": 139.0, "warm_median": 141.6, "warm_max": 158.8}
+--- B: hog at default CPUWeight (100)
+ 23:46:42 up 18 min,  2 users,  load average: 0.08, 0.03, 0.01
+{"meta": true, "socket": "/run/user/1000/niri.wayland-1.938.sock", "n": 5, "apps": ["kitty"], "os": "NAME=\"Arch Linux\"", "load1_start": 0.08}
+{"app": "kitty", "run": 0, "ms": 495.2, "load1": 1.27, "cold": true}
+{"app": "kitty", "run": 1, "ms": 425.3, "load1": 1.27, "cold": false}
+{"app": "kitty", "run": 2, "ms": 504.2, "load1": 1.27, "cold": false}
+{"app": "kitty", "run": 3, "ms": 460.8, "load1": 1.27, "cold": false}
+{"app": "kitty", "run": 4, "ms": 529.2, "load1": 1.27, "cold": false}
+{"app": "kitty", "summary": true, "n": 5, "cold_ms": 495.2, "warm_min": 425.3, "warm_median": 504.2, "warm_max": 529.2}
+--- C: hog at CPUWeight=1
+ 23:46:53 up 18 min,  2 users,  load average: 3.22, 0.73, 0.24
+{"meta": true, "socket": "/run/user/1000/niri.wayland-1.938.sock", "n": 5, "apps": ["kitty"], "os": "NAME=\"Arch Linux\"", "load1_start": 3.22}
+{"app": "kitty", "run": 0, "ms": 308.0, "load1": 3.22, "cold": true}
+{"app": "kitty", "run": 1, "ms": 330.6, "load1": 3.22, "cold": false}
+{"app": "kitty", "run": 2, "ms": 313.3, "load1": 3.22, "cold": false}
+{"app": "kitty", "run": 3, "ms": 330.5, "load1": 3.22, "cold": false}
+{"app": "kitty", "run": 4, "ms": 229.7, "load1": 3.22, "cold": false}
+{"app": "kitty", "summary": true, "n": 5, "cold_ms": 308.0, "warm_min": 229.7, "warm_median": 330.5, "warm_max": 330.6}
+--- post: confirm hogs gone
+1
+ 23:46:59 up 19 min,  2 users,  load average: 3.92, 0.92, 0.30
+DONE 2026-08-24T23:46:59-04:00

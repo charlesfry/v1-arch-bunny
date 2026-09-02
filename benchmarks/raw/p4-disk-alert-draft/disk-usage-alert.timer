@@ -1,0 +1,10 @@
+[Unit]
+Description=Check disk usage every 4h
+
+[Timer]
+OnCalendar=*-*-* 00/4:00:00
+# Catch up a run missed while the machine was off, which is most of them.
+Persistent=true
+
+[Install]
+WantedBy=timers.target

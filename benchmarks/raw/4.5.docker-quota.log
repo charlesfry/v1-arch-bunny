@@ -1,0 +1,69 @@
+lint-ok
+Warning: Permanently added '192.168.1.5' (ED25519) to the list of known hosts.
+
+== context ==
+ 00:16:34 up 5 min,  2 users,  load average: 0.00, 0.04, 0.02
+Docker version 29.7.2, build a7dcaa6fdb
+
+== phase A: baseline ==
+213053	/var/lib/docker
+65572	/var/lib/containerd
+
+== after import a1 ==
+213053	/var/lib/docker
+537150391	/var/lib/containerd
+
+== after import a2 ==
+213053	/var/lib/docker
+1074104136	/var/lib/containerd
+
+== after import a3 ==
+213053	/var/lib/docker
+1611188953	/var/lib/containerd
+
+== phase A verdict: the directory that grew is the one to cap ==
+3
+
+== phase B: relocate the grower onto a capped subvolume ==
+grower: /var/lib/containerd
+Create subvolume '/var/lib/containerd'
+new subvolume id: 271
+WARNING: qgroup data inconsistent, rescan recommended
+0/271            0.00B        0.00B         2.00GiB           none   @/var/lib/containerd
+
+== phase B: fill until refused (2 GiB cap, 256 MiB per retained image) ==
+import 1 ok; grower now: 2148142697 bytes
+import 2 ok; grower now: 2685096443 bytes
+import 3 ok; grower now: 3222050194 bytes
+import 4 ok; grower now: 3759003939 bytes
+import 5 ok; grower now: 4295957687 bytes
+import 6 ok; grower now: 4832911435 bytes
+import 7 ok; grower now: 5369865183 bytes
+import 8 ok; grower now: 5907081068 bytes
+import 9 ok; grower now: 6444034813 bytes
+import 10 ok; grower now: 6980988558 bytes
+import 11 ok; grower now: 7517942307 bytes
+import 12 ok; grower now: 8054896052 bytes
+cap_enforced=0
+
+== filesystem itself has ample space (the cap did this, not the disk) ==
+    Free (estimated):		 237.81GiB	(min: 120.35GiB)
+
+== phase C1: recovery — remove one image, import must succeed again ==
+recovery_ok=1
+
+== phase C2: nested subvolume is excluded from root snapshots ==
+snapshot #17
+entries visible inside snapshot at /var/lib/containerd: 0 (0 = excluded, as the snapshot-bloat row hopes)
+
+== cleanup: remove all test images, report final state ==
+245821	/var/lib/docker
+589860	/var/lib/containerd
+WARNING: qgroup data inconsistent, rescan recommended
+0/271            0.00B        0.00B         2.00GiB           none   @/var/lib/containerd
+NOTE: /var/lib/containerd is now a dedicated subvolume with a 2 GiB qgroup limit — LEFT IN PLACE
+as the live trial of the row's candidate (2); the limit value is a test value,
+author sizes the real one.
+=== 4.5 complete ===
+
+[exited with code 0]

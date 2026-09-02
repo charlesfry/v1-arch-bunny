@@ -1,0 +1,28 @@
+WALLCLOCK 2026-08-24T10:53:52-04:00
+=== snapper floor: 0-15 -> 2-15 (author ratified) ===
+SPACE_LIMIT="0.08"
+FREE_LIMIT="0.2"
+NUMBER_LIMIT="2-15"
+NUMBER_LIMIT_IMPORTANT="0-5"
+=== docker/containerd stop ===
+inactive
+inactive
+inactive
+=== /var/lib/docker -> subvolume ===
+Create subvolume '/var/lib/docker'
+=== THE TRAP: rescan after subvol creation ===
+quota rescan started
+=== canary: 200M limit, write 300M, expect refusal ===
+199+1 records out
+209567744 bytes (210 MB, 200 MiB) copied, 0.716193 s, 293 MB/s
+=== production limits: docker 50G, containerd 100G ===
+--------    ----------    ---------  --------------  -------------   ---- 
+0/276        199.98MiB    199.88MiB        50.00GiB           none   @/var/lib/docker
+--------    ----------    ---------  --------------  -------------   ---- 
+0/271       1019.15MiB   1019.15MiB       100.00GiB           none   @/var/lib/containerd
+=== restart + verify ===
+ID 271 gen 381 top level 256 path var/lib/containerd
+ID 276 gen 1006 top level 256 path var/lib/docker
+ Storage Driver: overlayfs
+  driver-type: io.containerd.snapshotter.v1
+WALLCLOCK 2026-08-24T10:53:56-04:00 DONE

@@ -1,0 +1,48 @@
+// Bunny waybar. CHOICES.md `status-bar`.
+//
+// Carries day, time, date, week and weather — the five the author named. Battery,
+// network, volume, workspaces and a tray are each one line if he wants them.
+//
+// The clock format is his Omarchy format verbatim, `~` separators included. `L` is
+// waybar's locale flag, `%V` the ISO week; `format-alt` swaps to 24-hour on click.
+{
+  "layer": "top",
+  "position": "top",
+  "height": 26,
+  "spacing": 0,
+  "modules-center": ["clock", "custom/weather"],
+  "modules-right": ["network", "battery"],
+
+  "network": {
+    "format-wifi": "{signalStrength}% ",
+    "format-disconnected": "",
+    "tooltip": false
+  },
+
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-icons": ["", "", "", "", ""],
+    "format-charging": "{capacity}% ",
+    "tooltip": false
+  },
+
+  "clock": {
+    "format": "{:L%A %I:%M %p ~ %d %B %Y ~ W%V ~}",
+    "format-alt": "{:L%A %H:%M ~ %d %B %Y ~ W%V ~}",
+    "tooltip": false
+  },
+
+  // 900 s, not Omarchy's 60. That fires 1440 HTTPS requests a day at a service
+  // whose data refreshes about hourly, each one a curl plus a shell; 15 minutes is
+  // 96 a day, for a difference in displayed temperature nobody can perceive.
+  //
+  // One request, not two. Omarchy runs `omarchy-weather-icon` for the bar and
+  // `omarchy-weather-status` for the click-notification, each fetching wttr.in
+  // separately.
+  "custom/weather": {
+    "exec": "$HOME/.config/waybar/weather",
+    "interval": 900,
+    "tooltip": false
+  }
+
+}

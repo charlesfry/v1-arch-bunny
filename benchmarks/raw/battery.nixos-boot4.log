@@ -1,0 +1,122 @@
+=== boot battery: nixos-boot4 2026-08-23T23:24:35-04:00 ===
+--- settle: waiting until 60s of uptime ---
+ 23:25:14  up   0:00,  0 users,  load average: 0.34, 0.14, 0.05
+--- systemd-analyze ---
+Startup finished in 4.877s (firmware) + 6.089s (loader) + 813ms (kernel) + 6.207s (initrd) + 6.981s (userspace) = 24.970s 
+graphical.target reached after 6.981s in userspace.
+The time when unit became active or started is printed after the "@" character.
+The time the unit took to start is printed after the "+" character.
+
+graphical.target @6.981s
+└─multi-user.target @6.980s
+  └─docker.service @4.560s +2.420s
+    └─network-online.target @4.558s
+      └─network.target @4.556s
+        └─NetworkManager.service @3.787s +765ms
+          └─network-pre.target @3.786s
+            └─resolvconf.service @3.707s +76ms
+              └─basic.target @3.681s
+                └─dbus-broker.service @3.608s +55ms
+                  └─dbus.socket @3.596s +87us
+                    └─sysinit.target @3.595s
+                      └─systemd-sysctl.service @3.570s +24ms
+                        └─systemd-modules-load.service @1.049s +2.519s
+                          └─systemd-journald.socket
+                            └─system.slice
+                              └─-.slice
+--- blame top 15 ---
+6.876s sys-devices-LNXSYSTM:00-LNXSYBUS:00-MSFT0101:00-tpmrm-tpmrm0.device
+6.876s dev-tpmrm0.device
+6.862s dev-tpm0.device
+6.862s sys-devices-LNXSYSTM:00-LNXSYBUS:00-MSFT0101:00-tpm-tpm0.device
+6.859s dev-disk-by\x2ddiskseq-1\x2dpart4.device
+6.859s dev-disk-by\x2dpath-pci\x2d0000:02:00.0\x2dnvme\x2d1\x2dpart4.device
+6.859s sys-devices-pci0000:00-0000:00:1d.0-0000:02:00.0-nvme-nvme0-nvme0n1-nvme0n1p4.device
+6.859s dev-disk-by\x2dpartuuid-81c83ffa\x2dab93\x2d4c50\x2da8a0\x2dac73c601aa3f.device
+6.859s dev-disk-by\x2did-nvme\x2deui.0000000001000000e4d25c788eb35001\x2dpart4.device
+6.859s dev-disk-by\x2dpath-pci\x2d0000:02:00.0\x2dnvme\x2d1\x2dpart-by\x2dpartuuid-81c83ffa\x2dab93\x2d4c50\x2da8a0\x2dac73c601aa3f.device
+6.859s dev-nvme0n1p4.device
+6.859s dev-disk-by\x2did-nvme\x2dINTEL_SSDPEKNW512G8_BTNH925417B0512A_1\x2dpart4.device
+6.859s dev-disk-by\x2dpath-pci\x2d0000:02:00.0\x2dnvme\x2d1\x2dpart-by\x2dpartnum-4.device
+6.859s dev-disk-by\x2did-nvme\x2dINTEL_SSDPEKNW512G8_BTNH925417B0512A\x2dpart4.device
+6.859s dev-disk-by\x2duuid-52FA5FB5FA5F93D7.device
+--- PSS sums, 3 samples 20s apart ---
+PSS_TOTAL_KB=860820
+460956 electron
+93905 niri
+81157 dockerd
+44805 containerd
+39737 .xdg-desktop-po
+17379 wireplumber
+12194 systemd
+11938 greetd
+10741 NetworkManager
+10483 systemd-journal
+6293 wpa_supplicant
+5938 polkit-mate-aut
+5814 sshd-session
+5389 pipewire
+5170 systemd-udevd
+3453 nsncd
+3404 (udev-worker)
+3254 polkitd
+3151 systemd-timesyn
+2992 bluetoothd
+               total        used        free      shared  buff/cache   available
+Mem:           15842        1200       13999          72         999       14641
+ 23:25:17  up   0:00,  0 users,  load average: 0.34, 0.14, 0.05
+--sample 1 done--
+PSS_TOTAL_KB=853832
+455409 electron
+93917 niri
+81157 dockerd
+44814 containerd
+39740 .xdg-desktop-po
+17378 wireplumber
+12248 systemd
+11940 greetd
+10742 NetworkManager
+10525 systemd-journal
+6861 systemd-udevd
+6294 wpa_supplicant
+5938 polkit-mate-aut
+5814 sshd-session
+5390 pipewire
+3458 nsncd
+3255 polkitd
+3171 systemd-timesyn
+2993 bluetoothd
+2783 systemd-logind
+               total        used        free      shared  buff/cache   available
+Mem:           15842        1192       14006          72         999       14649
+ 23:25:40  up   0:01,  0 users,  load average: 0.30, 0.14, 0.05
+--sample 2 done--
+PSS_TOTAL_KB=853944
+455540 electron
+93917 niri
+81157 dockerd
+44834 containerd
+39740 .xdg-desktop-po
+17378 wireplumber
+12247 systemd
+11934 greetd
+10742 NetworkManager
+10525 systemd-journal
+6861 systemd-udevd
+6294 wpa_supplicant
+5938 polkit-mate-aut
+5814 sshd-session
+5390 pipewire
+3462 nsncd
+3254 polkitd
+3171 systemd-timesyn
+2993 bluetoothd
+2783 systemd-logind
+               total        used        free      shared  buff/cache   available
+Mem:           15842        1199       14000          72         999       14642
+ 23:26:02  up   0:01,  0 users,  load average: 0.22, 0.13, 0.05
+--sample 3 done--
+--- spawnbench n=10 ---
+{"meta": true, "socket": "/run/user/1000/niri.wayland-1.1565.sock", "n": 10, "apps": ["kitty", "fuzzel"], "os": "ANSI_COLOR=\"0;38;2;126;186;228\"", "load1_start": 0.22}
+{"app": "kitty", "run": 0, "ms": 257.5, "load1": 0.22, "cold": true}
+kitty: run 0 teardown failed — dirty state, aborting

@@ -1,0 +1,310 @@
+{
+    "app_config": {
+        "bluetooth_config": {
+            "enabled": true
+        }
+    },
+    "archinstall_language": "English",
+    "auth_config": {},
+    "bootloader_config": {
+        "bootloader": "Limine",
+        "plymouth": "text",
+        "removable": false,
+        "uki": false
+    },
+    "custom_commands": [],
+    "disk_config": {
+        "btrfs_options": {
+            "snapshot_config": null
+        },
+        "config_type": "manual_partitioning",
+        "device_modifications": [
+            {
+                "device": "/dev/nvme0n1",
+                "partitions": [
+                    {
+                        "btrfs": [],
+                        "dev_path": "/dev/nvme0n1p1",
+                        "flags": [
+                            "boot",
+                            "esp"
+                        ],
+                        "fs_type": "fat32",
+                        "mount_options": [],
+                        "mountpoint": "/boot",
+                        "obj_id": "4ec83b5c-6b2e-4d23-b7ce-007a330c800d",
+                        "size": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "B",
+                            "value": 2147483648
+                        },
+                        "start": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "sectors",
+                            "value": 2048
+                        },
+                        "status": "existing",
+                        "type": "primary"
+                    },
+                    {
+                        "btrfs": [],
+                        "dev_path": "/dev/nvme0n1p2",
+                        "flags": [],
+                        "fs_type": null,
+                        "mount_options": [],
+                        "mountpoint": null,
+                        "obj_id": "92f7be1f-6473-480c-b8db-28bd4dffa581",
+                        "size": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "B",
+                            "value": 16777216
+                        },
+                        "start": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "sectors",
+                            "value": 4196352
+                        },
+                        "status": "existing",
+                        "type": "primary"
+                    },
+                    {
+                        "btrfs": [],
+                        "dev_path": "/dev/nvme0n1p3",
+                        "flags": [],
+                        "fs_type": "ntfs",
+                        "mount_options": [],
+                        "mountpoint": null,
+                        "obj_id": "5c44573f-2b9e-44c6-b7db-d9c94f914b03",
+                        "size": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "B",
+                            "value": 102529761280
+                        },
+                        "start": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "sectors",
+                            "value": 4229120
+                        },
+                        "status": "existing",
+                        "type": "primary"
+                    },
+                    {
+                        "btrfs": [
+                            {
+                                "mountpoint": "/",
+                                "name": "@"
+                            },
+                            {
+                                "mountpoint": "/home",
+                                "name": "@home"
+                            },
+                            {
+                                "mountpoint": "/.snapshots",
+                                "name": "@snapshots"
+                            },
+                            {
+                                "mountpoint": "/var/log",
+                                "name": "@log"
+                            },
+                            {
+                                "mountpoint": "/var/cache",
+                                "name": "@cache"
+                            },
+                            {
+                                "mountpoint": "/var/tmp",
+                                "name": "@tmp"
+                            }
+                        ],
+                        "dev_path": "/dev/nvme0n1p5",
+                        "flags": [],
+                        "fs_type": "btrfs",
+                        "mount_options": [],
+                        "mountpoint": null,
+                        "obj_id": "620a46ff-7a35-41d6-9e6c-ae4e031ae52a",
+                        "size": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "B",
+                            "value": 406643015680
+                        },
+                        "start": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "sectors",
+                            "value": 204482560
+                        },
+                        "status": "modify",
+                        "type": "primary"
+                    },
+                    {
+                        "btrfs": [],
+                        "dev_path": "/dev/nvme0n1p4",
+                        "flags": [],
+                        "fs_type": "ntfs",
+                        "mount_options": [],
+                        "mountpoint": null,
+                        "obj_id": "1e351b0f-a99e-4632-a0f6-57cf17904e2c",
+                        "size": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "B",
+                            "value": 770703360
+                        },
+                        "start": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "sectors",
+                            "value": 998707200
+                        },
+                        "status": "existing",
+                        "type": "primary"
+                    }
+                ],
+                "wipe": false
+            }
+        ],
+        "disk_encryption": {
+            "encryption_type": "luks",
+            "lvm_volumes": [],
+            "partitions": [
+                "620a46ff-7a35-41d6-9e6c-ae4e031ae52a"
+            ]
+        }
+    },
+    "hostname": "arch-bunny",
+    "kernels": [
+        "linux"
+    ],
+    "locale_config": {
+        "console_font": "default8x16",
+        "kb_layout": "us",
+        "sys_enc": "UTF-8",
+        "sys_lang": "en_US.UTF-8"
+    },
+    "network_config": {
+        "type": "nm"
+    },
+    "ntp": true,
+    "packages": [
+        "adwaita-cursors",
+        "base-devel",
+        "bash",
+        "bitwarden",
+        "bluetui",
+        "bluez",
+        "bluez-utils",
+        "brightnessctl",
+        "btop",
+        "btrfs-progs",
+        "chromium",
+        "cliphist",
+        "direnv",
+        "docker",
+        "docker-compose",
+        "efibootmgr",
+        "fd",
+        "fuzzel",
+        "git",
+        "github-cli",
+        "grim",
+        "imagemagick",
+        "imv",
+        "kitty",
+        "lazydocker",
+        "lazygit",
+        "less",
+        "libnotify",
+        "limine",
+        "linux",
+        "linux-firmware-atheros",
+        "linux-firmware-broadcom",
+        "linux-firmware-intel",
+        "linux-firmware-mediatek",
+        "linux-firmware-other",
+        "linux-firmware-realtek",
+        "linux-firmware-whence",
+        "mako",
+        "man-db",
+        "mate-polkit",
+        "mesa",
+        "mpv",
+        "nautilus",
+        "neovim",
+        "networkmanager",
+        "nftables",
+        "niri",
+        "nodejs",
+        "npm",
+        "openssh",
+        "openvpn",
+        "pipewire-audio",
+        "pipewire-jack",
+        "pipewire-pulse",
+        "playerctl",
+        "plymouth",
+        "polkit",
+        "python-pynvim",
+        "realtime-privileges",
+        "ripgrep",
+        "satty",
+        "signal-desktop",
+        "slurp",
+        "snap-pac",
+        "snapper",
+        "spotify-launcher",
+        "swaybg",
+        "swayidle",
+        "swaylock",
+        "texlive-basic",
+        "texlive-binextra",
+        "texlive-latex",
+        "uv",
+        "waybar",
+        "wireplumber",
+        "wl-clipboard",
+        "xdg-desktop-portal-gnome",
+        "zram-generator"
+    ],
+    "pacman_config": {
+        "color": true,
+        "parallel_downloads": 5
+    },
+    "script": null,
+    "services": [
+        "docker.socket",
+        "nftables.service",
+        "systemd-oomd.service"
+    ],
+    "swap": {
+        "algorithm": "zstd",
+        "enabled": true
+    },
+    "timezone": "US/Eastern",
+    "version": "4.4"
+}

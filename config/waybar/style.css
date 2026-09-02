@@ -1,0 +1,26 @@
+/* Bunny waybar styling. Almost empty on purpose: `CHOICES.md palette` (C10) has
+ * every colour coming from one shared source, and that templater does not exist
+ * yet, so this file is its input rather than the finished article. #0f0f0f is
+ * already decided (`CHOICES.md wallpaper`), so the bar disappears into the
+ * background instead of drawing a second black across the top of the screen.
+ *
+ * Loading this replaces waybar's shipped theme rather than layering on it, so
+ * everything not stated here falls back to GTK defaults. */
+
+* {
+  font-family: "Fragment Mono", monospace;
+  font-size: 13px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+}
+
+window#waybar {
+  background: #0f0f0f;
+  color: #d0d0d0;
+}
+
+#clock,
+#custom-weather {
+  padding: 0 6px;
+}

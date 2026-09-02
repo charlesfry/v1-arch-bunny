@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# Warn when the disk is filling. CHOICES.md `disk-alert`.
+#
+# One `df` is the whole design. Every byte this repo worries about lives in the
+# same btrfs pool as `/` — Docker images in `@containerd`, volumes in
+# `@dockervol`, snapshots in `@snapshots`, the package cache in `@pkg`. They are
+# separate mounts, not separate filesystems: `df -B1` reports identical used and
+# size bytes for all of them. So one number already sees everything, and a
+# per-subvolume meter is a second way of learning what this line has just been
+# told.
+#
+# The three-meter version watched the Docker qgroup caps and snapper's
+# SPACE_LIMIT budget. Open question 26 deleted the caps — a qgroup limit denied an
+# fs-verity rollback and forced the whole filesystem read-only (benchmarks/4.27) —
+# and with them went what two of the three meters measured against. It also
+# deleted the read-only root helper and its NOPASSWD sudoers entry, which is the
+# part worth noticing: the simplification removed a custom root binary from the
+# machine.
+#
+# Usage: disk-usage-alert        DISK_THRESHOLD=n overrides the 80% default.
+set -Eeuo pipefail
+
+pct=$(df --output=pcent / | tr -dc 0-9)
+((${pct:-0} >= ${DISK_THRESHOLD:-80})) || exit 0
+
+# `-t 0` so it stays until dismissed: a disk warning that times out while you are
+# away is a warning that did not happen.
+notify-send -u critical -a disk-monitor -i drive-harddisk -t 0 \
+	"⚠️  Disk at ${pct}%" \
+	"$(df -h / | awk 'NR==2 {print $3" used, "$4" free"}')
+Usual suspects: lazydocker · snapper list · /var/cache/pacman/pkg"

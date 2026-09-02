@@ -1,0 +1,103 @@
+{"boot": "A", "marker": true}
+BOOTID cdfae9f6-ca13-4d10-ba64-75abea9ffccc UPTIME 80.03s POWER_AC=1
+ANSI_COLOR="0;38;2;126;186;228"
+BUG_REPORT_URL="https://github.com/NixOS/nixpkgs/issues"
+6.18.44
+595.71.05
+{"meta": true, "socket": "/run/user/1000/niri.wayland-1.1493.sock", "n": 5, "apps": ["kitty", "kitty-mesa-nixos", "kitty", "kitty-mesa-nixos", "fuzzel"], "os": "ANSI_COLOR=\"0;38;2;126;186;228\"", "load1_start": 0.29}
+{"app": "kitty", "run": 0, "ms": 255.0, "load1": 0.29, "cold": true}
+{"app": "kitty", "run": 1, "ms": 159.5, "load1": 0.29, "cold": false}
+{"app": "kitty", "run": 2, "ms": 157.1, "load1": 0.29, "cold": false}
+{"app": "kitty", "run": 3, "ms": 158.2, "load1": 0.29, "cold": false}
+{"app": "kitty", "run": 4, "ms": 154.9, "load1": 0.29, "cold": false}
+{"app": "kitty", "summary": true, "n": 5, "cold_ms": 255.0, "warm_min": 154.9, "warm_median": 158.2, "warm_max": 159.5}
+{"app": "kitty-mesa-nixos", "run": 0, "ms": 150.4, "load1": 0.29, "cold": true}
+{"app": "kitty-mesa-nixos", "run": 1, "ms": 145.8, "load1": 0.29, "cold": false}
+{"app": "kitty-mesa-nixos", "run": 2, "ms": 144.1, "load1": 0.74, "cold": false}
+{"app": "kitty-mesa-nixos", "run": 3, "ms": 141.8, "load1": 0.74, "cold": false}
+{"app": "kitty-mesa-nixos", "run": 4, "ms": 144.4, "load1": 0.74, "cold": false}
+{"app": "kitty-mesa-nixos", "summary": true, "n": 5, "cold_ms": 150.4, "warm_min": 141.8, "warm_median": 144.4, "warm_max": 145.8}
+{"app": "kitty", "run": 0, "ms": 155.1, "load1": 0.74, "cold": true}
+{"app": "kitty", "run": 1, "ms": 154.2, "load1": 0.74, "cold": false}
+{"app": "kitty", "run": 2, "ms": 151.5, "load1": 0.74, "cold": false}
+{"app": "kitty", "run": 3, "ms": 173.8, "load1": 0.74, "cold": false}
+{"app": "kitty", "run": 4, "ms": 155.5, "load1": 0.92, "cold": false}
+{"app": "kitty", "summary": true, "n": 5, "cold_ms": 155.1, "warm_min": 151.5, "warm_median": 155.5, "warm_max": 173.8}
+{"app": "kitty-mesa-nixos", "run": 0, "ms": 145.3, "load1": 0.92, "cold": true}
+{"app": "kitty-mesa-nixos", "run": 1, "ms": 141.7, "load1": 0.92, "cold": false}
+{"app": "kitty-mesa-nixos", "run": 2, "ms": 141.9, "load1": 0.92, "cold": false}
+{"app": "kitty-mesa-nixos", "run": 3, "ms": 144.9, "load1": 0.92, "cold": false}
+{"app": "kitty-mesa-nixos", "run": 4, "ms": 144.7, "load1": 0.92, "cold": false}
+{"app": "kitty-mesa-nixos", "summary": true, "n": 5, "cold_ms": 145.3, "warm_min": 141.7, "warm_median": 144.7, "warm_max": 144.9}
+{"app": "fuzzel", "run": 0, "ms": 34.5, "load1": 0.92, "cold": true}
+{"app": "fuzzel", "run": 1, "ms": 21.7, "load1": 0.85, "cold": false}
+{"app": "fuzzel", "run": 2, "ms": 21.8, "load1": 0.85, "cold": false}
+{"app": "fuzzel", "run": 3, "ms": 22.1, "load1": 0.85, "cold": false}
+{"app": "fuzzel", "run": 4, "ms": 21.2, "load1": 0.85, "cold": false}
+{"app": "fuzzel", "summary": true, "n": 5, "cold_ms": 34.5, "warm_min": 21.2, "warm_median": 21.8, "warm_max": 22.1}
+PROBE default pid=2859 comm= nvidia_maps=
+PROBE mesa pid=2911 comm= nvidia_maps=
+PROBE fuzzel pid=2932 egl_nvidia_maps=0
+{"boot": "B", "marker": true}
+BOOTID c3784973-7da2-4231-baf3-8f172930f8bd UPTIME 79.74s POWER_AC=1
+ANSI_COLOR="0;38;2;126;186;228"
+BUG_REPORT_URL="https://github.com/NixOS/nixpkgs/issues"
+6.18.44
+595.71.05
+{"meta": true, "socket": "/run/user/1000/niri.wayland-1.1486.sock", "n": 5, "apps": ["kitty-mesa-nixos", "kitty", "kitty-mesa-nixos", "kitty", "fuzzel"], "os": "ANSI_COLOR=\"0;38;2;126;186;228\"", "load1_start": 0.3}
+{"app": "kitty-mesa-nixos", "run": 0, "ms": 232.2, "load1": 0.3, "cold": true}
+{"app": "kitty-mesa-nixos", "run": 1, "ms": 144.2, "load1": 0.3, "cold": false}
+{"app": "kitty-mesa-nixos", "run": 2, "ms": 143.0, "load1": 0.3, "cold": false}
+{"app": "kitty-mesa-nixos", "run": 3, "ms": 142.8, "load1": 0.3, "cold": false}
+{"app": "kitty-mesa-nixos", "run": 4, "ms": 142.6, "load1": 0.3, "cold": false}
+{"app": "kitty-mesa-nixos", "summary": true, "n": 5, "cold_ms": 232.2, "warm_min": 142.6, "warm_median": 143.0, "warm_max": 144.2}
+{"app": "kitty", "run": 0, "ms": 152.6, "load1": 0.3, "cold": true}
+{"app": "kitty", "run": 1, "ms": 153.4, "load1": 0.3, "cold": false}
+{"app": "kitty", "run": 2, "ms": 155.1, "load1": 0.27, "cold": false}
+{"app": "kitty", "run": 3, "ms": 153.2, "load1": 0.27, "cold": false}
+{"app": "kitty", "run": 4, "ms": 154.0, "load1": 0.27, "cold": false}
+{"app": "kitty", "summary": true, "n": 5, "cold_ms": 152.6, "warm_min": 153.2, "warm_median": 154.0, "warm_max": 155.1}
+{"app": "kitty-mesa-nixos", "run": 0, "ms": 142.1, "load1": 0.27, "cold": true}
+{"app": "kitty-mesa-nixos", "run": 1, "ms": 153.9, "load1": 0.27, "cold": false}
+{"app": "kitty-mesa-nixos", "run": 2, "ms": 143.6, "load1": 0.27, "cold": false}
+{"app": "kitty-mesa-nixos", "run": 3, "ms": 162.2, "load1": 0.27, "cold": false}
+{"app": "kitty-mesa-nixos", "run": 4, "ms": 144.8, "load1": 0.25, "cold": false}
+{"app": "kitty-mesa-nixos", "summary": true, "n": 5, "cold_ms": 142.1, "warm_min": 143.6, "warm_median": 153.9, "warm_max": 162.2}
+{"app": "kitty", "run": 0, "ms": 153.4, "load1": 0.25, "cold": true}
+{"app": "kitty", "run": 1, "ms": 154.0, "load1": 0.25, "cold": false}
+{"app": "kitty", "run": 2, "ms": 157.0, "load1": 0.25, "cold": false}
+{"app": "kitty", "run": 3, "ms": 154.8, "load1": 0.25, "cold": false}
+{"app": "kitty", "run": 4, "ms": 153.7, "load1": 0.25, "cold": false}
+{"app": "kitty", "summary": true, "n": 5, "cold_ms": 153.4, "warm_min": 153.7, "warm_median": 154.8, "warm_max": 157.0}
+{"app": "fuzzel", "run": 0, "ms": 34.9, "load1": 0.25, "cold": true}
+{"app": "fuzzel", "run": 1, "ms": 21.8, "load1": 0.23, "cold": false}
+{"app": "fuzzel", "run": 2, "ms": 20.9, "load1": 0.23, "cold": false}
+{"app": "fuzzel", "run": 3, "ms": 21.9, "load1": 0.23, "cold": false}
+{"app": "fuzzel", "run": 4, "ms": 25.6, "load1": 0.23, "cold": false}
+{"app": "fuzzel", "summary": true, "n": 5, "cold_ms": 34.9, "warm_min": 20.9, "warm_median": 21.9, "warm_max": 25.6}
+PROBE default pid=2843 comm= nvidia_maps=
+PROBE mesa pid=2896 comm= nvidia_maps=
+PROBE fuzzel pid=2917 egl_nvidia_maps=0
+PROBE-FIX default pid=2864 comm=.kitty-wrapped nvidia_maps=0
+PROBE-FIX mesa pid=2958 comm=.kitty-wrapped nvidia_maps=51
+PROBE-FIX mesa lib: libEGL_nvidia.so.595.71.05
+PROBE-FIX mesa lib: libnvidia-eglcore.so.595.71.05
+PROBE-FIX mesa lib: libnvidia-egl-gbm.so.1.1.3
+PROBE-FIX mesa lib: libnvidia-egl-wayland2.so.1.0.1
+PROBE-FIX mesa lib: libnvidia-egl-wayland.so.1.1.21
+PROBE-FIX mesa lib: libnvidia-egl-xcb.so.1.0.5
+PROBE-FIX mesa lib: libnvidia-egl-xlib.so.1.0.5
+PROBE-FIX mesa lib: libnvidia-glsi.so.595.71.05
+PROBE-FIX mesa lib: libnvidia-gpucomp.so.595.71.05
+P1 niri session env:
+LD_LIBRARY_PATH=/run/current-system/sw/share/nix-ld/lib:/run/opengl-driver/lib
+NIX_LD_LIBRARY_PATH=/run/current-system/sw/share/nix-ld/lib
+P default1 pid=2812 maps@0.9s=51 maps@4s=51 egl_pin_in_environ=0
+P pinned1 pid=3009 maps@0.9s=0 maps@4s=0 egl_pin_in_environ=1
+P pinned2 pid=3163 maps@0.9s=0 maps@4s=0 egl_pin_in_environ=1
+P default2 pid=3209 maps@0.9s=51 maps@4s=51 egl_pin_in_environ=0
+PROBE-C wallclock=2026-08-24T10:16:39-04:00 bootid=ca33a069-8dfb-4ef6-b47c-2373fc141b3f uptime=50.44s
+PROBE-C journal-head: 2026-08-24T10:15:50-04:00 bunne-test kernel: Linux version 6.18.44 (nixbld@localhost) (gcc (GCC) 15.2.0, GNU ld (GNU Binutils) 2.46) #1-NixOS SMP PREEMPT_DYNAMIC Sun Aug  9 18:25:30 UTC 2026
+PROBE-C preexisting_kitty_windows=[none]
+PROBE-C default wallclock=2026-08-24T10:16:42-04:00 pid=1981 comm=.kitty-wrapped single_window=yes egl_pin_in_environ=0 nvidia_maps=51
+PROBE-C pinned wallclock=2026-08-24T10:16:45-04:00 pid=2031 comm=.kitty-wrapped single_window=yes egl_pin_in_environ=1 nvidia_maps=0

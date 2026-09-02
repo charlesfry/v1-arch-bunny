@@ -1,0 +1,4 @@
+# /etc/sudoers.d/disk-usage-alert — lets the user timer read qgroup usage.
+# The helper is read-only root (btrfs qgroup show + snapper list); nothing
+# here grants write access to anything. Installer substitutes the username.
+bunne ALL=(root) NOPASSWD: /usr/local/sbin/disk-qgroup-usage

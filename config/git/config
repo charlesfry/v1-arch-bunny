@@ -1,0 +1,30 @@
+; Deviations from git's own defaults only. `CHOICES.md`, `git-config`.
+; Identity (user.name/user.email) and credential helpers are deliberately NOT
+; here -- personal, and `install.sh` never writes them. Set your own with
+; `git config --global user.name "..."`.
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
+[push]
+	autoSetupRemote = true
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+[commit]
+	verbose = true
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[tag]
+	sort = -version:refname
+[rerere]
+	enabled = true
+	autoUpdate = true
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status

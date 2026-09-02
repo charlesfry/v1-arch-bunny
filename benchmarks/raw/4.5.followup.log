@@ -1,0 +1,38 @@
+# Provenance: verbatim reconstruction from the session's SSH command outputs
+# (the follow-up commands after instruments/4.5.docker-quota.sh ran; they were
+# not tee'd on the box — same class of gap DA r2 flagged for 4.2, filed here
+# before the 4.5 DA round reported).
+
+== follow-up 1: rescan, then refill until refusal ==
+$ sudo btrfs quota rescan -w /
+== 0/271 after rescan ==
+0/271        256.00KiB    256.00KiB         2.00GiB           none   @/var/lib/containerd
+== refill: 256MiB imports until refusal (limit 2G) ==
+import 1 ok: 537543606
+  qgroup: 256.00KiB of 2.00GiB
+import 2 ok: 1074497354
+  qgroup: 256.00KiB of 2.00GiB
+import 3 ok: 1611451099
+  qgroup: 645.10MiB of 2.00GiB
+IMPORT 4 REFUSED:
+Error response from daemon: failed to unpack image: apply layer error for "docker.io/library/quotafill2-4:latest": failed to extract layer sha256:0eea34c5f0821b2a39c8fabf289cec27059dacab68e765085d853221d7fce4e7: mount callback failed on /var/lib/containerd/tmpmounts/containerd-mount1233602386: write /var/lib/containerd/tmpmounts/containerd-mount1233602386/blob.bin: disk quota exceeded
+cap_enforced=1
+$ sudo dmesg | grep -i qgroup | tail -3
+[  256.652210] BTRFS warning (device dm-0): qgroup marked inconsistent, qgroup inherit needs a rescan
+[  552.348838] BTRFS info (device dm-0): qgroup scan completed (inconsistency flag cleared)
+
+== follow-up 2: wedge at the cap, then recovery ==
+$ sudo docker image ls ... | grep quotafill2 | xargs -r sudo docker image rm -f
+Error response from daemon: write /var/lib/containerd/io.containerd.metadata.v1.bolt/meta.db: disk quota exceeded
+Error response from daemon: write /var/lib/containerd/io.containerd.metadata.v1.bolt/meta.db: disk quota exceeded
+Error response from daemon: write /var/lib/containerd/io.containerd.metadata.v1.bolt/meta.db: disk quota exceeded
+Error response from daemon: write /var/lib/containerd/io.containerd.metadata.v1.bolt/meta.db: disk quota exceeded
+$ sudo btrfs qgroup limit 4G 0/271 /var/lib/containerd && docker image rm ...
+images deleted ok
+$ sudo du -sb /var/lib/containerd    (after full cleanup + prune + rescan)
+527102902	/var/lib/containerd
+$ sudo btrfs qgroup limit 2G 0/271 /var/lib/containerd
+post-recovery import ok
+post-recovery delete ok
+0/271        504.72MiB    504.72MiB         2.00GiB           none   @/var/lib/containerd
+dockerd not resident (docker.service disabled, docker.socket enabled)

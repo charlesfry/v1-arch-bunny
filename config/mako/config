@@ -1,0 +1,4 @@
+# CHOICES.md `notifications`: mako, D-Bus activated, not `systemctl --user
+# enable`d. mako's own man page gives this on-notify=exec pattern, and mpv is
+# already in the package list.
+on-notify=exec mpv --no-terminal --really-quiet "${XDG_DATA_HOME:-$HOME/.local/share}/arch-bunny/assets/sounds/notify.mp3"

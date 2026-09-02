@@ -1,0 +1,42 @@
+=== boot battery: nixos-boot2 2026-08-23T23:21:01-04:00 ===
+--- settle: waiting until 60s of uptime ---
+ 23:21:38  up   0:00,  0 users,  load average: 0.46, 0.17, 0.06
+--- systemd-analyze ---
+Startup finished in 4.860s (firmware) + 6.111s (loader) + 811ms (kernel) + 6.026s (initrd) + 6.611s (userspace) = 24.422s 
+graphical.target reached after 6.611s in userspace.
+The time when unit became active or started is printed after the "@" character.
+The time the unit took to start is printed after the "+" character.
+
+graphical.target @6.611s
+└─multi-user.target @6.610s
+  └─docker.service @4.395s +2.214s
+    └─network-online.target @4.393s
+      └─network.target @4.391s
+        └─NetworkManager.service @3.610s +779ms
+          └─network-pre.target @3.608s
+            └─resolvconf.service @3.534s +72ms
+              └─basic.target @3.515s
+                └─dbus-broker.service @3.442s +53ms
+                  └─dbus.socket @3.433s +44us
+                    └─sysinit.target @3.432s
+                      └─systemd-sysctl.service @3.395s +36ms
+                        └─systemd-modules-load.service @1.135s +2.258s
+                          └─systemd-journald.socket
+                            └─system.slice
+                              └─-.slice
+--- blame top 15 ---
+6.745s sys-devices-LNXSYSTM:00-LNXSYBUS:00-MSFT0101:00-tpmrm-tpmrm0.device
+6.745s dev-tpmrm0.device
+6.736s dev-tpm0.device
+6.736s sys-devices-LNXSYSTM:00-LNXSYBUS:00-MSFT0101:00-tpm-tpm0.device
+6.734s dev-disk-by\x2dpath-pci\x2d0000:02:00.0\x2dnvme\x2d1\x2dpart-by\x2dlabel-ARCH_ESP.device
+6.734s dev-disk-by\x2dpath-pci\x2d0000:02:00.0\x2dnvme\x2d1\x2dpart-by\x2dpartnum-5.device
+6.734s dev-disk-by\x2did-nvme\x2dINTEL_SSDPEKNW512G8_BTNH925417B0512A_1\x2dpart5.device
+6.734s dev-disk-by\x2ddiskseq-1\x2dpart5.device
+6.734s dev-disk-by\x2dlabel-ARCH_ESP.device
+6.734s dev-disk-by\x2dpartuuid-3e2f5894\x2d1614\x2d4e49\x2dbc1e\x2d7db628ef426b.device
+6.734s dev-disk-by\x2dpath-pci\x2d0000:02:00.0\x2dnvme\x2d1\x2dpart-by\x2dpartlabel-arch\x2desp.device
+6.734s sys-devices-pci0000:00-0000:00:1d.0-0000:02:00.0-nvme-nvme0-nvme0n1-nvme0n1p5.device
+6.734s dev-disk-by\x2dpartlabel-arch\x2desp.device
+6.734s dev-disk-by\x2dpath-pci\x2d0000:02:00.0\x2dnvme\x2d1\x2dpart5.device
+6.734s dev-disk-by\x2did-nvme\x2deui.0000000001000000e4d25c788eb35001\x2dpart5.device

@@ -1,0 +1,9 @@
+{"label": "kitty-mainline", "kernel": "7.1.9-arch1-2", "n": 50, "min_ms": 3.502, "median_ms": 3.634, "p90_ms": 3.676, "max_ms": 3.707, "load1": 0.25}
+{"label": "foot-mainline", "kernel": "7.1.9-arch1-2", "n": 50, "min_ms": 0.201, "median_ms": 0.332, "p90_ms": 0.359, "max_ms": 0.375, "load1": 0.25}
+{"label": "alacritty-mainline", "kernel": "7.1.9-arch1-2", "n": 50, "min_ms": 0.252, "median_ms": 0.505, "p90_ms": 0.576, "max_ms": 0.623, "load1": 0.25}
+{"label": "ghostty-mainline", "kernel": "7.1.9-arch1-2", "n": 50, "min_ms": 0.226, "median_ms": 0.438, "p90_ms": 0.477, "max_ms": 0.494, "load1": 0.25}
+{"label": "kitty-delay0", "kernel": "7.1.9-arch1-2", "n": 50, "min_ms": 0.293, "median_ms": 0.53, "p90_ms": 0.585, "max_ms": 4.295, "load1": 0.16}
+{"label": "kitty-delay1", "kernel": "7.1.9-arch1-2", "n": 50, "min_ms": 1.321, "median_ms": 1.588, "p90_ms": 1.636, "max_ms": 4.21, "load1": 0.16}
+{"label": "kitty-zen", "kernel": "7.1.9-zen1-2-zen", "n": 50, "min_ms": 3.152, "median_ms": 3.294, "p90_ms": 3.64, "max_ms": 3.704, "load1": 0.27}
+{"label": "foot-zen", "kernel": "7.1.9-zen1-2-zen", "n": 50, "min_ms": 0.157, "median_ms": 0.318, "p90_ms": 0.352, "max_ms": 0.412, "load1": 0.41}
+{"label": "kitty-delay0-zen", "kernel": "7.1.9-zen1-2-zen", "n": 50, "min_ms": 0.222, "median_ms": 0.52, "p90_ms": 0.561, "max_ms": 3.878, "load1": 0.41}

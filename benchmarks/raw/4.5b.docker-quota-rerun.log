@@ -1,0 +1,64 @@
+
+== state now (post 4.5 + recovery): consistency + 0/271 ==
+0/271        504.75MiB    504.75MiB         2.00GiB           none   @/var/lib/containerd
+[  606.840322] BTRFS info (device dm-0): qgroup scan completed (inconsistency flag cleared)
+[  671.584507] BTRFS info (device dm-0): qgroup scan completed (inconsistency flag cleared)
+
+== TRAP-7 TEST: snapper snapshot, then is the cap still armed? ==
+created snapshot #18
+[  606.840322] BTRFS info (device dm-0): qgroup scan completed (inconsistency flag cleared)
+[  671.584507] BTRFS info (device dm-0): qgroup scan completed (inconsistency flag cleared)
+-- import must still be capped: current use + 4x256MiB imports would cross 2G --
+t7 import 1 ok; qgroup: 504.75MiB of 2.00GiB
+t7 import 2 ok; qgroup: 504.75MiB of 2.00GiB
+t7 import 3 REFUSED: Error response from daemon: failed to unpack image: apply layer error for "docker.io/library/t7-3:latest": failed to extract layer sha256:e0
+trap7_cap_still_armed=1 (after 2 imports)
+
+== docker-path recovery round 2, fully logged ==
+Error response from daemon: write /var/lib/containerd/io.containerd.metadata.v1.bolt/meta.db: disk quota exceeded
+Error response from daemon: write /var/lib/containerd/io.containerd.metadata.v1.bolt/meta.db: disk quota exceeded
+-- if deletes were refused (wedge), bump-clean-relimit: --
+Untagged: t7-3:latest
+Deleted: sha256:678e3976f6ae9b602611b9ed6bfd3b17e52d0b53f6133ac879b8ca03f670091b
+Untagged: t7-2:latest
+Deleted: sha256:149b0d2743ce125667b01f48330f5fe032d1cdd708c29b19deb99caec718dd04
+Untagged: t7-1:latest
+Deleted: sha256:aec493624ecbe38fd51be3d57c9aec3361a58e4a5046421674cf20ba1e56ac67
+wedge recovery: deletes ok at 4G
+relimited to 2G
+
+== post-recovery consistency + health (import AND delete under the cap) ==
+0/271       1019.13MiB   1019.13MiB         2.00GiB           none   @/var/lib/containerd
+[  671.584507] BTRFS info (device dm-0): qgroup scan completed (inconsistency flag cleared)
+[ 1250.249026] BTRFS info (device dm-0): qgroup scan completed (inconsistency flag cleared)
+post-recovery import ok
+post-recovery delete ok
+
+== PRODUCTION RECIPE on FRESH subvolumes (no migration), n=2 ==
+Create subvolume '/root/quota-recipe-test-1'
+quota rescan started
+-- fresh subvol /root/quota-recipe-test-1 (0/274), limit 512M; consistency: --
+[ 1250.249026] BTRFS info (device dm-0): qgroup scan completed (inconsistency flag cleared)
+[ 1254.213513] BTRFS info (device dm-0): qgroup scan completed (inconsistency flag cleared)
+write 1 ok; qgroup: 16.00KiB of 512.00MiB
+write 2 ok; qgroup: 16.00KiB of 512.00MiB
+write 3 ok; qgroup: 16.00KiB of 512.00MiB
+write 4 REFUSED: dd: error writing '/root/quota-recipe-test-1/f4': Disk quota exceeded
+recipe_test_1_cap_enforced=1
+Create subvolume '/root/quota-recipe-test-2'
+quota rescan started
+-- fresh subvol /root/quota-recipe-test-2 (0/275), limit 512M; consistency: --
+[ 1254.213513] BTRFS info (device dm-0): qgroup scan completed (inconsistency flag cleared)
+[ 1256.880412] BTRFS info (device dm-0): qgroup scan completed (inconsistency flag cleared)
+write 1 ok; qgroup: 16.00KiB of 512.00MiB
+write 2 ok; qgroup: 16.00KiB of 512.00MiB
+write 3 ok; qgroup: 16.00KiB of 512.00MiB
+write 4 REFUSED: dd: error writing '/root/quota-recipe-test-2/f4': Disk quota exceeded
+recipe_test_2_cap_enforced=1
+
+== final state ==
+0/271       1019.15MiB   1019.15MiB         2.00GiB           none   @/var/lib/containerd
+[ 1256.880412] BTRFS info (device dm-0): qgroup scan completed (inconsistency flag cleared)
+[ 1259.580007] BTRFS info (device dm-0): qgroup scan completed (inconsistency flag cleared)
+1064015684	/var/lib/containerd
+=== 4.5b complete ===

@@ -1,0 +1,62 @@
+=== context 2026-08-24T23:49:54-04:00
+               total        used        free      shared  buff/cache   available
+Mem:           15832        1031        7535          44        7613       14800
+Swap:           7915           0        7915
+PSI present: yes
+--- config drop-ins + enable oomd
+Created symlink '/etc/systemd/system/dbus-org.freedesktop.oom1.service' → '/usr/lib/systemd/system/systemd-oomd.service'.
+Created symlink '/etc/systemd/system/multi-user.target.wants/systemd-oomd.service' → '/usr/lib/systemd/system/systemd-oomd.service'.
+Created symlink '/etc/systemd/system/sockets.target.wants/systemd-oomd.socket' → '/usr/lib/systemd/system/systemd-oomd.socket'.
+Dry Run: no
+Swap Used Limit: 90.00%
+Default Memory Pressure Limit: 60.00%
+Default Memory Pressure Duration: 30s
+System Context:
+	Memory: Used: 1G, Total: 15.4G
+	Swap: Used: 0B, Total: 7.7G
+Swap Monitored CGroups:
+	Path: /
+		Swap Usage: (see System Context)
+	Path: /user.slice/user-1000.slice/user@1000.service
+		Swap Usage: 0B
+Memory Pressure Monitored CGroups:
+	Path: /user.slice/user-1000.slice/user@1000.service
+		Memory Pressure Limit: 60.00%
+		Memory Pressure Duration: 30s
+		Pressure: Avg10: 0.00, Avg60: 0.00, Avg300: 0.00, Total: 0
+		Current Memory Usage: 679.8M
+		Memory Min: 0B
+		Memory Low: 0B
+		Pgscan: 0
+		Last Pgscan: 0
+--- launch hog (256 MiB urandom chunks, 0.4 s apart, 300 s hard cap)
+Running as unit: t-memhog.service; invocation ID: 556335bf94224efeaf21f226c174e98d
+--- watch: hog unit state + swap, every 5 s (responsiveness probe = this loop itself)
+t+5s swap=0/7915 MiB hog=active
+t+10s swap=0/7915 MiB hog=active
+t+15s swap=0/7915 MiB hog=active
+t+20s swap=0/7915 MiB hog=active
+t+25s swap=0/7915 MiB hog=active
+t+30s swap=0/7915 MiB hog=active
+t+35s swap=0/7915 MiB hog=active
+t+40s swap=472/7915 MiB hog=active
+t+45s swap=3860/7915 MiB hog=active
+t+51s swap=7493/7915 MiB hog=active
+t+56s swap=15/7915 MiB hog=inactive
+hog ended: Result=success at t+56s
+--- evidence
+Aug 24 23:50:47 arch-bunny systemd-oomd[3391]:                 Swap Usage: 7G
+Aug 24 23:50:47 arch-bunny systemd-oomd[3391]: Marked /user.slice/user-1000.slice/user@1000.service/app.slice/t-memhog.service for killing due to memory used (16306774016) / total (16601522176) and swap used (7517941760) / total (8300523520) being more than 90.00%
+Aug 24 23:50:47 arch-bunny systemd-oomd[3391]: Considered 64 cgroups for killing, top candidates were:
+Aug 24 23:50:47 arch-bunny systemd-oomd[3391]:         Path: /user.slice/user-1000.slice/user@1000.service/app.slice/t-memhog.service
+Aug 24 23:50:47 arch-bunny systemd-oomd[3391]:                 Swap Usage: 7.3G
+Aug 24 23:50:47 arch-bunny systemd-oomd[3391]: Marked /user.slice/user-1000.slice/user@1000.service/app.slice/t-memhog.service for killing due to memory used (16307449856) / total (16601522176) and swap used (7857238016) / total (8300523520) being more than 90.00%
+Aug 24 23:50:47 arch-bunny systemd[881]: t-memhog.service: systemd-oomd killed 2 process(es) in this unit.
+Aug 24 23:50:47 arch-bunny systemd[881]: t-memhog.service: Main process exited, code=killed, status=9/KILL
+Aug 24 23:50:47 arch-bunny systemd[881]: t-memhog.service: Failed with result 'oom-kill'.
+Aug 24 23:50:47 arch-bunny systemd[881]: t-memhog.service: Consumed 26.936s CPU time over 51.532s wall clock time, 13.7G memory peak, 7.3G memory swap peak.
+               total        used        free      shared  buff/cache   available
+Mem:           15832         891       14741          26         505       14941
+Swap:           7915          14        7901
+VERDICT: success (oom-kill = systemd-oomd did it; timeout = mechanism did nothing; exit-code/killed = inspect)
+DONE 2026-08-24T23:50:52-04:00

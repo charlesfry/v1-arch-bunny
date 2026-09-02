@@ -1,0 +1,42 @@
+=== boot battery: nixos-boot3 2026-08-23T23:22:21-04:00 ===
+--- settle: waiting until 60s of uptime ---
+ 23:22:58  up   0:00,  0 users,  load average: 0.37, 0.15, 0.05
+--- systemd-analyze ---
+Startup finished in 4.869s (firmware) + 6.090s (loader) + 817ms (kernel) + 6.323s (initrd) + 6.197s (userspace) = 24.298s 
+graphical.target reached after 6.196s in userspace.
+The time when unit became active or started is printed after the "@" character.
+The time the unit took to start is printed after the "+" character.
+
+graphical.target @6.196s
+└─multi-user.target @6.196s
+  └─docker.service @4.248s +1.947s
+    └─network-online.target @4.242s
+      └─network.target @4.240s
+        └─NetworkManager.service @3.491s +746ms
+          └─network-pre.target @3.490s
+            └─resolvconf.service @3.414s +71ms
+              └─basic.target @3.391s
+                └─dbus-broker.service @3.316s +53ms
+                  └─dbus.socket @3.307s +82us
+                    └─sysinit.target @3.306s
+                      └─systemd-sysctl.service @3.281s +24ms
+                        └─systemd-modules-load.service @1.064s +2.215s
+                          └─systemd-journald.socket
+                            └─system.slice
+                              └─-.slice
+--- blame top 15 ---
+6.984s sys-devices-LNXSYSTM:00-LNXSYBUS:00-MSFT0101:00-tpmrm-tpmrm0.device
+6.984s dev-tpmrm0.device
+6.971s dev-tpm0.device
+6.971s sys-devices-LNXSYSTM:00-LNXSYBUS:00-MSFT0101:00-tpm-tpm0.device
+6.967s dev-ttyS3.device
+6.967s sys-devices-platform-serial8250-serial8250:0-serial8250:0.3-tty-ttyS3.device
+6.965s dev-ttyS1.device
+6.965s sys-devices-platform-serial8250-serial8250:0-serial8250:0.1-tty-ttyS1.device
+6.963s dev-ttyS0.device
+6.963s sys-devices-platform-serial8250-serial8250:0-serial8250:0.0-tty-ttyS0.device
+6.960s dev-ttyS2.device
+6.960s sys-devices-platform-serial8250-serial8250:0-serial8250:0.2-tty-ttyS2.device
+6.627s dev-disk-by\x2dpath-pci\x2d0000:02:00.0\x2dnvme\x2d1\x2dpart6.device
+6.627s dev-disk-by\x2did-nvme\x2dINTEL_SSDPEKNW512G8_BTNH925417B0512A\x2dpart6.device
+6.627s dev-disk-by\x2dpath-pci\x2d0000:02:00.0\x2dnvme\x2d1\x2dpart-by\x2dpartuuid-cf142b3c\x2d63f4\x2d4cfd\x2d8f37\x2db05e9db574db.device

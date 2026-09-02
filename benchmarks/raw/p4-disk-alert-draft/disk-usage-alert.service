@@ -1,0 +1,6 @@
+[Unit]
+Description=Warn when / is filling up
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/systemd/user/disk-usage-alert

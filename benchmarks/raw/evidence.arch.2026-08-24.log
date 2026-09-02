@@ -1,0 +1,20 @@
+=== evidence capture, Arch side, 2026-08-24T00:11:07-04:00 ===
+--- uname -r ---
+7.1.9-arch1-2
+--- systemd-analyze (mainline, limine timeout: 1) ---
+Startup finished in 5.816s (firmware) + 1.260s (loader) + 5.633s (kernel) + 3.652s (userspace) = 16.362s 
+graphical.target reached after 3.651s in userspace.
+--- /boot/limine.conf head ---
+timeout: 1
+
+--- niri.service Started lines, last 5 user-journal boots ---
+boot 0:
+[   10.737509] arch-bunny systemd[863]: Started A scrollable-tiling Wayland compositor.
+boot -1:
+[   10.732926] arch-bunny systemd[865]: Started A scrollable-tiling Wayland compositor.
+boot -2:
+[   10.905046] arch-bunny systemd[855]: Started A scrollable-tiling Wayland compositor.
+boot -3:
+[   11.079526] arch-bunny systemd[869]: Started A scrollable-tiling Wayland compositor.
+boot -4:
+[   10.989991] arch-bunny systemd[859]: Started A scrollable-tiling Wayland compositor.

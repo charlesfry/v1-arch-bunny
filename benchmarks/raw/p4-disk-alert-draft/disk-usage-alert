@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# Warn when the disk is filling. `CHOICES.md disk-alert`.
+#
+# ONE `df`, AND THAT IS THE WHOLE DESIGN. Every byte this repo worries about
+# lives in the SAME btrfs pool as `/` -- Docker images in `@containerd`, volumes
+# in `@dockervol`, snapshots in `@snapshots`, the package cache in `@pkg`. They
+# are separate *mounts*, not separate filesystems. Checked on the box rather
+# than assumed: `df -B1` reports identical used and size bytes for `/`, `/home`,
+# `/var/lib/docker`, `/var/lib/containerd` and `/.snapshots`. So one number
+# already sees all of them, and a per-subvolume meter is a second way of
+# learning something this line has just been told.
+#
+# WHAT THE THREE-METER VERSION WAS FOR, AND WHY IT IS GONE. It watched the
+# Docker qgroup *caps* (100 GiB and 50 GiB) and snapper's `SPACE_LIMIT` budget,
+# warning as each was approached. Open question 26 deleted the caps -- a qgroup
+# limit denied an fs-verity rollback and forced the whole filesystem read-only
+# (`benchmarks/4.27`) -- and with them went the thing two of the three meters
+# were measuring against. What is left to run out of is the filesystem, and that
+# is what `df` reports.
+#
+# That deleted the read-only root helper and its `NOPASSWD` sudoers entry along
+# with them, which is the part worth noticing: the simplification removed a
+# custom root binary from the machine, not just lines from a file.
+#
+# Usage: disk-usage-alert        DISK_THRESHOLD=n overrides the 80% default.
+set -Eeuo pipefail
+
+pct=$(df --output=pcent / | tr -dc 0-9)
+((${pct:-0} >= ${DISK_THRESHOLD:-80})) || exit 0
+
+# `-t 0` so it stays until dismissed: a disk warning that times out while you
+# are away is a warning that did not happen.
+notify-send -u critical -a disk-monitor -i drive-harddisk -t 0 \
+	"⚠️  Disk at ${pct}%" \
+	"$(df -h / | awk 'NR==2 {print $3" used, "$4" free"}')
+Usual suspects: lazydocker · snapper list · /var/cache/pacman/pkg"

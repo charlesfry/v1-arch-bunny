@@ -1,0 +1,16 @@
+# phase 2 run 2026-08-24T14:15:13-04:00; pre-reg committed 14:06:52; project regenerated (1 ref/module fix) before any measurement
+{"app": "nvim-lazy", "attached": true, "diag_published": false}
+{"app": "nvim-lazy", "attempt": 1, "ms": 40.3, "count": 25}
+{"app": "nvim-lazy", "attempt": 2, "ms": 12.2, "count": 25}
+{"app": "nvim-lazy", "attempt": 3, "ms": 11.5, "count": 25}
+{"done": true}
+{"app": "nvim-chad", "attached": true, "diag_published": false}
+{"app": "nvim-chad", "attempt": 1, "ms": 43.4, "count": 25}
+{"app": "nvim-chad", "attempt": 2, "ms": 11.5, "count": 25}
+{"app": "nvim-chad", "attempt": 3, "ms": 12.3, "count": 25}
+{"done": true}
+{"app": "nvim-min", "attached": true, "diag_published": false}
+{"app": "nvim-min", "attempt": 1, "ms": 39.0, "count": 25}
+{"app": "nvim-min", "attempt": 2, "ms": 15.2, "count": 25}
+{"app": "nvim-min", "attempt": 3, "ms": 10.5, "count": 25}
+{"done": true}

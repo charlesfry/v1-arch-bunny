@@ -1,0 +1,27 @@
+
+== setup: 10 GiB loop btrfs ==
+
+== snapper config (floor 0, min-age 0, SPACE_LIMIT 0.9, FREE_LIMIT 0.2) ==
+QGROUP="1/0"
+SPACE_LIMIT="0.9"
+FREE_LIMIT="0.2"
+NUMBER_MIN_AGE="0"
+NUMBER_LIMIT="0-15"
+
+== pin ~2 GiB in two number-class snapshots ==
+
+== fill live fs to ~85% (free < 20% => FREE_LIMIT violated; SPACE_LIMIT 0.9 not violated) ==
+    Free (estimated):		        1219493888	(min: 1219493888)
+# | Type   | Pre # | Date                     | User | Used Space | Cleanup | Description | Userdata
+--+--------+-------+--------------------------+------+------------+---------+-------------+---------
+0 | single |       |                          | root |            |         | current     |
+1 | single |       | Mon Aug 24 00:46:12 2026 | root |   1.00 GiB | number  | pin1        |
+2 | single |       | Mon Aug 24 00:46:17 2026 | root |   1.00 GiB | number  | pin2        |
+
+== cleanup number: FREE_LIMIT=0.2 must drive deletion ==
+# | Type   | Pre # | Date                     | User | Used Space | Cleanup | Description | Userdata
+--+--------+-------+--------------------------+------+------------+---------+-------------+---------
+0 | single |       |                          | root |            |         | current     |
+2 | single |       | Mon Aug 24 00:46:17 2026 | root |   1.00 GiB | number  | pin2        |
+    Free (estimated):		        2280652800	(min: 2280652800)
+=== 4.7 complete (teardown via trap) ===

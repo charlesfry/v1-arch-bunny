@@ -1,0 +1,42 @@
+BOOT-DRIFT 2026-08-24T16:50:53-04:00 id=78f402de-49e6-47ae-b636-8c7740842cdd uptime=87.19s load=0.02 ac=1
+W1 age=5s pss_kb=136647 anon_kb=50788 file_kb=85557 shmem_kb=302 pid=1172 spawn_uptime=92s
+W1 age=30s pss_kb=134033 anon_kb=50788 file_kb=82943 shmem_kb=302
+W1 age=60s pss_kb=130514 anon_kb=50788 file_kb=79424 shmem_kb=302
+W1 age=120s pss_kb=127733 anon_kb=50788 file_kb=76663 shmem_kb=282
+W1 age=300s pss_kb=124336 anon_kb=54192 file_kb=69862 shmem_kb=282
+W1 age=600s pss_kb=99735 anon_kb=54332 file_kb=45104 shmem_kb=299 load=0.14
+W1 age=900s pss_kb=99207 anon_kb=54332 file_kb=44556 shmem_kb=319 load=0.12
+W1 age=1200s pss_kb=138231 anon_kb=54332 file_kb=83617 shmem_kb=282 load=0.03
+W1 age=1500s pss_kb=138234 anon_kb=54332 file_kb=83620 shmem_kb=282 load=0.06
+W1 age=1800s pss_kb=138229 anon_kb=54332 file_kb=83615 shmem_kb=282 load=0.04
+W1 age=2100s pss_kb=138237 anon_kb=54332 file_kb=83623 shmem_kb=282 load=0.02
+W1 age=2400s pss_kb=138234 anon_kb=54332 file_kb=83620 shmem_kb=282 load=0.02
+W1 age=2700s pss_kb=138232 anon_kb=54332 file_kb=83618 shmem_kb=282 load=0.08
+W1 age=3000s pss_kb=138230 anon_kb=54332 file_kb=83616 shmem_kb=282 load=0.04
+W1 age=3300s pss_kb=138235 anon_kb=54332 file_kb=83621 shmem_kb=282 load=0.00
+W1 age=3600s pss_kb=138235 anon_kb=54332 file_kb=83621 shmem_kb=282 load=0.00
+W1 age=3900s pss_kb=138232 anon_kb=54332 file_kb=83618 shmem_kb=282 load=0.02
+W1 age=4200s pss_kb=138174 anon_kb=54332 file_kb=83560 shmem_kb=282 load=0.08
+W1 age=4500s pss_kb=138237 anon_kb=54332 file_kb=83623 shmem_kb=282 load=0.04
+W1 age=4800s pss_kb=138237 anon_kb=54332 file_kb=83623 shmem_kb=282 load=0.00
+W1 age=5100s pss_kb=138237 anon_kb=54332 file_kb=83623 shmem_kb=282 load=0.01
+W1 age=5400s pss_kb=138231 anon_kb=54332 file_kb=83617 shmem_kb=282 load=0.00
+W1 age=5700s pss_kb=138234 anon_kb=54332 file_kb=83620 shmem_kb=282 load=0.00
+W1 age=6000s pss_kb=138230 anon_kb=54332 file_kb=83616 shmem_kb=282 load=0.00
+W1 age=6300s pss_kb=138229 anon_kb=54332 file_kb=83615 shmem_kb=282 load=0.07
+W1 age=6600s pss_kb=138235 anon_kb=54332 file_kb=83621 shmem_kb=282 load=0.02
+W1 age=6900s pss_kb=138237 anon_kb=54332 file_kb=83623 shmem_kb=282 load=0.00
+W1 age=7200s pss_kb=137872 anon_kb=54332 file_kb=83258 shmem_kb=282 load=0.13
+W1 age=7500s pss_kb=138064 anon_kb=54332 file_kb=83450 shmem_kb=282 load=0.00
+W1 age=7800s pss_kb=137759 anon_kb=54332 file_kb=83145 shmem_kb=282 load=0.02
+W1 age=8100s pss_kb=138069 anon_kb=54332 file_kb=83455 shmem_kb=282 load=0.05
+W1 age=8400s pss_kb=138067 anon_kb=54332 file_kb=83453 shmem_kb=282 load=0.00
+W1 age=8700s pss_kb=138067 anon_kb=54332 file_kb=83453 shmem_kb=282 load=0.00
+W1 age=9000s pss_kb=138069 anon_kb=54332 file_kb=83455 shmem_kb=282 load=0.03
+W1 age=9300s pss_kb=138062 anon_kb=54332 file_kb=83448 shmem_kb=282 load=0.00
+W1 age=9600s pss_kb=138064 anon_kb=54332 file_kb=83450 shmem_kb=282 load=0.00
+W1 age=9900s pss_kb=138064 anon_kb=54332 file_kb=83450 shmem_kb=282 load=0.08
+W1 age=10200s pss_kb=137827 anon_kb=54332 file_kb=83213 shmem_kb=282 load=0.00
+W1 age=10500s pss_kb=138069 anon_kb=54332 file_kb=83455 shmem_kb=282 load=0.00
+W1 age=10800s pss_kb=138067 anon_kb=54332 file_kb=83453 shmem_kb=282 load=0.00
+DONE 2026-08-24T19:50:53-04:00

@@ -1,0 +1,143 @@
+=== boot battery: nixos-boot7 2026-08-23T23:32:31-04:00 ===
+--- settle: waiting until 60s of uptime ---
+ 23:33:11  up   0:00,  0 users,  load average: 0.58, 0.24, 0.09
+--- systemd-analyze ---
+Startup finished in 6.310s (firmware) + 6.098s (loader) + 819ms (kernel) + 6.436s (initrd) + 6.561s (userspace) = 26.226s 
+graphical.target reached after 6.560s in userspace.
+The time when unit became active or started is printed after the "@" character.
+The time the unit took to start is printed after the "+" character.
+
+graphical.target @6.560s
+└─multi-user.target @6.560s
+  └─docker.service @4.827s +1.731s
+    └─network-online.target @4.825s
+      └─network.target @4.823s
+        └─NetworkManager.service @4.085s +735ms
+          └─network-pre.target @4.083s
+            └─resolvconf.service @4.010s +69ms
+              └─basic.target @3.988s
+                └─dbus-broker.service @3.917s +53ms
+                  └─dbus.socket @3.906s +59us
+                    └─sysinit.target @3.905s
+                      └─systemd-sysctl.service @3.879s +25ms
+                        └─systemd-modules-load.service @1.084s +2.793s
+                          └─systemd-journald.socket
+                            └─system.slice
+                              └─-.slice
+--- blame top 15 ---
+7.108s dev-tpmrm0.device
+7.108s sys-devices-LNXSYSTM:00-LNXSYBUS:00-MSFT0101:00-tpmrm-tpmrm0.device
+7.106s sys-devices-LNXSYSTM:00-LNXSYBUS:00-MSFT0101:00-tpm-tpm0.device
+7.106s dev-tpm0.device
+7.090s sys-devices-platform-serial8250-serial8250:0-serial8250:0.0-tty-ttyS0.device
+7.090s dev-ttyS0.device
+7.086s dev-ttyS2.device
+7.086s sys-devices-platform-serial8250-serial8250:0-serial8250:0.2-tty-ttyS2.device
+7.083s dev-ttyS3.device
+7.083s sys-devices-platform-serial8250-serial8250:0-serial8250:0.3-tty-ttyS3.device
+7.079s sys-devices-platform-serial8250-serial8250:0-serial8250:0.1-tty-ttyS1.device
+7.079s dev-ttyS1.device
+6.772s sys-devices-pci0000:00-0000:00:1d.0-0000:02:00.0-nvme-nvme0-nvme0n1-nvme0n1p5.device
+6.772s dev-disk-by\x2dlabel-ARCH_ESP.device
+6.772s dev-disk-by\x2did-nvme\x2dINTEL_SSDPEKNW512G8_BTNH925417B0512A\x2dpart5.device
+--- PSS sums, 3 samples 20s apart ---
+PSS_TOTAL_KB=861370
+459759 electron
+93934 niri
+82593 dockerd
+45370 containerd
+39678 .xdg-desktop-po
+17446 wireplumber
+12326 systemd
+11939 greetd
+11481 systemd-journal
+10643 NetworkManager
+6901 systemd-udevd
+6356 wpa_supplicant
+5919 polkit-mate-aut
+5754 sshd-session
+5433 pipewire
+3417 nsncd
+3272 polkitd
+3183 bluetoothd
+3173 systemd-timesyn
+2772 systemd-logind
+               total        used        free      shared  buff/cache   available
+Mem:           15842        1198       14016          72         984       14643
+ 23:33:14  up   0:00,  0 users,  load average: 0.58, 0.24, 0.09
+--sample 1 done--
+PSS_TOTAL_KB=857564
+455924 electron
+93947 niri
+82593 dockerd
+45370 containerd
+39678 .xdg-desktop-po
+17448 wireplumber
+12327 systemd
+11939 greetd
+11489 systemd-journal
+10643 NetworkManager
+6901 systemd-udevd
+6356 wpa_supplicant
+5919 polkit-mate-aut
+5754 sshd-session
+5433 pipewire
+3421 nsncd
+3273 polkitd
+3183 bluetoothd
+3173 systemd-timesyn
+2772 systemd-logind
+               total        used        free      shared  buff/cache   available
+Mem:           15842        1187       14027          72         984       14654
+ 23:33:36  up   0:01,  0 users,  load average: 0.46, 0.23, 0.09
+--sample 2 done--
+PSS_TOTAL_KB=857806
+456160 electron
+93948 niri
+82593 dockerd
+45370 containerd
+39680 .xdg-desktop-po
+17448 wireplumber
+12326 systemd
+11939 greetd
+11493 systemd-journal
+10643 NetworkManager
+6901 systemd-udevd
+6356 wpa_supplicant
+5919 polkit-mate-aut
+5754 sshd-session
+5433 pipewire
+3425 nsncd
+3274 polkitd
+3183 bluetoothd
+3173 systemd-timesyn
+2772 systemd-logind
+               total        used        free      shared  buff/cache   available
+Mem:           15842        1190       14024          72         984       14651
+ 23:33:59  up   0:01,  0 users,  load average: 0.33, 0.22, 0.09
+--sample 3 done--
+--- spawnbench n=10 ---
+{"meta": true, "socket": "/run/user/1000/niri.wayland-1.1564.sock", "n": 10, "apps": ["kitty", "fuzzel"], "os": "ANSI_COLOR=\"0;38;2;126;186;228\"", "load1_start": 0.33}
+{"app": "kitty", "run": 0, "ms": 273.0, "load1": 0.33, "cold": true}
+{"app": "kitty", "run": 1, "ms": 158.2, "load1": 0.62, "cold": false}
+{"app": "kitty", "run": 2, "ms": 151.6, "load1": 0.62, "cold": false}
+{"app": "kitty", "run": 3, "ms": 152.2, "load1": 0.62, "cold": false}
+{"app": "kitty", "run": 4, "ms": 154.3, "load1": 0.62, "cold": false}
+{"app": "kitty", "run": 5, "ms": 152.3, "load1": 0.62, "cold": false}
+{"app": "kitty", "run": 6, "ms": 152.8, "load1": 0.62, "cold": false}
+{"app": "kitty", "run": 7, "ms": 166.2, "load1": 0.62, "cold": false}
+{"app": "kitty", "run": 8, "ms": 150.9, "load1": 0.57, "cold": false}
+{"app": "kitty", "run": 9, "ms": 153.0, "load1": 0.57, "cold": false}
+{"app": "kitty", "summary": true, "n": 10, "cold_ms": 273.0, "warm_min": 150.9, "warm_median": 152.8, "warm_max": 166.2}
+{"app": "fuzzel", "run": 0, "ms": 36.2, "load1": 0.57, "cold": true}
+{"app": "fuzzel", "run": 1, "ms": 21.9, "load1": 0.57, "cold": false}
+{"app": "fuzzel", "run": 2, "ms": 21.9, "load1": 0.57, "cold": false}
+{"app": "fuzzel", "run": 3, "ms": 21.1, "load1": 0.57, "cold": false}
+{"app": "fuzzel", "run": 4, "ms": 21.6, "load1": 0.57, "cold": false}
+{"app": "fuzzel", "run": 5, "ms": 24.8, "load1": 0.57, "cold": false}
+{"app": "fuzzel", "run": 6, "ms": 22.2, "load1": 0.57, "cold": false}
+{"app": "fuzzel", "run": 7, "ms": 23.8, "load1": 0.53, "cold": false}
+{"app": "fuzzel", "run": 8, "ms": 21.6, "load1": 0.53, "cold": false}
+{"app": "fuzzel", "run": 9, "ms": 25.5, "load1": 0.53, "cold": false}
+{"app": "fuzzel", "summary": true, "n": 10, "cold_ms": 36.2, "warm_min": 21.1, "warm_median": 21.9, "warm_max": 25.5}
+=== battery nixos-boot7 complete ===

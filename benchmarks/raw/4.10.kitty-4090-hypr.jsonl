@@ -1,0 +1,26 @@
+{"meta2": true, "host": "omarchy-desktop-4090", "wallclock": "2026-08-24T10:24:14-04:00", "uptime": " 10:24:14 up  1:28,  1 user,  load average: 0.01, 0.07, 0.08", "note": "author ran spawnbench-hypr twice prior + 1 aborted capture run; kitty caches warm — run-0 colds are warm-cache, not boot-colds"}
+{"meta": true, "compositor": "hyprland", "sig": "efb50993780079460b0cbed1363e2166a2de1d9f_1787573787_327921067", "n": 5, "apps": ["kitty", "kitty-nvidiaonly", "kitty", "kitty-nvidiaonly"], "wallclock": "2026-08-24T10:24:14-0400", "load1_start": 0.01}
+{"app": "kitty", "run": 0, "ms": 66.9, "load1": 0.01, "cold": true}
+{"app": "kitty", "run": 1, "ms": 67.6, "load1": 0.01, "cold": false}
+{"app": "kitty", "run": 2, "ms": 65.5, "load1": 0.01, "cold": false}
+{"app": "kitty", "run": 3, "ms": 69.3, "load1": 0.01, "cold": false}
+{"app": "kitty", "run": 4, "ms": 67.2, "load1": 0.01, "cold": false}
+{"app": "kitty", "summary": true, "n": 5, "cold_ms": 66.9, "warm_min": 65.5, "warm_median": 67.6, "warm_max": 69.3}
+{"app": "kitty-nvidiaonly", "run": 0, "ms": 66.4, "load1": 0.01, "cold": true}
+{"app": "kitty-nvidiaonly", "run": 1, "ms": 66.6, "load1": 0.01, "cold": false}
+{"app": "kitty-nvidiaonly", "run": 2, "ms": 67.6, "load1": 0.01, "cold": false}
+{"app": "kitty-nvidiaonly", "run": 3, "ms": 68.3, "load1": 0.01, "cold": false}
+{"app": "kitty-nvidiaonly", "run": 4, "ms": 67.1, "load1": 0.01, "cold": false}
+{"app": "kitty-nvidiaonly", "summary": true, "n": 5, "cold_ms": 66.4, "warm_min": 66.6, "warm_median": 67.6, "warm_max": 68.3}
+{"app": "kitty", "run": 0, "ms": 67.2, "load1": 0.01, "cold": true}
+{"app": "kitty", "run": 1, "ms": 66.3, "load1": 0.01, "cold": false}
+{"app": "kitty", "run": 2, "ms": 68.9, "load1": 0.01, "cold": false}
+{"app": "kitty", "run": 3, "ms": 67.3, "load1": 0.01, "cold": false}
+{"app": "kitty", "run": 4, "ms": 66.6, "load1": 0.01, "cold": false}
+{"app": "kitty", "summary": true, "n": 5, "cold_ms": 67.2, "warm_min": 66.3, "warm_median": 67.3, "warm_max": 68.9}
+{"app": "kitty-nvidiaonly", "run": 0, "ms": 66.3, "load1": 0.17, "cold": true}
+{"app": "kitty-nvidiaonly", "run": 1, "ms": 67.8, "load1": 0.17, "cold": false}
+{"app": "kitty-nvidiaonly", "run": 2, "ms": 66.8, "load1": 0.17, "cold": false}
+{"app": "kitty-nvidiaonly", "run": 3, "ms": 65.8, "load1": 0.17, "cold": false}
+{"app": "kitty-nvidiaonly", "run": 4, "ms": 68.1, "load1": 0.17, "cold": false}
+{"app": "kitty-nvidiaonly", "summary": true, "n": 5, "cold_ms": 66.3, "warm_min": 65.8, "warm_median": 67.8, "warm_max": 68.1}

@@ -1,0 +1,6 @@
+=== 2026-08-25T00:11:28-04:00
+A plain+mover        : cpu 4.4% of one core; gpu render 1058 ms/10s; pss 258219 kB
+B trail=3+mover      : cpu 5.8% of one core; gpu render 2242 ms/10s; pss 258200 kB
+C trail=3+idle       : cpu 0.2% of one core; gpu render 46 ms/10s; pss 258267 kB
+D plain+idle         : cpu 0.2% of one core; gpu render 46 ms/10s; pss 259680 kB
+DONE

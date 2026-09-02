@@ -1,0 +1,6 @@
+[Unit]
+Description=Poll Google Calendar for upcoming events and alert via notify-send
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/systemd/user/calendar-poll

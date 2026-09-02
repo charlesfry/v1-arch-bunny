@@ -1,0 +1,69 @@
+# 4.14 kitty PSS steady-state study — pre-registered protocol in 4.14 md, committed before run
+BOOT 2026-08-24T12:11:17-04:00 id=eb1d3aae-6808-4a39-b777-35794a1af95e uptime=1626.85s load=0.00
+W1 age=5s pss_kb= pid=
+W1 age=30s pss_kb=
+W1 age=60s pss_kb=
+W1 age=120s pss_kb=
+W1 age=300s pss_kb=
+W2 age=5s pss_kb= pid=
+W2 age=60s pss_kb=
+# RUN 1 ABOVE FAILED: box was on NixOS (efibootmgr absent, reboot silently skipped, || true swallowed it) — samples ran on the wrong OS at 27 min uptime with empty pids. Kept for the record. RUN 2 below asserts the OS per boot and fails loudly on empty pids.
+BOOT 2026-08-24T12:19:23-04:00 id=d079aabc-794a-43b8-be76-0dbf5fb0b75e os=Arch Linux uptime=59.36s load=0.03
+W1 age=5s pss_kb=114818 pid=1105
+W1 age=30s pss_kb=113961
+W1 age=60s pss_kb=111218
+W1 age=120s pss_kb=106011
+W1 age=300s pss_kb=102422
+W2 age=5s pss_kb=249601 pid=1235
+W2 age=60s pss_kb=252825
+BOOT 2026-08-24T12:26:36-04:00 id=d7f79af8-0167-4c82-815c-23d18c29d3a6 os=Arch Linux uptime=60.06s load=0.03
+W1 age=5s pss_kb=114810 pid=1100
+W1 age=30s pss_kb=113944
+W1 age=60s pss_kb=110985
+W1 age=120s pss_kb=105790
+W1 age=300s pss_kb=102262
+W2 age=5s pss_kb=250424 pid=1228
+W2 age=60s pss_kb=253858
+# 4.14b run, instrument committed 12:40, this runner started 2026-08-24T12:41:28-04:00
+BOOT-C 2026-08-24T12:48:39-04:00 id=ec9c9a35-4a31-46d7-bf79-ca33701e54ab uptime=420.48s load=0.03 ac=1
+C-W1late age=5s pss_kb=256677 anon_kb=52088 file_kb=204307 shmem_kb=282 pid=1273
+C-W1late age=60s pss_kb=258725 anon_kb=54200 file_kb=204243 shmem_kb=282
+C-W1late age=120s pss_kb=258720 anon_kb=54200 file_kb=204238 shmem_kb=282
+BOOT-D 2026-08-24T12:51:05-04:00 id=de59296f-af77-4817-9c62-d54b1051a95b uptime=14.70s load=0.07 ac=1
+D-W1 age=5s pss_kb=94429 anon_kb=50772 file_kb=43347 shmem_kb=310 pid=1087
+D-W1 age=120s pss_kb=78369 anon_kb=50776 file_kb=27283 shmem_kb=310
+D-W2 age=5s pss_kb=175875 anon_kb=50788 file_kb=124785 shmem_kb=302 pid=1213
+D-W2 age=120s pss_kb=167648 anon_kb=50792 file_kb=116554 shmem_kb=302
+# 4.14c run started 2026-08-24T13:30:50-04:00, instrument committed 13:30:32
+BOOT-E 2026-08-24T13:31:52-04:00 id=dcec3090-1d33-4230-8ba9-b5b69d97cd97 uptime=50.80s load=0.04 ac=1
+E-W1 age=5s pss_kb=100484 anon_kb=50744 file_kb=49446 shmem_kb=294 pid=1132 spawn_uptime=50s
+E-W1 age=120s pss_kb=89824 anon_kb=50752 file_kb=38778 shmem_kb=294
+E-W1 age=300s pss_kb=86120 anon_kb=54228 file_kb=31598 shmem_kb=294
+BOOT-E 2026-08-24T13:37:54-04:00 id=23267ae1-c8ba-4918-a9ea-3965d62cde1c uptime=50.82s load=0.04 ac=1
+E-W1 age=5s pss_kb=100339 anon_kb=50764 file_kb=49273 shmem_kb=302 pid=1131 spawn_uptime=50s
+E-W1 age=120s pss_kb=89682 anon_kb=50772 file_kb=38608 shmem_kb=302
+E-W1 age=300s pss_kb=85957 anon_kb=54228 file_kb=31427 shmem_kb=302
+BOOT-E 2026-08-24T13:43:56-04:00 id=5f84c894-45aa-460e-8481-dff83c63ba72 uptime=50.89s load=0.04 ac=1
+E-W1 age=5s pss_kb=100495 anon_kb=50756 file_kb=49419 shmem_kb=320 pid=1131 spawn_uptime=50s
+E-W1 age=120s pss_kb=89850 anon_kb=50764 file_kb=38766 shmem_kb=320
+E-W1 age=300s pss_kb=85625 anon_kb=53720 file_kb=31585 shmem_kb=320
+BOOT-F 2026-08-24T13:56:07-04:00 id=163f7035-928c-44f2-9afd-79fdbf99de54 uptime=420.16s load=0.02 ac=1
+F journal of the idle window (what warmed the cache):
+F-journal: Aug 24 13:49:19 arch-bunny systemd[1]: systemd-rfkill.service: Deactivated successfully.
+F-journal: Aug 24 13:49:19 arch-bunny NetworkManager[813]: <info>  [1787593759.9980] manager: NetworkManager state is now CONNECTED_GLOBAL
+F-journal: Aug 24 13:49:21 arch-bunny NetworkManager[813]: <info>  [1787593761.2958] manager: startup complete
+F-journal: Aug 24 13:49:22 arch-bunny systemd-logind[816]: New session '3' of user 'bunne' with class 'user' and type 'tty'.
+F-journal: Aug 24 13:49:22 arch-bunny systemd[1]: Started Session 3 of User bunne.
+F-journal: Aug 24 13:49:22 arch-bunny systemd[1]: session-3.scope: Deactivated successfully.
+F-journal: Aug 24 13:49:22 arch-bunny systemd-logind[816]: Session 3 logged out. Waiting for processes to exit.
+F-journal: Aug 24 13:49:22 arch-bunny systemd-logind[816]: Removed session 3.
+F-journal: Aug 24 13:49:22 arch-bunny systemd-logind[816]: New session '4' of user 'bunne' with class 'user' and type 'tty'.
+F-journal: Aug 24 13:49:22 arch-bunny systemd[1]: Started Session 4 of User bunne.
+F-journal: Aug 24 13:49:25 arch-bunny systemd[1]: NetworkManager-dispatcher.service: Deactivated successfully.
+F-journal: Aug 24 13:49:45 arch-bunny systemd[1]: systemd-hostnamed.service: Deactivated successfully.
+F-journal: Aug 24 13:49:45 arch-bunny systemd-timesyncd[627]: Contacted time server 66.118.231.14:123 (2.arch.pool.ntp.org).
+F-journal: Aug 24 13:49:45 arch-bunny systemd-timesyncd[627]: Initial clock synchronization to Mon 2026-08-24 13:49:45.673613 EDT.
+F-journal: Aug 24 13:49:47 arch-bunny systemd[1]: systemd-localed.service: Deactivated successfully.
+F drop_caches done at uptime=420.28s
+F-W1postdrop age=5s pss_kb=110737 anon_kb=50760 file_kb=59667 shmem_kb=310 pid=1277
+F-W1postdrop age=120s pss_kb=82685 anon_kb=50768 file_kb=31607 shmem_kb=310

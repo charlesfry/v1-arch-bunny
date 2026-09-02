@@ -1,0 +1,42 @@
+=== boot battery: nixos-boot1 2026-08-23T23:20:05-04:00 ===
+--- settle: waiting until 60s of uptime ---
+ 23:20:19  up   0:00,  0 users,  load average: 0.45, 0.18, 0.07
+--- systemd-analyze ---
+Startup finished in 6.063s (firmware) + 6.088s (loader) + 810ms (kernel) + 6.528s (initrd) + 6.904s (userspace) = 26.395s 
+graphical.target reached after 6.904s in userspace.
+The time when unit became active or started is printed after the "@" character.
+The time the unit took to start is printed after the "+" character.
+
+graphical.target @6.904s
+└─multi-user.target @6.903s
+  └─docker.service @4.649s +2.253s
+    └─network-online.target @4.646s
+      └─network.target @4.644s
+        └─NetworkManager.service @3.891s +750ms
+          └─network-pre.target @3.889s
+            └─resolvconf.service @3.818s +70ms
+              └─basic.target @3.800s
+                └─dbus-broker.service @3.717s +62ms
+                  └─dbus.socket @3.707s +83us
+                    └─sysinit.target @3.706s
+                      └─systemd-sysctl.service @3.679s +25ms
+                        └─systemd-modules-load.service @1.129s +2.549s
+                          └─systemd-journald.socket
+                            └─system.slice
+                              └─-.slice
+--- blame top 15 ---
+7.228s sys-devices-LNXSYSTM:00-LNXSYBUS:00-MSFT0101:00-tpmrm-tpmrm0.device
+7.228s dev-tpmrm0.device
+7.224s dev-tpm0.device
+7.224s sys-devices-LNXSYSTM:00-LNXSYBUS:00-MSFT0101:00-tpm-tpm0.device
+7.210s dev-ttyS2.device
+7.210s sys-devices-platform-serial8250-serial8250:0-serial8250:0.2-tty-ttyS2.device
+7.207s dev-ttyS3.device
+7.207s sys-devices-platform-serial8250-serial8250:0-serial8250:0.3-tty-ttyS3.device
+7.205s sys-devices-platform-serial8250-serial8250:0-serial8250:0.1-tty-ttyS1.device
+7.205s dev-ttyS1.device
+7.204s sys-devices-platform-serial8250-serial8250:0-serial8250:0.0-tty-ttyS0.device
+7.204s dev-ttyS0.device
+6.942s dev-nvme0n1p3.device
+6.942s dev-disk-by\x2dpath-pci\x2d0000:02:00.0\x2dnvme\x2d1\x2dpart-by\x2dpartuuid-c7b1204c\x2d4519\x2d443b\x2d8604\x2d5cde4dee6459.device
+6.942s dev-disk-by\x2dpartlabel-Basic\x5cx20data\x5cx20partition.device

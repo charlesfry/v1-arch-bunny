@@ -1,0 +1,122 @@
+=== boot battery: nixos-boot6 2026-08-23T23:29:03-04:00 ===
+--- settle: waiting until 60s of uptime ---
+ 23:29:44  up   0:00,  0 users,  load average: 0.75, 0.31, 0.11
+--- systemd-analyze ---
+Startup finished in 4.864s (firmware) + 6.088s (loader) + 808ms (kernel) + 6.800s (initrd) + 6.871s (userspace) = 25.432s 
+graphical.target reached after 6.870s in userspace.
+The time when unit became active or started is printed after the "@" character.
+The time the unit took to start is printed after the "+" character.
+
+graphical.target @6.870s
+└─multi-user.target @6.870s
+  └─docker.service @4.554s +2.314s
+    └─network-online.target @4.552s
+      └─network.target @4.550s
+        └─NetworkManager.service @3.787s +760ms
+          └─network-pre.target @3.785s
+            └─resolvconf.service @3.714s +70ms
+              └─basic.target @3.691s
+                └─dbus-broker.service @3.607s +65ms
+                  └─dbus.socket @3.599s +53us
+                    └─sysinit.target @3.597s
+                      └─systemd-sysctl.service @3.574s +22ms
+                        └─systemd-modules-load.service @1.036s +2.536s
+                          └─systemd-journald.socket
+                            └─system.slice
+                              └─-.slice
+--- blame top 15 ---
+7.491s dev-disk-by\x2did-nvme\x2deui.0000000001000000e4d25c788eb35001\x2dpart6.device
+7.491s dev-disk-by\x2duuid-6106ce14\x2d0b93\x2d4338\x2d8c70\x2d9da4bbc2b3ec.device
+7.491s dev-disk-by\x2did-nvme\x2dINTEL_SSDPEKNW512G8_BTNH925417B0512A\x2dpart6.device
+7.491s dev-disk-by\x2did-nvme\x2dINTEL_SSDPEKNW512G8_BTNH925417B0512A_1\x2dpart6.device
+7.490s dev-disk-by\x2dpartuuid-cf142b3c\x2d63f4\x2d4cfd\x2d8f37\x2db05e9db574db.device
+7.490s dev-disk-by\x2ddiskseq-1\x2dpart6.device
+7.490s dev-disk-by\x2dpath-pci\x2d0000:02:00.0\x2dnvme\x2d1\x2dpart-by\x2dpartnum-6.device
+7.490s dev-nvme0n1p6.device
+7.490s dev-disk-by\x2dpath-pci\x2d0000:02:00.0\x2dnvme\x2d1\x2dpart-by\x2dpartuuid-cf142b3c\x2d63f4\x2d4cfd\x2d8f37\x2db05e9db574db.device
+7.490s dev-disk-by\x2dpath-pci\x2d0000:02:00.0\x2dnvme\x2d1\x2dpart6.device
+7.490s sys-devices-pci0000:00-0000:00:1d.0-0000:02:00.0-nvme-nvme0-nvme0n1-nvme0n1p6.device
+7.490s dev-disk-by\x2dpath-pci\x2d0000:02:00.0\x2dnvme\x2d1\x2dpart-by\x2duuid-6106ce14\x2d0b93\x2d4338\x2d8c70\x2d9da4bbc2b3ec.device
+7.471s dev-disk-by\x2dpartuuid-8134e38d\x2d0660\x2d4338\x2da1b8\x2d143700f74af2.device
+7.471s dev-disk-by\x2ddiskseq-1\x2dpart2.device
+7.471s dev-disk-by\x2did-nvme\x2deui.0000000001000000e4d25c788eb35001\x2dpart2.device
+--- PSS sums, 3 samples 20s apart ---
+PSS_TOTAL_KB=863912
+460322 electron
+93827 niri
+82093 dockerd
+45486 containerd
+39697 .xdg-desktop-po
+17375 wireplumber
+12722 systemd-journal
+12216 systemd
+11925 greetd
+10691 NetworkManager
+6242 wpa_supplicant
+5955 polkit-mate-aut
+5827 sshd-session
+5379 pipewire
+5261 systemd-udevd
+3429 nsncd
+3398 (udev-worker)
+3265 polkitd
+3151 systemd-timesyn
+2995 bluetoothd
+               total        used        free      shared  buff/cache   available
+Mem:           15842        1202       14005          72         991       14639
+ 23:29:47  up   0:00,  0 users,  load average: 0.75, 0.31, 0.11
+--sample 1 done--
+PSS_TOTAL_KB=857655
+455616 electron
+93840 niri
+82093 dockerd
+45486 containerd
+39698 .xdg-desktop-po
+17377 wireplumber
+12768 systemd-journal
+12270 systemd
+11924 greetd
+10692 NetworkManager
+6925 systemd-udevd
+6243 wpa_supplicant
+5955 polkit-mate-aut
+5827 sshd-session
+5379 pipewire
+3430 nsncd
+3265 polkitd
+3171 systemd-timesyn
+2996 bluetoothd
+2812 systemd-logind
+               total        used        free      shared  buff/cache   available
+Mem:           15842        1187       14019          72         992       14654
+ 23:30:10  up   0:01,  0 users,  load average: 0.58, 0.30, 0.11
+--sample 2 done--
+PSS_TOTAL_KB=857866
+455778 electron
+93831 niri
+82093 dockerd
+45486 containerd
+39699 .xdg-desktop-po
+17374 wireplumber
+12796 systemd-journal
+12272 systemd
+11933 greetd
+10692 NetworkManager
+6925 systemd-udevd
+6243 wpa_supplicant
+5955 polkit-mate-aut
+5830 sshd-session
+5379 pipewire
+3434 nsncd
+3266 polkitd
+3171 systemd-timesyn
+2996 bluetoothd
+2812 systemd-logind
+               total        used        free      shared  buff/cache   available
+Mem:           15842        1190       14017          72         992       14652
+ 23:30:32  up   0:01,  0 users,  load average: 0.41, 0.28, 0.11
+--sample 3 done--
+--- spawnbench n=10 ---
+{"meta": true, "socket": "/run/user/1000/niri.wayland-1.1563.sock", "n": 10, "apps": ["kitty", "fuzzel"], "os": "ANSI_COLOR=\"0;38;2;126;186;228\"", "load1_start": 0.41}
+{"app": "kitty", "run": 0, "ms": 263.5, "load1": 0.41, "cold": true}
+kitty: run 0 teardown failed — dirty state, aborting
