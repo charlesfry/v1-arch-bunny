@@ -294,55 +294,19 @@ layout {
     }
 }
 
-// Add lines like this to spawn processes at startup.
-// Note that running niri as a session supports xdg-desktop-autostart,
-// which may be more convenient to use.
-// See the binds section below for more spawn examples.
-
-// This line starts waybar, a commonly used bar for Wayland compositors.
-// Bunny: left active. CHOICES.md `status-bar` picked waybar for the clock alone,
-// at 28.4 MB.
-spawn-at-startup "waybar"
-
-// Bunny: mate-polkit's own autostart file is gated OnlyShowIn=MATE, so under niri
-// it never fires and installing the package alone changes nothing (CHOICES.md
-// `polkit-agent`). The binary is not on PATH.
-spawn-at-startup "/usr/lib/mate-polkit/polkit-mate-authentication-agent-1"
-// Wallpaper; niri draws flat grey on its own. `-i` points at a symlink rather than
-// a file, which is what makes scripts/bunny-wallpaper.sh able to switch it live
-// (CHOICES.md `wallpaper`); install.d/87-wallpaper.sh seeds it. `-m fill` since
-// every source is 1920x1080, `-c 0f0f0f` the fallback for any output that isn't.
-// `spawn-sh`, not `spawn`, because the path needs shell expansion.
-spawn-sh-at-startup "swaybg -i \"${XDG_CONFIG_HOME:-$HOME/.config}/bunny/wallpaper\" -m fill -c \"#0f0f0f\""
-// Clipboard history — the only always-resident convenience feature on the
-// machine, at 2.1 MB (CHOICES.md `clipboard`).
-spawn-at-startup "sh" "-c" "wl-paste --watch cliphist store"
-
-// Lock and idle (CHOICES.md `lock-idle`). swayidle watches niri's
-// ext_idle_notifier_v1; `-w` makes it wait for the lock command to finish before
-// sleeping, so the screen is never briefly visible after resume. 900s to lock,
-// 960s to power the monitors down a minute later.
+// Startup.
 //
-// These are the numbers that ship. bunne-test deliberately runs a much longer
-// timeout while it is a test rig — docs/resume.md, "Deliberate deviations on
-// bunne-test" — so do not copy the laptop's back into here.
+// One line, and that is the whole point. Every daemon the desktop needs -- the
+// bar, notifications, wallpaper, idle lock, the OSD, clipboard history and the
+// polkit agent -- is a systemd user unit under config/systemd/user/ instead,
+// enabled by install/40-user-setup.sh. That buys Restart=on-failure and ordering
+// against graphical-session.target, neither of which spawn-at-startup has: a
+// process that dies here is simply gone until the next login, silently.
 //
-// `--indicator-idle-visible` is not optional: upstream's indicator_idle_visible
-// defaults false, so even a bare `swaylock -f` is a blank screen until you start
-// typing, which reads as stuck rather than locked.
-//
-// `-i` is a hardcoded path, deliberately not the wallpaper symlink swaybg uses
-// above (author, 2026-08-30). A lock screen showing the live desktop wallpaper
-// reads as the unlocked desktop with nothing on it; the two surfaces need visibly
-// different photos.
-spawn-at-startup "swayidle" "-w" \
-    "timeout" "900" "swaylock -f -k -F --indicator-idle-visible -i \"${XDG_DATA_HOME:-$HOME/.local/share}/arch-bunny/assets/wallpaper/1920x1080/12-tuxedo-profile-by-nikolett-emmert.jpg\" -c 0f0f0f" \
-    "timeout" "960" "niri msg action power-off-monitors" \
-    "resume" "niri msg action power-on-monitors" \
-    "before-sleep" "swaylock -f -k -F --indicator-idle-visible -i \"${XDG_DATA_HOME:-$HOME/.local/share}/arch-bunny/assets/wallpaper/1920x1080/12-tuxedo-profile-by-nikolett-emmert.jpg\" -c 0f0f0f"
+// `uwsm finalize` hands the session environment to the systemd user manager, so
+// those units see WAYLAND_DISPLAY. Without it they start and immediately fail.
+spawn-at-startup "uwsm" "finalize"
 
-// To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
-// spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
@@ -465,7 +429,9 @@ binds {
     // Bunny: lock moved from stock's Super+Alt+L, since every other L combination is
     // part of the HJKL directional set. `-f` daemonizes so swayidle's `-w` can wait
     // on it; `spawn-sh` because the image path needs shell expansion.
-    Mod+Escape hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "swaylock -f --indicator-idle-visible -i \"${XDG_DATA_HOME:-$HOME/.local/share}/arch-bunny/assets/wallpaper/1920x1080/12-tuxedo-profile-by-nikolett-emmert.jpg\" -c 0f0f0f"; }
+    // bunny-lock, not swaylock directly: swayidle.service locks with the same
+    // command, and this binding had already drifted from it (no -k, no -F).
+    Mod+Escape hotkey-overlay-title="Lock the Screen" { spawn "bunny-lock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.

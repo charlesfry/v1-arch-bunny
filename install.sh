@@ -114,7 +114,10 @@ run_phase "00-preflight.sh" "Preflight checks"
 readonly BUNNY_USER BUNNY_UID BUNNY_HOME
 
 run_phase "10-packages.sh" "Packages and repositories"
+run_phase "12-greetd.sh" "Display manager"
 run_phase "13-bootloader.sh" "Bootloader and boot process"
+run_phase "20-dotfiles.sh" "Dotfiles"
+run_phase "40-user-setup.sh" "User session"
 
 export BUNNY_PHASE="complete"
 success "Installation completed"

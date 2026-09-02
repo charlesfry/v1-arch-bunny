@@ -1,0 +1,15 @@
+[Unit]
+Description=Wallpaper
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+# -i points at a symlink rather than a file, which is what lets bunny-wallpaper
+# switch the background live and have a fresh boot follow whatever it targets.
+# sh -c because systemd does not expand $XDG_CONFIG_HOME.
+ExecStart=/bin/sh -c 'exec swaybg -i "${XDG_CONFIG_HOME:-$HOME/.config}/bunny/wallpaper" -m fill -c "#0f0f0f"'
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target

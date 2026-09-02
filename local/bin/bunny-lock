@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Lock the screen. One place, because swayidle, the keybind and the power menu
+# all need the identical invocation and drifting between them means the lock
+# looks different depending on how you reached it.
+#
+# `--indicator-idle-visible` is not optional: upstream's indicator_idle_visible
+# defaults false, so even a bare `swaylock -f` shows a blank screen until you
+# start typing, which reads as stuck rather than locked.
+#
+# The image is deliberately NOT the wallpaper symlink swaybg follows (author,
+# 2026-08-30). A lock screen showing the live desktop wallpaper reads as the
+# unlocked desktop with nothing on it; the two surfaces need different photos.
+set -Eeuo pipefail
+
+readonly LOCK_IMAGE="${XDG_DATA_HOME:-$HOME/.local/share}/arch-bunny/assets/wallpaper/1920x1080/12-tuxedo-profile-by-nikolett-emmert.jpg"
+
+exec swaylock -f -k -F --indicator-idle-visible -i "$LOCK_IMAGE" -c 0f0f0f

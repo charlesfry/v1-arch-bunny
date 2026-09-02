@@ -1,0 +1,21 @@
+[Unit]
+Description=Idle lock and monitor off
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+Type=simple
+# -w waits for the lock command to finish before sleeping, so the screen is never
+# briefly visible after resume. 900s to lock, 960s to power the monitors down a
+# minute later.
+ExecStart=/usr/bin/swayidle -w \
+  timeout 900 "bunny-lock" \
+  timeout 960 "niri msg action power-off-monitors" \
+  resume "niri msg action power-on-monitors" \
+  before-sleep "bunny-lock"
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=graphical-session.target
