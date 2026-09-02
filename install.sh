@@ -1,161 +1,123 @@
 #!/usr/bin/env bash
-# install.sh — turn a vanilla Arch install into Bunny.
+# install.sh — turn a vanilla Arch install into BunnE.
 #
-# The base install (partitioning, LUKS2, btrfs, bootloader) is archinstall's job;
-# see CHOICES.md base-install-method. Everything here runs on a machine that
-# already boots and has a user.
+# The base install (partitioning, LUKS2, btrfs, UKI, bootloader) is archinstall's
+# job; see README.md. Everything here runs on a machine that already boots and has
+# a user.
 #
-# This file only sequences. Each step is a standalone script in install.d/,
-# numbered so `ls` is the plan. Steps are executed, not sourced. They are
-# idempotent, which is also the resume story: fix the cause and re-run.
-#
-# Usage: ./install.sh [--dry-run] [--help]
-#   --dry-run   every step reports what it would change and writes nothing
+# This file only sequences. Each phase is a numbered script in install/, and
+# `ls install/` is the plan. Phases are *sourced*, so they share the helpers and
+# report failure with `return 1` rather than `exit`.
 set -Eeuo pipefail
 
-# Resolved from this file's own location, so the installer works from any
-# working directory.
+if ((EUID == 0)); then
+	echo "Error: run install.sh as a normal user, not as root or through sudo." >&2
+	exit 1
+fi
+
 BUNNY_ROOT=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
-readonly BUNNY_ROOT
-readonly STEP_DIR="$BUNNY_ROOT/install.d"
+export BUNNY_ROOT
+if [[ $PWD != "$BUNNY_ROOT" ]]; then
+	echo "Error: install.sh must be run from the repository root ($BUNNY_ROOT)" >&2
+	exit 1
+fi
 
-# Note: `~` does not expand inside double quotes, hence $HOME.
-BUNNY_LOG=${BUNNY_LOG:-${XDG_STATE_HOME:-$HOME/.local/state}/bunny/install.log}
-readonly BUNNY_LOG
+export BUNNY_INSTALL="$BUNNY_ROOT/install"
+export BUNNY_DEFAULTS="$BUNNY_INSTALL/default"
+export BUNNY_LOG="${BUNNY_LOG:-${XDG_STATE_HOME:-$HOME/.local/state}/bunny/install.log}"
+export BUNNY_RUN_ID="${BUNNY_RUN_ID:-$(date '+%Y%m%dT%H%M%S')-$$}"
+export BUNNY_TRACE="${BUNNY_TRACE:-$BUNNY_LOG.$BUNNY_RUN_ID.trace}"
+export BUNNY_PHASE="startup"
 
-dry_run=false
-while (($#)); do
-	case "$1" in
-	--dry-run)
-		dry_run=true
-		shift
-		;;
-	-h | --help)
-		sed -n '2,/^set -/p' "$0" | sed 's|^# \?||;$d'
-		exit
-		;;
-	*)
-		echo "unknown option: $1 (try --help)" >&2
+# The full `set -x` trace goes to its own file, not the terminal. It records every
+# command the installer ran as root, so it stays readable only by its owner.
+mkdir -p "$(dirname "$BUNNY_LOG")"
+touch "$BUNNY_LOG" "$BUNNY_TRACE"
+chmod 600 "$BUNNY_TRACE"
+exec 19>>"$BUNNY_TRACE"
+export BASH_XTRACEFD=19
+export PS4='+ ${BASH_SOURCE##*/}:${LINENO}: '
+set -x
+
+if [[ ! -f $BUNNY_INSTALL/lib/helpers.sh ]]; then
+	echo "Error: helper functions not found at $BUNNY_INSTALL/lib/helpers.sh" >&2
+	exit 1
+fi
+# shellcheck source=install/lib/helpers.sh
+source "$BUNNY_INSTALL/lib/helpers.sh"
+
+BUNNY_ERROR_REPORTED=0
+_install_error() {
+	local status=$1 line=$2 command=$3
+
+	if ((BUNNY_ERROR_REPORTED == 0)); then
+		BUNNY_ERROR_REPORTED=1
+		error "Installation failed: run=$BUNNY_RUN_ID phase=$BUNNY_PHASE status=$status line=$line command=$command"
+	fi
+	return "$status"
+}
+trap '_install_error "$?" "$LINENO" "$BASH_COMMAND"' ERR
+
+# 10-packages.sh masks the mkinitcpio hook for its bulk transaction and
+# 13-bootloader.sh removes the mask once it has run the authoritative
+# `limine-update`. If the run dies in between, packages are installed against boot
+# artifacts nobody regenerated — the machine still boots on the old image, and
+# then fails at some unrelated update weeks later. The override directory existing
+# at exit is exactly that state, so rebuild before leaving.
+_restore_boot_generation() {
+	local status=$?
+
+	[[ -n ${BUNNY_PACMAN_HOOK_DIR:-} && -d ${BUNNY_PACMAN_HOOK_DIR:-} ]] || return "$status"
+	warn "Boot generation was still deferred at exit — regenerating before leaving"
+	sudo rm -rf -- "$BUNNY_PACMAN_HOOK_DIR"
+	if sudo limine-update; then
+		success "Boot artifacts regenerated"
+	else
+		error "limine-update FAILED after an interrupted install."
+		error "Do not reboot until 'sudo limine-update' succeeds."
+	fi
+	return "$status"
+}
+trap _restore_boot_generation EXIT
+
+# Source a numbered install phase or fail.
+run_phase() {
+	local script="$BUNNY_INSTALL/$1"
+	local title="${2:-$1}"
+
+	export BUNNY_PHASE="$1"
+	if [[ ! -f $script ]]; then
+		error "Phase script not found: $script"
 		exit 1
-		;;
-	esac
-done
-
-# The two checks that must happen before anything is written. They run before the
-# log directory exists and report to stderr only, so a refusal leaves no trace.
-abort() {
-	printf 'ERROR: %s\n' "$*" >&2
-	exit 1
-}
-
-command -v pacman >/dev/null ||
-	abort "no pacman — this installs Bunny onto Arch Linux, not onto this system"
-
-# Steps escalate per command, which keeps every use of root visible. Run as root,
-# every file created under $HOME would be root-owned instead.
-((EUID != 0)) ||
-	abort "do not run this as root (or with sudo) — run it as your user; steps escalate per command"
-
-mkdir -p -- "$(dirname -- "$BUNNY_LOG")"
-
-# Informational output to stderr, timestamped copy to the log. Nothing is written
-# to stdout at all.
-say() {
-	printf '%s\n' "$*" >&2
-	printf '%s %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$*" >>"$BUNNY_LOG"
-}
-
-die() {
-	say "ERROR: $*"
-	exit 1
-}
-
-# Which step is running, so the EXIT trap can name it.
-current_step=
-on_exit() {
-	local rc=$?
-	# Not `((rc == 0)) && return`: a false AND-list is itself a failed command under
-	# `set -e`, so a real failure would exit here without printing why.
-	if ((rc == 0)); then return; fi
-	if [[ -n $current_step ]]; then
-		say "FAILED in $current_step (exit $rc)"
-	else
-		say "FAILED before any step ran (exit $rc)"
 	fi
-	say "Log: $BUNNY_LOG"
-	say "Steps are idempotent — fix the cause and re-run ./install.sh"
+	section "$title"
+	log "Phase context: run=$BUNNY_RUN_ID phase=$1 user=$(id -un) uid=$(id -u) pwd=$PWD"
+	# shellcheck disable=SC1090 # numbered phase paths are validated immediately above
+	source "$script"
+	success "$title complete"
 }
-trap on_exit EXIT
 
-# The rest of the preconditions, still before the first change. These can use
-# `die`, which also records the reason in the log.
+section "https://github.com/bunnrbbt/arch-bunny"
+cat <<'EOF'
+   (\_/)
+   ( •_•)   B U N N E
+  / >💾     arch, scrolled
 
-[[ -d $STEP_DIR ]] || die "no steps directory at $STEP_DIR"
+EOF
 
-mapfile -t steps < <(
-	find "$STEP_DIR" -maxdepth 1 -type f -name '[0-9][0-9]-*.sh' -printf '%f\n' | sort
-)
-((${#steps[@]} > 0)) || die "no numbered steps found in $STEP_DIR"
+info "Installing system from: $BUNNY_ROOT"
+important "Logfile: $BUNNY_LOG"
+log "Installation started at: $(date '+%Y-%m-%d %H:%M:%S')"
 
-for s in "${steps[@]}"; do
-	[[ -x "$STEP_DIR/$s" ]] || die "$s is not executable — chmod +x it"
-done
+run_phase "00-preflight.sh" "Preflight checks"
+# shellcheck disable=SC2034 # set and exported by 00-preflight.sh, read by later phases
+readonly BUNNY_USER BUNNY_UID BUNNY_HOME
 
-# Prove escalation works before anything is changed, so any password prompt
-# happens here rather than three minutes in. Not a bare `sudo -v`: that prompts
-# even under NOPASSWD, which fails over a non-interactive ssh.
-if ! $dry_run; then
-	if sudo -n true 2>/dev/null; then
-		: # can escalate with no prompt at all
-	elif [[ -t 0 ]]; then
-		sudo -v || die "cannot escalate with sudo — is your user in a sudo-capable group?"
-	else
-		die "sudo needs a password and there is no terminal to type it into — run this from a real terminal, or 'ssh -t'"
-	fi
-fi
+run_phase "10-packages.sh" "Packages and repositories"
+run_phase "13-bootloader.sh" "Bootloader and boot process"
 
-# Go.
-say "Bunny — installing from $BUNNY_ROOT"
-say "Log: $BUNNY_LOG"
-say "Steps: ${steps[*]}"
-
-export BUNNY_ROOT BUNNY_LOG
-if $dry_run; then
-	say "DRY RUN: steps will report what they would change and write nothing"
-	export BUNNY_DRY_RUN=1
-fi
-
-for s in "${steps[@]}"; do
-	current_step=$s
-	say ""
-	say "── $s"
-	# The step's own output goes to the log as well as the terminal, so a failure is
-	# diagnosable afterwards. `pipefail` is set, so the pipeline still fails when the
-	# step does; `2>&1 ... >&2` keeps it all on stderr.
-	"$STEP_DIR/$s" 2>&1 | tee -a "$BUNNY_LOG" >&2
-	current_step=
-done
-
-say ""
-if $dry_run; then
-	say "Dry run complete — nothing was changed."
-	exit 0
-fi
-say "Bunny is installed."
-
-# assets/ascii/bunnies/hare.txt, embedded so a successful install cannot end by
-# failing to find a decoration. Quoted heredoc: nothing here may be expanded.
-cat >&2 <<'HARE'
-
-             \\ \\
-              \\ \\
-               \ ,.`_
-               |   0 \
-      _ _ ,,._ j   == )
-,_ /cf^  T&T` ~~~  V
-\_|._ _  ~ ,,      )
-    /!/ /!/  `\\``\\
-    /v, /v,   \\_ \\_
-    -"$ -"$    \"$ \"$
-
-HARE
+export BUNNY_PHASE="complete"
+success "Installation completed"
+log "Installation finished: run=$BUNNY_RUN_ID status=0"
+info "Reboot to start the configured desktop session."
+info "Installation log: $BUNNY_LOG"

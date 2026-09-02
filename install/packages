@@ -1,0 +1,136 @@
+# Every package BunnE installs from a pacman repository, one per line.
+# AUR packages live in `packages-aur` — this file must resolve with `pacman -Si`.
+#
+# Blank lines and `#` comments are ignored.
+
+# --- base ---------------------------------------------------------------
+base
+base-devel
+cryptsetup
+curl
+git
+jq
+less
+lsof
+man-db
+openssh
+unzip
+whois
+
+# --- boot, snapshots, storage -------------------------------------------
+btrfs-progs
+inotify-tools
+limine
+limine-mkinitcpio-hook
+limine-snapper-sync
+plymouth
+snap-pac
+snapper
+zram-generator
+
+# --- graphics and session ------------------------------------------------
+greetd
+mesa
+niri
+polkit-gnome
+uwsm
+xdg-desktop-portal-gnome
+xdg-desktop-portal-gtk
+xdg-desktop-portal-wlr
+xdg-terminal-exec
+xdg-utils
+xwayland-satellite
+
+# --- desktop -------------------------------------------------------------
+adwaita-cursors
+cliphist
+fuzzel
+gnome-themes-extra
+glib2
+grim
+imv
+mako
+mpv
+nautilus
+gvfs-mtp
+gvfs-nfs
+satty
+slurp
+swaybg
+swayidle
+swaylock
+swayosd
+waybar
+wl-clipboard
+wtype
+
+# --- hardware ------------------------------------------------------------
+bluetui
+bluez
+bluez-utils
+brightnessctl
+power-profiles-daemon
+
+# --- audio ---------------------------------------------------------------
+pipewire
+pipewire-alsa
+pipewire-audio
+pipewire-pulse
+playerctl
+rtkit
+wireplumber
+wiremix
+
+# --- network -------------------------------------------------------------
+impala
+iwd
+nftables
+openvpn
+
+# --- fonts ---------------------------------------------------------------
+noto-fonts
+noto-fonts-emoji
+ttf-dejavu
+ttf-liberation
+ttf-nerd-fonts-symbols-mono
+ttf-space-mono-nerd
+
+# --- shell and terminal ---------------------------------------------------
+bat
+btop
+fastfetch
+fd
+fzf
+kitty
+lsd
+ripgrep
+stow
+tmux
+yay
+
+# --- development ----------------------------------------------------------
+direnv
+docker
+docker-compose
+github-cli
+imagemagick
+lazydocker
+lazygit
+neovim
+nodejs
+npm
+python-pynvim
+uv
+
+# --- latex (nvim inline math preview) ------------------------------------
+texlive-basic
+texlive-binextra
+texlive-latex
+
+# --- applications ---------------------------------------------------------
+bitwarden
+chromium
+gpu-screen-recorder
+libnotify
+signal-desktop
+spotify-launcher

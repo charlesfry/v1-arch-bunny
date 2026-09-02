@@ -1,8 +1,0 @@
-[Plymouth Theme]
-Name=Bunny
-Description=Matte black background, the neon-hare wallpaper bunny, and the stock password dialog.
-ModuleName=script
-
-[script]
-ImageDir=/usr/share/plymouth/themes/bunny
-ScriptFile=/usr/share/plymouth/themes/bunny/bunny.script

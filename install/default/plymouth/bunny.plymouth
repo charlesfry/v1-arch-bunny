@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Bunny
+Description=Matte black, the neon hare, and the LUKS password dialog.
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/bunny/images
+ScriptFile=/usr/share/plymouth/themes/bunny/images/bunny.script
