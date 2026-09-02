@@ -2,3 +2,6 @@
 poop
 *.env
 
+
+# archinstall credentials (enc_password) — never commit
+archinstall-*-creds.json

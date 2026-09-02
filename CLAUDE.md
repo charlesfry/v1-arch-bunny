@@ -171,9 +171,10 @@ real test, and `install/verify.sh` is the before/after instrument.
 
 Known outstanding:
 
-- `archinstall-2026.08.01-creds.json` was removed but remains in history at `70b8b3b`, which
-  is already on a **public** `origin/main`. The password it carried needs changing and the
-  history needs rewriting.
+- `archinstall-*-creds.json` (archinstall's `enc_password` file) was purged from history with
+  `git filter-branch` and is now `.gitignore`d. It had been on a **public** `origin/main`
+  before the purge, and GitHub can keep an unreachable commit accessible by SHA for a while,
+  so treat that password as compromised and rotate it regardless. Never commit this file again.
 - His `tests/*.bats` were not ported. `verify.sh` covers the runtime checks; `shellcheck` and
   `shfmt` cover the static ones.
 
