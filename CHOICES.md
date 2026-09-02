@@ -2059,6 +2059,20 @@ already enabled nftables on hardware and found the shipped ruleset exactly right
 is `rejected` — it is a Python wrapper generating what the default file already
 contains. No config file is carried by this repo.
 
+**Amended 2026-09-02:** "exactly right" needed a footnote. The shipped ruleset's
+`chain forward` is `policy drop` with zero rules, which blocks every routed
+packet — including all Docker container traffic past its own gateway, silently
+and without a trace on the wire. `ping` to the docker0 gateway address still
+works (that's `input`, which explicitly allows icmp), so the failure reads as a
+DNS or VPN problem, not a firewall one — it took a live `image_builder.py` build
+failure, a wrong OpenVPN red herring, and a walk through iptables/nftables
+base-chain ordering to find. The ArchWiki's own Docker page documents the same
+conflict. `26-docker-nftables.sh` now patches two `accept` rules for the docker0
+interface into `chain forward` post-install — appended to the shipped file, not a
+replacement of it, so "no config file is carried by this repo" still holds in
+spirit; the diff against stock is two lines. Docker's own NAT (`iptables: true`,
+unchanged) was never the problem — only the parallel filter-table gap was.
+
 
 ### clipboard — wl-clipboard + cliphist
 

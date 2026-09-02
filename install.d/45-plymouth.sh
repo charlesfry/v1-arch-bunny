@@ -15,11 +15,20 @@
 # the bunny theme fails to install you notice, rather than getting a polished
 # stock theme that looks intentional.
 #
-# The hook position may already be archinstall's, and that is fine. It inserts
-# before `encrypt` (so after `block`); the insert below puts it after
-# `consolefont` (so before `block`). Both satisfy the real constraints — `kms`
-# loaded already, running before `encrypt` prompts — so whichever got there first
-# is left alone.
+# Hook position: right after `udev`, before `autodetect`/`kms`/`block`. This
+# used to be archinstall's own placement (right before `encrypt`, after
+# `block`) — textbook-correct per the Arch Wiki's busybox example, and yet the
+# password dialog rendered as a static image that never updated per keystroke
+# (author, 2026-09-02). Reading Plymouth's own source (script plugin +
+# ply-pixel-display.c) confirmed the sprite-redraw path is a hardware-agnostic
+# 50Hz timer independent of hook order, so this was never proven as the root
+# cause — but plymouth-debug.log showed `Needed to reset scan out buffer` the
+# instant plymouthd grabbed the amdgpu device, right when `block`-then-`kms`
+# had it starting late. viacoffee/dotfiles runs the identical Framework 13 AMD
+# laptop with `plymouth` right after `udev` and has no such symptom, so this
+# repo now matches that placement on that empirical basis, not a proven
+# mechanism. If a real fix is ever found, replace this reasoning, don't just
+# delete it.
 #
 # Four things, rebuild only if any changed: the `plymouth` mkinitcpio hook;
 # `splash` on the kernel cmdline via /etc/kernel/cmdline, not the
@@ -55,23 +64,28 @@ command -v plymouth-set-default-theme >/dev/null || {
 	exit 1
 }
 
-# 1. HOOKS= gets plymouth, after consolefont, before block.
+# 1. HOOKS= gets plymouth, right after udev -- see header for why. Idempotent
+# regardless of where (if anywhere) plymouth currently sits: strip it out and
+# reinsert in the one position, rather than only handling "absent" vs.
+# "already after udev".
 mkconf=/etc/mkinitcpio.conf
 hooks_line=$(grep '^HOOKS=' "$mkconf")
-if [[ $hooks_line == *" plymouth "* || $hooks_line == *"(plymouth "* ]]; then
-	say "  = HOOKS= already has plymouth"
-elif [[ $hooks_line != *" consolefont "* ]]; then
-	say "  ! HOOKS= has no 'consolefont' to insert plymouth after: $hooks_line"
+if [[ $hooks_line == *"(base udev plymouth "* ]]; then
+	say "  = HOOKS= already has plymouth right after udev"
+elif [[ $hooks_line != *"(base udev "* ]]; then
+	say "  ! HOOKS= does not start with '(base udev ', can't place plymouth: $hooks_line"
 	exit 1
 elif [[ -n $dry ]]; then
-	say "  ~ would add plymouth to HOOKS="
+	say "  ~ would move plymouth to right after udev in HOOKS="
 else
-	sudo sed -i 's/consolefont /consolefont plymouth /' "$mkconf"
-	grep -q '^HOOKS=.* plymouth ' "$mkconf" || {
-		say "  ! could not insert plymouth into HOOKS="
+	without_plymouth=${hooks_line/plymouth /}
+	new_line=${without_plymouth/(base udev /(base udev plymouth }
+	sudo sed -i "s|^HOOKS=.*|$new_line|" "$mkconf"
+	grep -q '^HOOKS=(base udev plymouth ' "$mkconf" || {
+		say "  ! could not place plymouth after udev in HOOKS="
 		exit 1
 	}
-	say "  + added plymouth to HOOKS="
+	say "  + moved plymouth to right after udev in HOOKS="
 	changed=true
 fi
 
@@ -155,9 +169,14 @@ fi
 
 if [[ -n $dry ]]; then exit 0; fi
 
-# Rebuild only if something actually changed.
+# Rebuild only if something actually changed. limine-update, not mkinitcpio -P:
+# limine-mkinitcpio-hook's /usr/local/bin/mkinitcpio wrapper shadows the real
+# binary under sudo's PATH and, on `-P`, only *offers* (interactively) to also
+# regenerate the boot entries `limine.conf` actually points at -- easy to miss
+# non-interactively. limine-update is the one command that rebuilds the image
+# (UKI or not, per /etc/default/limine) and updates limine.conf in one step.
 if $changed; then
-	sudo mkinitcpio -P
+	sudo limine-update
 	say "  ✓ initramfs rebuilt"
 else
 	say "  = nothing changed, initramfs not rebuilt"
@@ -172,8 +191,8 @@ if [[ -x $checker ]]; then
 	}
 	say "  ✓ check-limine.sh passes"
 fi
-grep -q '^HOOKS=.* plymouth ' "$mkconf" || {
-	say "  ! HOOKS= does not have plymouth after the rebuild"
+grep -q '^HOOKS=(base udev plymouth ' "$mkconf" || {
+	say "  ! HOOKS= does not have plymouth right after udev after the rebuild"
 	exit 1
 }
-say "  ✓ HOOKS= has plymouth"
+say "  ✓ HOOKS= has plymouth right after udev"

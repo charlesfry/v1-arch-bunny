@@ -294,7 +294,7 @@ initramfs precisely so it can, and `ssh bunne-test sudo reboot` (after `sudo efi
 needs a human. An entire session was spent believing otherwise, which left boot-path edits
 unverified when verification was one command away.
 
-**`install.sh` exists and has twenty-five steps** — `ls install.d/` is the plan and no
+**`install.sh` exists and has twenty-six steps** — `ls install.d/` is the plan and no
 manifest can drift. Steps are **executed, not sourced**, so a step cannot clobber the
 sequencer; they are idempotent, which is the entire resume story (no `--from`/`--only`).
 It refuses to run as root and refuses *before writing anything*, has `--dry-run` and

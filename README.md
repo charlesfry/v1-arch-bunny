@@ -18,7 +18,7 @@ Design priorities, in order (lower number wins when they conflict):
 
 ## Status: the installer works end to end (Phase 4)
 
-**`install.sh` exists, runs clean, and has twenty-five steps.** It is written
+**`install.sh` exists, runs clean, and has twenty-six steps.** It is written
 *from* the decision ledger in small reviewable pieces rather than generated
 from a plan, and every step is proven on real hardware before it lands — a
 laptop that boots this repo's output and gets rebooted to check.
@@ -363,7 +363,7 @@ chainload entry via `limine-entry-tool`, already on the machine, no new
 package; silent no-op if there's no Windows to find).
 
 **2. Post-install — `install.sh`.** Clone this repo onto the resulting vanilla
-Arch and run `./install.sh`. Twenty-five steps, each idempotent and independently
+Arch and run `./install.sh`. Twenty-six steps, each idempotent and independently
 runnable, `ls install.d/` is the plan:
 
 | step | what it does |
@@ -374,6 +374,7 @@ runnable, `ls install.d/` is the plan:
 | `15-docker-subvols` | `@containerd`/`@dockervol` as top-level btrfs subvolumes, before Docker can put bytes anywhere else |
 | `20-packages` | installs every `picked` row's package, derived from `CHOICES.md` — one source of truth |
 | `25-services` | adds you to the `docker` group, and proves the JSON's `nftables.service` and `docker.socket` actually came up — enabled is not running |
+| `26-docker-nftables` | patches two `accept` rules for `docker0` into nftables' `chain forward` — the shipped ruleset's `policy drop` there silently blocks every container's traffic past its own gateway |
 | `27-firmware` | removes the `linux-firmware` metapackage archinstall installs unconditionally, and `linux-firmware-nvidia` with it — 130 MB of initramfs down to 25 MB |
 | `30-zram` | zram swap, sized and tuned |
 | `35-oom-protection` | `systemd-oomd` drop-ins |

@@ -126,6 +126,19 @@ read -r -d '' default_limine <<'EOF' || true
 # The ESP fallback loader (/EFI/BOOT/BOOTX64.EFI) IS limine on this machine, so the
 # auto-discovered "EFI fallback" entry chainloads the menu you are already looking at.
 FIND_BOOTLOADERS=no
+
+# ENABLE_UKI=yes reverses the non-UKI decision in CHOICES.md
+# `snapshot-boot-entries` (split vmlinuz+initramfs was picked there for
+# per-kernel-build ESP dedup across snapshots). Author, 2026-09-02: the
+# Plymouth password dialog is a static image that never updates per
+# keystroke, on both the bunny theme and the stock `script` theme --
+# confirmed theme-independent, so not a `bunny.script` bug -- and
+# viacoffee/dotfiles (identical Framework 13 AMD hardware, confirmed working)
+# boots a UKI where this repo boots split images. Every other lever tried
+# (mkinitcpio HOOKS= order, boot-artifact staleness) is now ruled out; this is
+# the last unreplicated structural difference. Traded in knowingly, not
+# proven as the mechanism -- if it doesn't fix it, revert this line first.
+ENABLE_UKI=yes
 EOF
 
 if [[ -f /etc/default/limine ]] && [[ $(cat /etc/default/limine) == "$default_limine" ]]; then
